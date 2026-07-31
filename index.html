@@ -20,7 +20,6 @@
     <meta property="og:type" content="website" />
     <meta name="theme-color" content="#0d0f0d" />
     <link rel="icon" href="assets/images/favicon.svg" />
-    <link rel="preload" href="assets/images/hero-person.jpg" as="image" />
     <link rel="stylesheet" href="assets/vendor/aos/aos.css" />
     <link rel="stylesheet" href="assets/vendor/swiper/swiper.css" />
     <link rel="stylesheet" href="assets/css/global.css" />
@@ -82,110 +81,44 @@
           </div>
           <div
             class="hero-product-scene"
-            aria-label="Layered mobile product interface scene"
+            aria-label="AI assistant illustration and site search"
           >
-            <figure class="hero-photo-mask hero-layer" data-depth="0.45">
-              <img
-                src="assets/images/hero-person.jpg"
-                width="1000"
-                height="2107"
-                alt="Entrepreneur using a mobile application in a product studio"
-                fetchpriority="high"
-              />
-            </figure>
-            <div
-              class="hero-dashboard hero-layer"
+            <div class="hero-robot hero-layer" data-depth="0.4" aria-hidden="true">
+              <span class="hero-robot-bubble"><i></i><i></i><i></i></span>
+              <div class="hero-robot-antenna"></div>
+              <div class="hero-robot-head">
+                <span class="hero-robot-ear hero-robot-ear--left"></span>
+                <span class="hero-robot-ear hero-robot-ear--right"></span>
+                <div class="hero-robot-face">
+                  <span class="hero-robot-eye"></span>
+                  <span class="hero-robot-eye"></span>
+                </div>
+              </div>
+              <div class="hero-robot-body"></div>
+            </div>
+            <form
+              class="hero-page-search hero-layer"
+              data-page-search
               data-depth="0.12"
-              aria-hidden="true"
+              role="search"
+              aria-label="Search site pages"
             >
-              <div class="dashboard-top">
-                <span class="dashboard-brand"><i></i>Kovexa Product OS</span
-                ><span>Release 01</span>
-              </div>
-              <div class="dashboard-body">
-                <aside><i></i><i></i><i></i><i></i></aside>
-                <div class="dashboard-content">
-                  <small>PRODUCT OVERVIEW</small
-                  ><strong>Core journey readiness</strong>
-                  <div class="dashboard-bars">
-                    <i></i><i></i><i></i><i></i><i></i>
-                  </div>
-                  <div class="dashboard-mini">
-                    <span>Scope</span><span>Prototype</span><span>Build</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div
-              class="hero-device hero-device--primary hero-layer"
-              data-depth="0.72"
-              aria-hidden="true"
-            >
-              <div class="device-speaker"></div>
-              <div class="device-screen">
-                <div class="device-head">
-                  <span
-                    ><small>Good morning</small
-                    ><strong>Your services</strong></span
-                  ><i></i>
-                </div>
-                <div class="device-feature">
-                  <small>UPCOMING</small
-                  ><strong>Product planning session</strong>
-                  <div><span>Tue, 10:30</span><b>Confirmed</b></div>
-                </div>
-                <div class="device-row">
-                  <span><small>Active requests</small><strong>04</strong></span
-                  ><span
-                    ><small>Ready to review</small><strong>02</strong></span
-                  >
-                </div>
-                <button type="button" tabindex="-1">Create new request</button>
-              </div>
-            </div>
-            <div
-              class="hero-device hero-device--secondary hero-layer"
-              data-depth="0.36"
-              aria-hidden="true"
-            >
-              <div class="device-speaker"></div>
-              <div class="device-screen device-screen--flow">
-                <small>USER FLOW</small><strong>Book a service</strong><i></i
-                ><i></i><i></i>
-              </div>
-            </div>
-            <div
-              class="scene-card scene-card--status hero-layer"
-              data-depth="0.9"
-            >
-              <span class="pulse-dot"></span>
-              <div>
-                <small>Prototype status</small><strong>Ready for review</strong>
-              </div>
-              <b>84%</b>
-            </div>
-            <div
-              class="scene-card scene-card--flow hero-layer"
-              data-depth="0.65"
-            >
-              <small>PRIMARY JOURNEY</small>
-              <div>
-                <span>Discover</span><i></i><span>Book</span><i></i
-                ><span>Confirm</span>
-              </div>
-            </div>
-            <div
-              class="scene-chip scene-chip--one hero-layer"
-              data-depth="1.05"
-            >
-              <i data-lucide="check"></i>Core scope
-            </div>
-            <div
-              class="scene-chip scene-chip--two hero-layer"
-              data-depth="0.82"
-            >
-              <i data-lucide="smartphone"></i>iOS + Android
-            </div>
+              <span class="hero-page-search-field">
+                <i data-lucide="search"></i>
+                <input
+                  type="search"
+                  name="q"
+                  placeholder="Search pages…"
+                  autocomplete="off"
+                  data-page-search-input
+                />
+              </span>
+              <div
+                class="hero-page-search-results"
+                data-page-search-results
+                hidden
+              ></div>
+            </form>
           </div>
         </div>
         <div class="hero-curve" aria-hidden="true"></div>

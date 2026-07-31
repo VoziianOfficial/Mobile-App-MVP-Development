@@ -273,6 +273,73 @@
     );
   }
 
+  function heroPageSearch() {
+    var root = document.querySelector("[data-page-search]");
+    if (!root) return;
+    var input = root.querySelector("[data-page-search-input]");
+    var results = root.querySelector("[data-page-search-results]");
+    var pages = [
+      ["Home", "index.html"],
+      ["About Kovexa Studio", "about.html"],
+      ["Services overview", "services.html"],
+      ["Contact & project brief", "contact.html"],
+      ["Mobile Application Development", "mobile-app-development.html"],
+      ["MVP Development for Startups", "mvp-development.html"],
+      ["iOS and Android Applications", "ios-android-applications.html"],
+      ["Cross-Platform Development", "cross-platform-development.html"],
+      ["UI/UX Design and Prototyping", "ui-ux-design-prototyping.html"],
+      ["Business Process Automation", "business-process-automation.html"],
+      ["API and Third-Party Integrations", "api-integrations.html"],
+      [
+        "Application Maintenance and Support",
+        "app-maintenance-support.html",
+      ],
+    ];
+
+    function render(query) {
+      var q = query.trim().toLowerCase();
+      if (!q) {
+        results.hidden = true;
+        results.innerHTML = "";
+        return;
+      }
+      var matches = pages.filter(function (page) {
+        return page[0].toLowerCase().indexOf(q) !== -1;
+      });
+      results.innerHTML = matches.length
+        ? matches
+            .slice(0, 5)
+            .map(function (page) {
+              return (
+                '<a href="' +
+                page[1] +
+                '">' +
+                page[0] +
+                '<i data-lucide="arrow-up-right"></i></a>'
+              );
+            })
+            .join("")
+        : '<span class="hero-page-search-empty">No pages found</span>';
+      results.hidden = false;
+      if (window.lucide) lucide.createIcons();
+    }
+
+    input.addEventListener("input", function () {
+      render(input.value);
+    });
+    input.addEventListener("focus", function () {
+      if (input.value.trim()) render(input.value);
+    });
+    document.addEventListener("click", function (event) {
+      if (!root.contains(event.target)) results.hidden = true;
+    });
+    root.addEventListener("submit", function (event) {
+      event.preventDefault();
+      var first = results.querySelector("a");
+      if (first) window.location.href = first.getAttribute("href");
+    });
+  }
+
   function init() {
     developmentPath();
     interfaceSwiper();
@@ -282,6 +349,7 @@
     factEntrance();
     maskReveals();
     heroParallax();
+    heroPageSearch();
   }
 
   document.readyState === "loading"

@@ -876,75 +876,93 @@
       </section>
 
       <section class="planning-visual" aria-labelledby="planning-title">
-        <div class="container planning-grid">
-          <div>
-            <span class="ref-kicker"><b>09</b>Interactive planning</span>
-            <h2 id="planning-title">Keep the <em>product clear.</em></h2>
-            <div class="visual-accordion" data-visual-accordion>
-              <button
-                class="is-active"
-                type="button"
-                data-label="Release boundary"
-                data-title="Scope map"
-                data-copy="Essential workflow steps stay separate from later opportunities."
-              >
-                <span>01</span>Scope<i data-lucide="arrow-right"></i>
-              </button>
-              <button
-                type="button"
-                data-label="Primary sequence"
-                data-title="User journey"
-                data-copy="Entry, action, confirmation and recovery states form one visible path."
-              >
-                <span>02</span>User Journey<i data-lucide="arrow-right"></i>
-              </button>
-              <button
-                type="button"
-                data-label="Essential value"
-                data-title="Core features"
-                data-copy="Every launch feature earns its place by supporting the primary journey."
-              >
-                <span>03</span>Core Features<i data-lucide="arrow-right"></i>
-              </button>
-              <button
-                type="button"
-                data-label="Connected systems"
-                data-title="Integrations"
-                data-copy="Access, data ownership and failure behaviour are defined early."
-              >
-                <span>04</span>Integrations<i data-lucide="arrow-right"></i>
-              </button>
-              <button
-                type="button"
-                data-label="Tangible direction"
-                data-title="Prototype"
-                data-copy="The team can test and discuss the same product picture before build."
-              >
-                <span>05</span>Prototype<i data-lucide="arrow-right"></i>
-              </button>
-              <button
-                type="button"
-                data-label="Controlled release"
-                data-title="Launch priorities"
-                data-copy="Checks, environments and the first improvement path are prepared."
-              >
-                <span>06</span>Launch Priorities<i
-                  data-lucide="arrow-right"
-                ></i>
-              </button>
+        <div class="container">
+          <div class="spotlight-head">
+            <div>
+              <span class="ref-kicker"><b>09</b>Interactive planning</span>
+              <h2 id="planning-title">Keep the <em>product clear.</em></h2>
+            </div>
+            <div class="spotlight-intro">
+              <p>
+                Scope, journey, features, integrations, prototype and launch
+                priorities move through one visible sequence, so the team
+                always knows what a decision affects.
+              </p>
+              <a
+                class="ref-button ref-button--lime"
+                href="services.html#development-process"
+                ><span>Explore the process</span
+                ><b><i data-lucide="arrow-up-right"></i></b
+              ></a>
             </div>
           </div>
-          <div class="planning-mockup" aria-live="polite">
-            <div class="planning-device">
-              <small id="planning-label">Release boundary</small
-              ><strong id="planning-visual-title">Scope map</strong>
-              <div class="planning-ui"><i></i><i></i><i></i><i></i></div>
-              <p id="planning-copy">
-                Essential workflow steps stay separate from later opportunities.
-              </p>
-              <span class="planning-status"><i></i>Decision visible</span>
-            </div>
-            <div class="planning-orbit"><i></i><i></i><i></i></div>
+          <div class="spotlight-body" data-spotlight>
+            <ul class="spotlight-list">
+              <li
+                class="is-active"
+                data-image="assets/images/studio-workspace.jpg"
+                data-alt="Team mapping a product release boundary on a planning board"
+              >
+                <button type="button">
+                  <span class="spotlight-index">01</span
+                  ><span class="spotlight-label">Scope</span>
+                </button>
+              </li>
+              <li
+                data-image="assets/images/ux-wireframes.jpg"
+                data-alt="Wireframes mapping a mobile app user journey"
+              >
+                <button type="button">
+                  <span class="spotlight-index">02</span
+                  ><span class="spotlight-label">User Journey</span>
+                </button>
+              </li>
+              <li
+                data-image="assets/images/ux-prototype.jpg"
+                data-alt="Interactive mobile prototype on a studio desk"
+              >
+                <button type="button">
+                  <span class="spotlight-index">03</span
+                  ><span class="spotlight-label">Core Features</span>
+                </button>
+              </li>
+              <li
+                data-image="assets/images/integration-specialist.jpg"
+                data-alt="Specialist reviewing a connected system integration"
+              >
+                <button type="button">
+                  <span class="spotlight-index">04</span
+                  ><span class="spotlight-label">Integrations</span>
+                </button>
+              </li>
+              <li
+                data-image="assets/images/developer-work.jpg"
+                data-alt="Developer building a tangible mobile product prototype"
+              >
+                <button type="button">
+                  <span class="spotlight-index">05</span
+                  ><span class="spotlight-label">Prototype</span>
+                </button>
+              </li>
+              <li
+                data-image="assets/images/mobile-testing.jpg"
+                data-alt="Mobile application tested across devices before launch"
+              >
+                <button type="button">
+                  <span class="spotlight-index">06</span
+                  ><span class="spotlight-label">Launch Priorities</span>
+                </button>
+              </li>
+            </ul>
+            <figure class="spotlight-visual">
+              <img
+                src="assets/images/studio-workspace.jpg"
+                width="1200"
+                height="900"
+                alt="Team mapping a product release boundary on a planning board"
+                loading="lazy"
+              />
+            </figure>
           </div>
         </div>
       </section>

@@ -1447,7 +1447,7 @@
 }
 .home-section-head h2,
 .tilted-copy h2,
-.planning-grid h2,
+.planning-visual .spotlight-head h2,
 .home-faq-cta h2 {
   max-width: 22ch;
   margin: 0;
@@ -1458,7 +1458,7 @@
 }
 .home-section-head h2 em,
 .tilted-copy h2 em,
-.planning-grid h2 em {
+.planning-visual .spotlight-head h2 em {
   color: var(--color-lime-dark);
   font-style: normal;
 }
@@ -1920,149 +1920,6 @@
   overflow: hidden;
   background: var(--color-paper-deep);
 }
-.planning-grid {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  align-items: center;
-  gap: clamp(35px, 6vw, 90px);
-}
-.visual-accordion {
-  display: grid;
-  margin-top: 30px;
-  border-top: 1px solid var(--color-border-light);
-}
-.visual-accordion button {
-  min-height: 62px;
-  display: grid;
-  grid-template-columns: 34px 1fr auto;
-  align-items: center;
-  gap: 10px;
-  padding: 11px 0;
-  border: 0;
-  border-bottom: 1px solid var(--color-border-light);
-  background: transparent;
-  color: var(--color-text-muted);
-  text-align: left;
-  cursor: pointer;
-  transition:
-    padding 0.3s,
-    color 0.3s,
-    background 0.3s;
-}
-.visual-accordion button span {
-  color: var(--color-lime-dark);
-  font-size: 0.58rem;
-}
-.visual-accordion button svg {
-  width: 17px;
-}
-.visual-accordion button.is-active {
-  padding-inline: 17px;
-  border-radius: 15px;
-  background: var(--color-black);
-  color: var(--color-white);
-}
-.planning-mockup {
-  position: relative;
-  min-height: 610px;
-  display: grid;
-  place-items: center;
-  border-radius: 260px 34px 34px 34px;
-  background: var(--color-black);
-  color: var(--color-white);
-}
-.planning-device {
-  position: relative;
-  z-index: 3;
-  width: min(72%, 390px);
-  min-height: 480px;
-  padding: 38px;
-  border: 7px solid var(--color-white);
-  border-radius: 42px;
-  background: var(--color-surface-dark);
-  transition:
-    transform 0.25s,
-    opacity 0.25s;
-}
-.planning-device.is-changing {
-  opacity: 0.4;
-  transform: translateY(8px);
-}
-.planning-device > small {
-  color: var(--color-lime);
-  font-size: 0.62rem;
-  letter-spacing: 0.13em;
-}
-.planning-device > strong {
-  display: block;
-  margin: 13px 0 29px;
-  font-size: 2rem;
-}
-.planning-device > p {
-  min-height: 70px;
-  margin-top: 25px;
-  color: var(--color-text-muted-dark);
-}
-.planning-ui {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 9px;
-}
-.planning-ui i {
-  height: 74px;
-  border: 1px solid var(--color-border-dark);
-  border-radius: 15px;
-}
-.planning-ui i:first-child {
-  grid-column: 1/-1;
-  background: var(--color-lime);
-}
-.planning-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 7px;
-  margin-top: 20px;
-  font-size: 0.62rem;
-}
-.planning-status i {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-lime);
-}
-.planning-orbit {
-  position: absolute;
-  inset: 9%;
-  border: 1px solid var(--color-border-dark);
-  border-radius: 50%;
-}
-.planning-orbit::before {
-  position: absolute;
-  inset: 12%;
-  border: 1px solid rgba(201, 255, 87, 0.25);
-  border-radius: 50%;
-  content: "";
-}
-.planning-orbit i {
-  position: absolute;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  background: var(--color-lime);
-}
-.planning-orbit i:nth-child(1) {
-  top: 8%;
-  left: 20%;
-}
-.planning-orbit i:nth-child(2) {
-  right: 4%;
-  top: 42%;
-  background: var(--color-white);
-}
-.planning-orbit i:nth-child(3) {
-  bottom: 7%;
-  left: 34%;
-}
 .project-models {
   padding: clamp(64px, 7vw, 105px) 0;
   overflow: hidden;
@@ -2328,21 +2185,14 @@
     max-width: 20ch;
     margin-inline: auto;
   }
-  .planning-grid,
   .faq-cta-grid {
     grid-template-columns: 1fr;
   }
   .home-faq-cta .round-cta-portrait--home {
     margin-top: 10px;
   }
-  .planning-grid > div:first-child {
+  .planning-visual .spotlight-head > div:first-child {
     text-align: center;
-  }
-  .visual-accordion {
-    text-align: left;
-  }
-  .planning-mockup {
-    min-height: 550px;
   }
   .project-model-frame {
     grid-template-columns: 80px 1fr 220px;
@@ -2375,7 +2225,7 @@
   }
   .home-section-head h2,
   .tilted-copy h2,
-  .planning-grid h2,
+  .planning-visual .spotlight-head h2,
   .home-faq-cta h2 {
     font-size: clamp(2.05rem, 8.5vw, 2.65rem);
   }
@@ -2462,21 +2312,6 @@
   }
   .parallax-brief h2 {
     font-size: 2.55rem;
-  }
-  .planning-mockup {
-    min-height: 480px;
-    border-radius: 160px 26px 26px 26px;
-  }
-  .planning-device {
-    width: 82%;
-    min-height: 410px;
-    padding: 28px 22px;
-  }
-  .planning-device > strong {
-    font-size: 1.55rem;
-  }
-  .planning-ui i {
-    height: 58px;
   }
   .project-model-frame {
     grid-template-columns: 1fr;

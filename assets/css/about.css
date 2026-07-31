@@ -121,36 +121,6 @@
   flex-direction: column;
   justify-content: space-between;
 }
-.diagnostic {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-}
-.diagnostic-list {
-  display: grid;
-  gap: 10px;
-}
-.diagnostic-button {
-  min-height: 62px;
-  padding: 12px 18px;
-  border: 1px solid var(--color-border-light);
-  border-radius: 17px;
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-}
-.diagnostic-button.is-active {
-  background: var(--color-black);
-  color: var(--color-white);
-}
-.diagnostic-answer {
-  min-height: 300px;
-  display: grid;
-  place-items: center;
-  padding: 42px;
-  border-radius: var(--radius-lg);
-  background: var(--color-lime);
-}
 .layer-timeline {
   position: relative;
   display: grid;
@@ -254,7 +224,6 @@
   .about-hero .hero-grid,
   .exist-grid,
   .editorial,
-  .diagnostic,
   .standards-wrap,
   .clarity-cta {
     grid-template-columns: 1fr;
@@ -319,10 +288,6 @@
   .orbit {
     width: 230px;
     height: 230px;
-  }
-  .diagnostic-answer {
-    min-height: 230px;
-    text-align: center;
   }
 }
 

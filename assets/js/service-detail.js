@@ -595,12 +595,50 @@
           })
           .join("") +
         "</div></div></section>";
+    var spotlightImages = [
+      image,
+      "assets/images/studio-workspace.jpg",
+      "assets/images/ux-prototype.jpg",
+      "assets/images/developer-work.jpg",
+      "assets/images/app-closeup.jpg",
+      "assets/images/product-team.jpg",
+      "assets/images/workflow-meeting.jpg",
+    ];
+    function spotlightList(items) {
+      return items
+        .map(function (x, i) {
+          return (
+            '<li' +
+            (i === 0 ? ' class="is-active"' : "") +
+            ' data-image="' +
+            spotlightImages[i % spotlightImages.length] +
+            '" data-alt="' +
+            esc(x) +
+            ' — ' +
+            esc(data.title) +
+            '"><button type="button"><span class="spotlight-index">' +
+            String(i + 1).padStart(2, "0") +
+            '</span><span class="spotlight-label">' +
+            esc(x) +
+            "</span></button></li>"
+          );
+        })
+        .join("");
+    }
     return (
-      '<section class="section section--light service-overview-section" aria-labelledby="overview-title"><div class="container service-overview"><div><span class="eyebrow">01 / Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2></div><div class="service-overview-copy"><p>' +
+      '<section class="section section--light service-overview-section" aria-labelledby="overview-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">01 / Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2></div><div class="spotlight-intro"><p>' +
       esc(data.overview) +
       '</p><aside class="overview-note">' +
       esc(data.note) +
-      '</aside><div class="overview-route"><span>Need</span><i></i><span>Journey</span><i></i><span>Working product</span></div></div></div></section>' +
+      '</aside></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
+      spotlightList(data.tech.slice(0, 6)) +
+      '</ul><figure class="spotlight-visual"><img src="' +
+      spotlightImages[0] +
+      '" alt="' +
+      esc(data.tech[0]) +
+      " — " +
+      esc(data.title) +
+      '" loading="lazy"></figure></div></div></section>' +
       '<section class="section service-problems-section expanding-gallery-section" aria-labelledby="problems-title"><div class="container"><h2 class="sr-only" id="problems-title">Problems this service helps address</h2><div class="panel-select" data-panel-select role="group" aria-label="Problems it helps address">' +
       data.problems
         .slice(0, 5)
@@ -621,35 +659,27 @@
         })
         .join("") +
       "</div></div></section>" +
-      '<section class="section section--dark service-included-section" aria-labelledby="included-title"><div class="container included-layout"><div><span class="eyebrow">03 / What is included</span><h2 class="section-title" id="included-title">Workstreams shaped to scope.</h2><div class="deliverable-list">' +
-      data.included
-        .map(function (x, i) {
-          return (
-            '<div class="deliverable"><strong>' +
-            esc(x) +
-            "</strong><span>" +
-            String(i + 1).padStart(2, "0") +
-            "</span></div>"
-          );
-        })
-        .join("") +
-      '</div></div><div class="include-mockup"><div class="include-orbit"><i></i><i></i></div><div class="phone"><div class="phone-screen"><small>CAPABILITY VIEW</small><strong>' +
+      '<section class="section section--dark service-included-section" aria-labelledby="included-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">03 / What is included</span><h2 class="section-title" id="included-title">Workstreams shaped to scope.</h2></div><div class="spotlight-intro"><p>Every workstream stays a visible, reviewable part of the engagement — hover a line to see where it sits in ' +
       esc(data.title) +
-      '</strong><div class="ui-stack"><div class="ui-card">Product direction</div><div class="ui-card">Core workflow</div><div class="ui-action">Defined next step</div></div></div></div><aside>Scope remains visible across every workstream.</aside></div></div></section>' +
+      '.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
+      spotlightList(data.included) +
+      '</ul><figure class="spotlight-visual"><img src="' +
+      spotlightImages[0] +
+      '" alt="' +
+      esc(data.included[0]) +
+      " — " +
+      esc(data.title) +
+      '" loading="lazy"></figure></div></div></section>' +
       typeGallery +
-      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="slider-head"><div><span class="eyebrow">05 / Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="slider-controls"><button class="icon-btn process-prev" type="button" aria-label="Previous process step">←</button><span class="process-fraction"></span><button class="icon-btn process-next" type="button" aria-label="Next process step">→</button></div></div><div class="swiper service-process-swiper"><div class="swiper-wrapper">' +
-      data.process
-        .map(function (x, i) {
-          return (
-            '<div class="swiper-slide"><article class="service-process-step"><small>' +
-            String(i + 1).padStart(2, "0") +
-            " / STEP</small><h3>" +
-            esc(x) +
-            "</h3><div><i></i><i></i><i></i></div><span>Next decision visible</span></article></div>"
-          );
-        })
-        .join("") +
-      "</div></div></div></section>" +
+      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">05 / Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="spotlight-intro"><p>Each step stays a visible decision point, so the team always knows what happens next and why.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
+      spotlightList(data.process) +
+      '</ul><figure class="spotlight-visual"><img src="' +
+      spotlightImages[0] +
+      '" alt="' +
+      esc(data.process[0]) +
+      " — " +
+      esc(data.title) +
+      '" loading="lazy"></figure></div></div></section>' +
       '<section class="service-media-section" aria-labelledby="tech-title" data-parallax-section><img src="assets/images/card-paralaks.jpg" alt="' +
       esc(data.title) +
       ' product card with workflow depth" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p><div class="parallax-actions"><a class="ref-button ref-button--lime" href="contact.html#project-form"><span>Discuss this service</span><b><i data-lucide="arrow-up-right"></i></b></a><a class="ref-button ref-button--lavender" href="services.html"><span>All capabilities</span><b><i data-lucide="arrow-up-right"></i></b></a></div></div></div></section>' +
@@ -689,17 +719,6 @@
       target = document.querySelector("[data-service-content]");
     if (!data || !target) return;
     target.innerHTML = section(data, key);
-    var process = document.querySelector(".service-process-swiper");
-    if (process && !process.dataset.swiperReady) {
-      process.dataset.swiperReady = "true";
-      new Swiper(process, {
-        slidesPerView: 1,
-        navigation: { prevEl: ".process-prev", nextEl: ".process-next" },
-        pagination: { el: ".process-fraction" },
-        keyboard: { enabled: true },
-        breakpoints: { 700: { slidesPerView: 2 }, 1050: { slidesPerView: 3 } },
-      });
-    }
     var related = document.querySelector(".related-swiper");
     if (related && !related.dataset.swiperReady) {
       related.dataset.swiperReady = "true";

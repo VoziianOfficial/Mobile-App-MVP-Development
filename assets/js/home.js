@@ -180,34 +180,6 @@
     });
   }
 
-  function planningAccordion() {
-    var buttons = [].slice.call(
-      document.querySelectorAll("[data-visual-accordion] button"),
-    );
-    var device = document.querySelector(".planning-device");
-    var label = document.querySelector("#planning-label");
-    var title = document.querySelector("#planning-visual-title");
-    var copy = document.querySelector("#planning-copy");
-    if (!buttons.length || !device) return;
-    buttons.forEach(function (button) {
-      button.addEventListener("click", function () {
-        buttons.forEach(function (item) {
-          item.classList.toggle("is-active", item === button);
-        });
-        device.classList.add("is-changing");
-        window.setTimeout(
-          function () {
-            label.textContent = button.dataset.label;
-            title.textContent = button.dataset.title;
-            copy.textContent = button.dataset.copy;
-            device.classList.remove("is-changing");
-          },
-          reducedMotion.matches ? 0 : 150,
-        );
-      });
-    });
-  }
-
   function tiltedStages() {
     var button = document.querySelector(".tilted-more button");
     if (!button) return;
@@ -391,7 +363,6 @@
     developmentPath();
     interfaceSwiper();
     additionalSwipers();
-    planningAccordion();
     tiltedStages();
     factEntrance();
     maskReveals();

@@ -591,48 +591,6 @@
     radial-gradient(circle at 18% 12%, rgba(201, 255, 87, 0.16), transparent 26%),
     linear-gradient(180deg, var(--color-surface-light) 0%, var(--color-paper) 100%);
 }
-.product-selector {
-  display: grid;
-  grid-template-columns: 0.75fr 1.25fr;
-  gap: 35px;
-}
-.selector-list {
-  display: grid;
-  margin-top: 25px;
-  border-top: 1px solid var(--color-border-light);
-}
-.selector-button {
-  min-height: 55px;
-  padding: 10px 16px;
-  border: 0;
-  border-bottom: 1px solid var(--color-border-light);
-  background: transparent;
-  text-align: left;
-  cursor: pointer;
-  transition:
-    padding 0.3s,
-    background 0.3s;
-}
-.selector-button.is-active {
-  padding-left: 24px;
-  border-radius: 14px;
-  background: var(--color-lime);
-}
-.selector-display {
-  min-height: 480px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  align-items: center;
-  gap: 22px;
-  padding: 40px;
-  border-radius: 220px 30px 30px 30px;
-  background: var(--color-black);
-  color: var(--color-white);
-}
-.selector-display .phone {
-  width: 175px;
-  height: 350px;
-}
 .platform-direction {
   padding: clamp(64px, 7vw, 105px) 0;
   background: var(--color-paper-deep);
@@ -1116,7 +1074,6 @@
     margin: auto;
   }
   .capability-overview,
-  .product-selector,
   .scope-builder,
   .support-related-grid,
   .services-faq-grid {
@@ -1212,16 +1169,6 @@
   }
   .directory-lime {
     min-height: 390px !important;
-  }
-  .selector-display {
-    min-height: 520px;
-    grid-template-columns: 1fr;
-    padding: 30px 22px;
-    border-radius: 150px 25px 25px 25px;
-    text-align: center;
-  }
-  .selector-display .phone {
-    margin: auto;
   }
   .platform-compare {
     grid-template-columns: 1fr;

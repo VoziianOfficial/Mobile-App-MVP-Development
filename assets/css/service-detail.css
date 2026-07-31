@@ -497,63 +497,51 @@
 }
 .service-media-section {
   position: relative;
-  min-height: 720px;
+  min-height: 570px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  margin: 0 clamp(16px, 4vw, 40px);
+  border-radius: clamp(28px, 3.4vw, 44px);
   background: var(--color-black);
   color: var(--color-white);
 }
 .service-media-section > img {
   position: absolute;
-  inset: -9% 0;
+  inset: -7% 0;
   width: 100%;
-  height: 118%;
+  height: 114%;
   object-fit: cover;
   opacity: 0.6;
 }
 .service-media-section::after {
   position: absolute;
   inset: 0;
-  background: rgba(13, 15, 13, 0.38);
+  background: rgba(13, 15, 13, 0.5);
   content: "";
 }
 .service-media-panel {
   position: relative;
   z-index: 2;
-  display: grid;
-  grid-template-columns: 0.82fr 1.18fr;
-  align-items: center;
-  gap: 55px;
-}
-.service-media-panel > div:first-child {
-  padding: 45px;
-  border-radius: 150px 30px 30px 30px;
-  background: var(--color-black);
-}
-.service-media-panel p {
-  color: var(--color-text-muted-dark);
-}
-.tech-cloud {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 9px;
-}
-.tech-chip {
-  min-height: 90px;
-  display: grid;
-  place-items: center;
-  padding: 12px;
-  border: 1px solid var(--color-border-dark);
-  border-radius: 18px;
-  background: rgba(13, 15, 13, 0.82);
-  font-size: 0.69rem;
+  display: flex;
+  justify-content: center;
   text-align: center;
 }
-.tech-chip:nth-child(3n) {
-  border-color: transparent;
-  background: var(--color-lime);
-  color: var(--color-black);
+.service-media-panel > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100%, 640px);
+  padding: clamp(28px, 4vw, 52px) 0;
+}
+.service-media-panel h2 {
+  margin: 18px 0;
+}
+.service-media-panel p {
+  max-width: 46ch;
+  color: var(--color-text-muted-dark);
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  line-height: 1.6;
 }
 .service-related-section {
   overflow: hidden;
@@ -716,7 +704,6 @@
   }
   .service-overview,
   .included-layout,
-  .service-media-panel,
   .service-faq-layout {
     grid-template-columns: 1fr;
   }
@@ -735,14 +722,6 @@
   }
   .product-type:nth-child(n) {
     grid-column: auto;
-  }
-  .tech-cloud {
-    grid-template-columns: repeat(4, 1fr);
-  }
-  .service-media-panel > div:first-child {
-    max-width: 700px;
-    margin: auto;
-    text-align: center;
   }
 }
 @media (max-width: 700px) {
@@ -812,9 +791,11 @@
     min-height: 370px;
   }
   .service-media-section {
-    min-height: 750px;
+    min-height: 520px;
+    margin: 0 16px;
+    border-radius: 28px;
     align-items: flex-end;
-    padding-bottom: 30px;
+    padding-bottom: 22px;
   }
   .service-media-section > img {
     inset: -3% -25%;
@@ -822,14 +803,7 @@
     height: 106%;
   }
   .service-media-panel > div:first-child {
-    padding: 35px 24px;
-    border-radius: 100px 24px 24px 24px;
-  }
-  .tech-cloud {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .tech-chip {
-    min-height: 70px;
+    padding: 0 4px 24px;
   }
   .service-faq-layout {
     text-align: center;

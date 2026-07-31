@@ -597,17 +597,9 @@
         })
         .join("") +
       "</div></div></div></section>" +
-      '<section class="service-media-section" aria-labelledby="tech-title" data-parallax-section><img src="' +
-      image +
-      '" alt="' +
+      '<section class="service-media-section" aria-labelledby="tech-title" data-parallax-section><img src="assets/images/card-paralaks.jpg" alt="' +
       esc(data.title) +
-      ' in a product workflow" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p></div><div class="tech-cloud">' +
-      data.tech
-        .map(function (x) {
-          return '<span class="tech-chip">' + esc(x) + "</span>";
-        })
-        .join("") +
-      "</div></div></section>" +
+      ' product card with workflow depth" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p><div class="parallax-actions"><a class="ref-button ref-button--lime" href="contact.html#project-form"><span>Discuss this service</span><b><i data-lucide="arrow-up-right"></i></b></a><a class="ref-button ref-button--lavender" href="services.html"><span>All capabilities</span><b><i data-lucide="arrow-up-right"></i></b></a></div></div></div></section>' +
       '<section class="section service-related-section" aria-labelledby="related-title"><div class="container"><div class="slider-head"><div><span class="eyebrow">07 / Related services</span><h2 class="section-title" id="related-title">Connect the next capability.</h2></div><div class="slider-controls"><button class="icon-btn related-prev" type="button" aria-label="Previous related service">←</button><span class="related-fraction"></span><button class="icon-btn related-next" type="button" aria-label="Next related service">→</button></div></div><div class="swiper related-swiper"><div class="swiper-wrapper">' +
       related
         .map(function (k, i) {

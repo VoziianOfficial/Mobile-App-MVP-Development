@@ -1798,6 +1798,14 @@ p:last-child {
   background: var(--color-black);
   color: var(--color-white);
 }
+.ref-button--lavender {
+  background: #e7e3ff;
+  color: var(--color-black);
+}
+.ref-button--lavender b {
+  background: var(--color-black);
+  color: #e7e3ff;
+}
 .ref-button--ghost {
   border-color: rgba(255, 255, 255, 0.45);
   color: var(--color-white);
@@ -1805,6 +1813,13 @@ p:last-child {
 .ref-button--ghost b {
   background: var(--color-white);
   color: var(--color-black);
+}
+.parallax-actions {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
 }
 .moving-link {
   display: inline-flex;

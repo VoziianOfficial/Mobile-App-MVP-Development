@@ -36,10 +36,11 @@
   color: var(--color-lime);
 }
 .service-hero .display {
+  max-width: 18ch;
   margin: 15px 0 23px;
-  font-size: clamp(3.4rem, 5.6vw, 6.5rem);
-  line-height: 0.91;
-  letter-spacing: -0.075em;
+  font-size: clamp(3rem, 4.65vw, 5.15rem);
+  line-height: 1;
+  letter-spacing: 0;
 }
 .service-hero .lead {
   max-width: 650px;
@@ -88,6 +89,9 @@
   border-radius: 34px;
   background: var(--color-surface-dark);
   color: var(--color-white);
+}
+.service-visual-panel .heading-sm {
+  display: block;
 }
 .service-visual .phone {
   width: 170px;
@@ -461,7 +465,7 @@
   margin: auto 0 20px;
   font-size: clamp(1.8rem, 2.7vw, 3rem);
   line-height: 1;
-  letter-spacing: -0.05em;
+  letter-spacing: 0;
 }
 .service-process-step > div {
   display: flex;
@@ -588,7 +592,7 @@
   margin: auto 0 20px;
   font-size: clamp(2rem, 3vw, 3.5rem);
   line-height: 0.97;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 .related-card > span {
   font-size: 0.68rem;
@@ -657,7 +661,7 @@
   margin: 25px 0;
   font-size: clamp(2.5rem, 4vw, 4.5rem);
   line-height: 0.95;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
 }
 .service-cta-box p {
   position: relative;
@@ -747,7 +751,7 @@
     padding-top: 110px;
   }
   .service-hero .display {
-    font-size: clamp(3rem, 13vw, 4.25rem);
+    font-size: clamp(2.55rem, 9vw, 3.35rem);
   }
   .service-visual {
     min-height: 500px;

@@ -101,7 +101,7 @@
   }
   function footer() {
     return (
-      '<footer class="site-footer site-footer--premium"><div class="footer-curve" aria-hidden="true"></div><div class="container"><div class="footer-opening"><span>KOVEXA / MOBILE PRODUCT STUDIO</span><h2>Make the next product decision <em>visible.</em></h2><a class="footer-project-cta" href="contact.html#project-form"><span>Start a project</span><b>' +
+      '<footer class="site-footer site-footer--premium"><div class="footer-curve" aria-hidden="true"></div><div class="container"><div class="footer-opening"><span>KOVEXA / MOBILE PRODUCT STUDIO</span><h2>Make decisions <em>visible.</em></h2><a class="footer-project-cta" href="contact.html#project-form"><span>Start a project</span><b>' +
       icon("arrow-up-right") +
       '</b></a></div><div class="footer-lime-line" aria-hidden="true"><i></i></div><div class="footer-top"><div class="footer-brand"><a href="index.html"><img src="' +
       c.brand.logoLight +

@@ -538,12 +538,12 @@
         .slice(0, 5),
       image = media[key];
     return (
-      '<section class="section section--light service-overview-section" aria-labelledby="overview-title"><div class="container service-overview"><div><span class="eyebrow">01 / Service overview</span><h2 class="section-title" id="overview-title">What this capability brings into focus.</h2></div><div class="service-overview-copy"><p>' +
+      '<section class="section section--light service-overview-section" aria-labelledby="overview-title"><div class="container service-overview"><div><span class="eyebrow">01 / Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2></div><div class="service-overview-copy"><p>' +
       esc(data.overview) +
       '</p><aside class="overview-note">' +
       esc(data.note) +
       '</aside><div class="overview-route"><span>Need</span><i></i><span>Journey</span><i></i><span>Working product</span></div></div></div></section>' +
-      '<section class="section service-problems-section" aria-labelledby="problems-title"><div class="container"><span class="eyebrow">02 / Problems it helps address</span><h2 class="section-title" id="problems-title">Useful when the workflow needs a clearer direction.</h2><div class="problem-grid">' +
+      '<section class="section service-problems-section" aria-labelledby="problems-title"><div class="container"><span class="eyebrow">02 / Problems it helps address</span><h2 class="section-title" id="problems-title">When direction is unclear.</h2><div class="problem-grid">' +
       data.problems
         .map(function (x, i) {
           return (
@@ -556,7 +556,7 @@
         })
         .join("") +
       "</div></div></section>" +
-      '<section class="section section--dark service-included-section" aria-labelledby="included-title"><div class="container included-layout"><div><span class="eyebrow">03 / What is included</span><h2 class="section-title" id="included-title">Workstreams shaped to the agreed scope.</h2><div class="deliverable-list">' +
+      '<section class="section section--dark service-included-section" aria-labelledby="included-title"><div class="container included-layout"><div><span class="eyebrow">03 / What is included</span><h2 class="section-title" id="included-title">Workstreams shaped to scope.</h2><div class="deliverable-list">' +
       data.included
         .map(function (x, i) {
           return (
@@ -571,7 +571,7 @@
       '</div></div><div class="include-mockup"><div class="include-orbit"><i></i><i></i></div><div class="phone"><div class="phone-screen"><small>CAPABILITY VIEW</small><strong>' +
       esc(data.title) +
       '</strong><div class="ui-stack"><div class="ui-card">Product direction</div><div class="ui-card">Core workflow</div><div class="ui-action">Defined next step</div></div></div></div><aside>Scope remains visible across every workstream.</aside></div></div></section>' +
-      '<section class="section service-types-section" aria-labelledby="types-title"><div class="container"><span class="eyebrow">04 / Suitable product types</span><h2 class="section-title" id="types-title">Applied where the product context fits.</h2><div class="product-type-grid">' +
+      '<section class="section service-types-section" aria-labelledby="types-title"><div class="container"><span class="eyebrow">04 / Suitable product types</span><h2 class="section-title" id="types-title">Applied where context fits.</h2><div class="product-type-grid">' +
       data.types
         .map(function (x, i) {
           return (
@@ -584,7 +584,7 @@
         })
         .join("") +
       "</div></div></section>" +
-      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="slider-head"><div><span class="eyebrow">05 / Delivery process</span><h2 class="section-title" id="delivery-title">A service-specific route from context to release.</h2></div><div class="slider-controls"><button class="icon-btn process-prev" type="button" aria-label="Previous process step">←</button><span class="process-fraction"></span><button class="icon-btn process-next" type="button" aria-label="Next process step">→</button></div></div><div class="swiper service-process-swiper"><div class="swiper-wrapper">' +
+      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="slider-head"><div><span class="eyebrow">05 / Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="slider-controls"><button class="icon-btn process-prev" type="button" aria-label="Previous process step">←</button><span class="process-fraction"></span><button class="icon-btn process-next" type="button" aria-label="Next process step">→</button></div></div><div class="swiper service-process-swiper"><div class="swiper-wrapper">' +
       data.process
         .map(function (x, i) {
           return (
@@ -601,7 +601,7 @@
       image +
       '" alt="' +
       esc(data.title) +
-      ' in a product workflow" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Only the categories the workflow calls for.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p></div><div class="tech-cloud">' +
+      ' in a product workflow" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p></div><div class="tech-cloud">' +
       data.tech
         .map(function (x) {
           return '<span class="tech-chip">' + esc(x) + "</span>";
@@ -623,7 +623,7 @@
         })
         .join("") +
       "</div></div></div></section>" +
-      '<section class="section section--light service-faq-section" aria-labelledby="service-faq-title"><div class="container service-faq-layout"><div><span class="eyebrow">08 / FAQ and project request</span><h2 class="section-title" id="service-faq-title">Clarify the capability before the scope.</h2><div class="accordion" data-accordion>' +
+      '<section class="section section--light service-faq-section" aria-labelledby="service-faq-title"><div class="container service-faq-layout"><div><span class="eyebrow">08 / FAQ and project request</span><h2 class="section-title" id="service-faq-title">Clarify before scope.</h2><div class="accordion" data-accordion>' +
       data.faqs
         .map(function (q) {
           return (

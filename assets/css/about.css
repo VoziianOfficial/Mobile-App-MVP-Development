@@ -44,7 +44,7 @@
 .editorial .intro-large {
   font-size: clamp(1.5rem, 2.6vw, 2.5rem);
   line-height: 1.25;
-  letter-spacing: -0.035em;
+  letter-spacing: 0;
 }
 .product-diagram {
   display: flex;
@@ -347,8 +347,10 @@
   gap: clamp(35px, 5vw, 76px);
 }
 .about-hero .display {
-  font-size: clamp(3.5rem, 5.8vw, 6.7rem);
-  line-height: 0.92;
+  max-width: 15ch;
+  font-size: clamp(3.05rem, 4.8vw, 5.25rem);
+  line-height: 1;
+  letter-spacing: 0;
 }
 .about-hero-mosaic {
   position: relative;
@@ -560,7 +562,7 @@
   margin: auto 0 10px;
   font-size: clamp(2rem, 3vw, 3.4rem);
   line-height: 0.98;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 .expertise-slide p {
   position: relative;
@@ -735,7 +737,7 @@
     padding-top: 110px;
   }
   .about-hero .display {
-    font-size: clamp(3rem, 13vw, 4.1rem);
+    font-size: clamp(2.55rem, 9vw, 3.35rem);
   }
   .about-hero-mosaic {
     min-height: 460px;

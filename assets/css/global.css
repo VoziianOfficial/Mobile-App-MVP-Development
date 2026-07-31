@@ -162,8 +162,9 @@ p:last-child {
 .display,
 .section-title {
   font-weight: 600;
-  letter-spacing: -0.055em;
-  line-height: 0.98;
+  letter-spacing: 0;
+  line-height: 1.03;
+  max-inline-size: 22ch;
   text-wrap: balance;
 }
 .display {
@@ -175,8 +176,10 @@ p:last-child {
 }
 .heading-sm {
   font-size: var(--heading-sm);
-  line-height: 1.05;
-  letter-spacing: -0.04em;
+  line-height: 1.08;
+  letter-spacing: 0;
+  max-inline-size: 24ch;
+  text-wrap: balance;
 }
 .lead {
   max-width: 710px;
@@ -480,7 +483,7 @@ p:last-child {
   border-bottom: 1px solid var(--color-border-dark);
   font-size: clamp(1.6rem, 3vw, 2.35rem);
   font-weight: 500;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 .primary-menu small {
   color: var(--color-lime);
@@ -1097,10 +1100,12 @@ p:last-child {
     padding: 7.5rem 0 4.5rem;
   }
   .display {
-    font-size: clamp(2.65rem, 13vw, 4rem);
+    font-size: clamp(2.25rem, 11vw, 3.35rem);
+    max-inline-size: 16ch;
   }
   .section-title {
-    font-size: clamp(2.1rem, 10vw, 3rem);
+    font-size: clamp(1.85rem, 9vw, 2.55rem);
+    max-inline-size: 18ch;
   }
   .lead {
     font-size: 1rem;
@@ -1849,12 +1854,12 @@ p:last-child {
   letter-spacing: 0.16em;
 }
 .footer-opening h2 {
-  max-width: 980px;
+  max-width: 16ch;
   margin: 0;
   font-size: clamp(3.2rem, 6.2vw, 7.2rem);
   font-weight: 600;
-  line-height: 0.88;
-  letter-spacing: -0.075em;
+  line-height: 1;
+  letter-spacing: 0;
 }
 .footer-opening h2 em {
   color: var(--color-lime);
@@ -1940,9 +1945,7 @@ p:last-child {
 }
 .footer-address {
   padding: 22px;
-  border: 1px solid var(--color-border-dark);
-  border-radius: 24px;
-  background: var(--color-surface-dark);
+ 
 }
 .footer-address > span {
   color: var(--color-lime);
@@ -1978,7 +1981,7 @@ p:last-child {
   font-size: clamp(3.5rem, 7vw, 8rem);
   font-weight: 700;
   line-height: 0.7;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
   -webkit-text-stroke: 1px rgba(255, 255, 255, 0.13);
 }
 
@@ -2012,7 +2015,8 @@ p:last-child {
     text-align: center;
   }
   .footer-opening h2 {
-    font-size: clamp(3rem, 13vw, 4.6rem);
+    font-size: clamp(2.45rem, 10vw, 3.25rem);
+    max-width: 15ch;
   }
   .footer-project-cta {
     margin: auto;

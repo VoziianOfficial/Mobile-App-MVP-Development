@@ -54,7 +54,7 @@
 .legal-content h2 {
   font-size: clamp(1.6rem, 3vw, 2.4rem);
   line-height: 1.1;
-  letter-spacing: -0.04em;
+  letter-spacing: 0;
 }
 .legal-content h3 {
   margin-top: 28px;
@@ -91,7 +91,7 @@
   font-size: clamp(7rem, 18vw, 16rem);
   font-weight: 700;
   line-height: 0.8;
-  letter-spacing: -0.09em;
+  letter-spacing: 0;
   color: var(--color-lime);
 }
 .error-visual {
@@ -180,7 +180,7 @@
   z-index: 2;
   color: var(--color-lime);
   font-size: clamp(3.3rem, 6vw, 6.2rem);
-  letter-spacing: -0.07em;
+  letter-spacing: 0;
 }
 .legal-hero .lead,
 .legal-updated {
@@ -230,7 +230,7 @@
   margin: 8px 0 0;
   font-size: clamp(2rem, 4vw, 4.4rem);
   line-height: 0.96;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
 }
 .legal-cta-inner .ref-button--lime {
   background: var(--color-black);

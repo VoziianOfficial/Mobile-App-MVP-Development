@@ -83,11 +83,13 @@
   background: var(--color-lime);
 }
 .kovexa-hero h1 {
+  max-width: 15ch;
   margin: 0;
-  font-size: clamp(3.65rem, 6vw, 6.6rem);
+  margin-inline: auto;
+  font-size: clamp(3.2rem, 5vw, 5.4rem);
   font-weight: 600;
-  line-height: 0.93;
-  letter-spacing: -0.07em;
+  line-height: 1;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 .kovexa-hero h1 em,
@@ -703,11 +705,12 @@
 .idea-copy h2,
 .section-heading-row h2,
 .showcase-heading h2 {
+  max-width: 22ch;
   margin-bottom: 24px;
-  font-size: clamp(2.7rem, 4.7vw, 5.4rem);
+  font-size: clamp(2.55rem, 4.2vw, 4.75rem);
   font-weight: 600;
-  line-height: 0.97;
-  letter-spacing: -0.065em;
+  line-height: 1.03;
+  letter-spacing: 0;
   text-wrap: balance;
 }
 .idea-copy h2 em,
@@ -964,7 +967,7 @@
   margin: 0;
   font-size: clamp(1.25rem, 2vw, 2rem);
   line-height: 1.05;
-  letter-spacing: -0.045em;
+  letter-spacing: 0;
 }
 .service-tile-bottom > b,
 .tile-arrow {
@@ -1437,7 +1440,7 @@
   margin: 14px 0;
   font-size: clamp(2rem, 3.4vw, 3.8rem);
   line-height: 0.98;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 .showcase-copy p {
   color: var(--color-text-muted);
@@ -1532,7 +1535,7 @@
     min-height: 1040px;
   }
   .kovexa-hero h1 {
-    font-size: clamp(3.8rem, 7.5vw, 5.2rem);
+    font-size: clamp(3rem, 6vw, 4.5rem);
   }
   .hero-product-scene {
     height: 555px;
@@ -1601,7 +1604,7 @@
     padding-top: 120px;
   }
   .kovexa-hero h1 {
-    font-size: clamp(3rem, 10.5vw, 4.45rem);
+    font-size: clamp(2.55rem, 9vw, 3.35rem);
   }
   .hero-product-scene {
     width: 690px;
@@ -1706,8 +1709,8 @@
     letter-spacing: 0.12em;
   }
   .kovexa-hero h1 {
-    font-size: clamp(2.75rem, 13vw, 3.5rem);
-    line-height: 0.96;
+    font-size: clamp(2.4rem, 9vw, 3rem);
+    line-height: 1.02;
   }
   .kovexa-hero-copy > p {
     margin-top: 18px;
@@ -1797,7 +1800,7 @@
   .idea-copy h2,
   .section-heading-row h2,
   .showcase-heading h2 {
-    font-size: clamp(2.35rem, 11vw, 3.2rem);
+    font-size: clamp(2.05rem, 8.5vw, 2.65rem);
   }
   .idea-media {
     min-height: 555px;
@@ -2000,7 +2003,7 @@
   font-size: clamp(2.7rem, 4.8vw, 5.2rem);
   font-weight: 600;
   line-height: 0.8;
-  letter-spacing: -0.07em;
+  letter-spacing: 0;
 }
 .home-facts span {
   font-size: 0.7rem;
@@ -2020,12 +2023,12 @@
 .tilted-copy h2,
 .planning-grid h2,
 .home-faq-cta h2 {
-  max-width: 900px;
+  max-width: 22ch;
   margin: 0;
-  font-size: clamp(2.8rem, 4.8vw, 5.2rem);
+  font-size: clamp(2.55rem, 4.2vw, 4.75rem);
   font-weight: 600;
-  line-height: 0.96;
-  letter-spacing: -0.065em;
+  line-height: 1.03;
+  letter-spacing: 0;
 }
 .home-section-head h2 em,
 .tilted-copy h2 em,
@@ -2121,7 +2124,7 @@
   margin: 11px 0;
   font-size: clamp(2rem, 3vw, 3.45rem);
   line-height: 0.98;
-  letter-spacing: -0.055em;
+  letter-spacing: 0;
 }
 .service-media-slide p {
   max-width: 560px;
@@ -2231,7 +2234,7 @@
 .tilted-card-stack article h3 {
   margin: auto 0 10px;
   font-size: clamp(2rem, 3.2vw, 3.7rem);
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
 }
 .tilted-card-stack article p {
   color: var(--color-text-muted);
@@ -2309,7 +2312,7 @@
   font-size: clamp(4.2rem, 8vw, 9.2rem);
   font-weight: 700;
   line-height: 0.9;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
   white-space: nowrap;
   -webkit-text-stroke: 1px #a9afa6;
 }
@@ -2361,7 +2364,7 @@
   margin: 15px 0;
   font-size: clamp(2.2rem, 3.7vw, 4.2rem);
   line-height: 0.98;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
 }
 .product-story p {
   color: var(--color-text-muted);
@@ -2407,7 +2410,7 @@
   margin-bottom: 24px;
   font-size: clamp(2.5rem, 4.3vw, 4.8rem);
   line-height: 0.98;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
 }
 .brief-lines {
   display: grid;
@@ -2627,7 +2630,7 @@
   margin: 17px 0;
   font-size: clamp(3rem, 5vw, 6rem);
   line-height: 0.9;
-  letter-spacing: -0.07em;
+  letter-spacing: 0;
 }
 .project-model-swiper p {
   max-width: 620px;
@@ -2736,7 +2739,7 @@
   margin: 24px 0;
   font-size: clamp(2.6rem, 4vw, 4.5rem);
   line-height: 0.96;
-  letter-spacing: -0.06em;
+  letter-spacing: 0;
 }
 .home-final-cta > p {
   color: var(--color-text-muted-dark);
@@ -2882,7 +2885,7 @@
   .tilted-copy h2,
   .planning-grid h2,
   .home-faq-cta h2 {
-    font-size: clamp(2.35rem, 11vw, 3.25rem);
+    font-size: clamp(2.05rem, 8.5vw, 2.65rem);
   }
   .home-section-head .slider-controls {
     width: 100%;

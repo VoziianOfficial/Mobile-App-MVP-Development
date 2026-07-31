@@ -1307,6 +1307,9 @@ p:last-child {
   border-radius: 13px;
   font-size: 0.75rem;
 }
+[data-site-footer] {
+  margin-top: clamp(28px, 4vw, 56px);
+}
 .site-footer {
   position: relative;
   padding: clamp(5rem, 8vw, 7rem) 0 26px;

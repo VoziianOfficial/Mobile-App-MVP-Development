@@ -4,18 +4,28 @@
   var reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   function developmentPath() {
-    var root = document.querySelector(".idea-media");
-    if (!root) return;
+    var section = document.querySelector(".idea-editorial");
+    var root = section && section.querySelector(".idea-media");
+    if (!section || !root) return;
 
     var stages = [].slice.call(root.querySelectorAll(".path-stage"));
     var title = root.querySelector("#path-visual-title");
     var copy = root.querySelector("#path-visual-state");
     var progress = root.querySelector("#path-progress");
+    var ideaCopy = section.querySelector(".idea-copy");
+    var ideaHeading = ideaCopy && ideaCopy.querySelector("h2");
+    var ideaText = ideaCopy && ideaCopy.querySelector("p");
+    var photo = root.querySelector(".idea-photo");
+    var photoImage = photo && photo.querySelector("img");
     var timer;
+    var copyTimer;
+    var imageTimer;
 
     function activate(stage, moveFocus) {
       if (!stage || stage.classList.contains("is-active")) return;
       window.clearTimeout(timer);
+      window.clearTimeout(copyTimer);
+      window.clearTimeout(imageTimer);
       stages.forEach(function (item) {
         var active = item === stage;
         item.classList.toggle("is-active", active);
@@ -23,18 +33,44 @@
         item.tabIndex = active ? 0 : -1;
       });
 
-      copy.classList.add("is-changing");
-      title.classList.add("is-changing");
-      timer = window.setTimeout(
-        function () {
-          title.textContent = stage.dataset.title;
-          copy.textContent = stage.dataset.copy;
-          progress.textContent = stage.dataset.progress;
-          copy.classList.remove("is-changing");
-          title.classList.remove("is-changing");
-        },
-        reducedMotion.matches ? 0 : 130,
-      );
+      if (copy && title && progress) {
+        copy.classList.add("is-changing");
+        title.classList.add("is-changing");
+        timer = window.setTimeout(
+          function () {
+            title.textContent = stage.dataset.title;
+            copy.textContent = stage.dataset.copy;
+            progress.textContent = stage.dataset.progress;
+            copy.classList.remove("is-changing");
+            title.classList.remove("is-changing");
+          },
+          reducedMotion.matches ? 0 : 130,
+        );
+      }
+
+      if (ideaCopy && ideaHeading && ideaText) {
+        ideaCopy.classList.add("is-changing");
+        copyTimer = window.setTimeout(
+          function () {
+            ideaHeading.innerHTML = stage.dataset.copyTitle || stage.dataset.title;
+            ideaText.textContent = stage.dataset.copyText || stage.dataset.copy;
+            ideaCopy.classList.remove("is-changing");
+          },
+          reducedMotion.matches ? 0 : 150,
+        );
+      }
+
+      if (photo && photoImage && stage.dataset.image) {
+        photo.classList.add("is-changing");
+        imageTimer = window.setTimeout(
+          function () {
+            photoImage.src = stage.dataset.image;
+            photoImage.alt = stage.dataset.imageAlt || "";
+            photo.classList.remove("is-changing");
+          },
+          reducedMotion.matches ? 0 : 150,
+        );
+      }
       if (moveFocus) stage.focus();
     }
 

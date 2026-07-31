@@ -105,14 +105,25 @@
       });
     }
 
+    var stories = document.querySelector(".product-story-swiper");
+    if (stories && !stories.dataset.swiperReady) {
+      stories.dataset.swiperReady = "true";
+      new Swiper(stories, {
+        slidesPerView: 1.08,
+        navigation: {
+          prevEl: ".product-story-prev",
+          nextEl: ".product-story-next",
+        },
+        pagination: { el: ".product-story-fraction" },
+        keyboard: { enabled: true },
+        breakpoints: {
+          700: { slidesPerView: 1.35 },
+          1100: { slidesPerView: 1.6 },
+        },
+      });
+    }
+
     [
-      [
-        ".product-story-swiper",
-        ".product-story-prev",
-        ".product-story-next",
-        ".product-story-fraction",
-        1,
-      ],
       [
         ".project-model-swiper",
         ".project-model-prev",

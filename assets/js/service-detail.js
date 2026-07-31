@@ -536,7 +536,56 @@
           return k !== key;
         })
         .slice(0, 5),
-      image = media[key];
+      image = media[key],
+      galleryImages = [
+        image,
+        "assets/images/app-closeup.jpg",
+        "assets/images/product-team.jpg",
+        "assets/images/ux-prototype.jpg",
+        "assets/images/workflow-meeting.jpg",
+        "assets/images/mobile-testing.jpg",
+      ],
+      galleryTypes = data.types.concat(data.types),
+      typeGallery =
+        '<section class="section service-types-section gallery-marquee-section" aria-label="Suitable product type gallery"><div class="gallery-marquee-title" aria-hidden="true"><div><span>Product Type Gallery · ' +
+        esc(data.title) +
+        ' · Focused Workflows · </span><span>Product Type Gallery · ' +
+        esc(data.title) +
+        ' · Focused Workflows · </span></div></div><div class="gallery-rows"><div class="gallery-track gallery-track--left">' +
+        galleryTypes
+          .map(function (x, i) {
+            return (
+              '<article class="gallery-card' +
+              (i % 2 === 0 ? " gallery-card--wide" : "") +
+              '"><img src="' +
+              galleryImages[i % galleryImages.length] +
+              '" alt="' +
+              esc(x) +
+              ' product direction" loading="lazy"><span>' +
+              esc(x) +
+              "</span></article>"
+            );
+          })
+          .join("") +
+        '</div><div class="gallery-track gallery-track--right">' +
+        galleryTypes
+          .slice()
+          .reverse()
+          .map(function (x, i) {
+            return (
+              '<article class="gallery-card' +
+              (i % 2 === 1 ? " gallery-card--wide" : "") +
+              '"><img src="' +
+              galleryImages[(i + 2) % galleryImages.length] +
+              '" alt="' +
+              esc(x) +
+              ' product context" loading="lazy"><span>' +
+              esc(x) +
+              "</span></article>"
+            );
+          })
+          .join("") +
+        "</div></div></section>";
     return (
       '<section class="section section--light service-overview-section" aria-labelledby="overview-title"><div class="container service-overview"><div><span class="eyebrow">01 / Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2></div><div class="service-overview-copy"><p>' +
       esc(data.overview) +
@@ -571,19 +620,7 @@
       '</div></div><div class="include-mockup"><div class="include-orbit"><i></i><i></i></div><div class="phone"><div class="phone-screen"><small>CAPABILITY VIEW</small><strong>' +
       esc(data.title) +
       '</strong><div class="ui-stack"><div class="ui-card">Product direction</div><div class="ui-card">Core workflow</div><div class="ui-action">Defined next step</div></div></div></div><aside>Scope remains visible across every workstream.</aside></div></div></section>' +
-      '<section class="section service-types-section" aria-labelledby="types-title"><div class="container"><span class="eyebrow">04 / Suitable product types</span><h2 class="section-title" id="types-title">Applied where context fits.</h2><div class="product-type-grid">' +
-      data.types
-        .map(function (x, i) {
-          return (
-            '<article class="product-type"><small>' +
-            String(i + 1).padStart(2, "0") +
-            "</small><h3>" +
-            esc(x) +
-            '</h3><div class="type-ui"><i></i><i></i><i></i></div><p>Assessed against the real workflow, access and constraints.</p></article>'
-          );
-        })
-        .join("") +
-      "</div></div></section>" +
+      typeGallery +
       '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="slider-head"><div><span class="eyebrow">05 / Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="slider-controls"><button class="icon-btn process-prev" type="button" aria-label="Previous process step">←</button><span class="process-fraction"></span><button class="icon-btn process-next" type="button" aria-label="Next process step">→</button></div></div><div class="swiper service-process-swiper"><div class="swiper-wrapper">' +
       data.process
         .map(function (x, i) {

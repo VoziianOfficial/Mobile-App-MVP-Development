@@ -680,7 +680,7 @@
           );
         })
         .join("") +
-      '</div></div><aside class="service-cta-box"><small>START WITH THE WORKFLOW</small><h3>Bring us the product problem that needs to work.</h3><p>Share the current stage, intended audience and immediate priority.</p><a class="ref-button ref-button--lime" href="contact.html#project-form"><span>Start a project request</span><b>↗</b></a><div class="service-cta-orbit"><i></i></div></aside></div></section>'
+      '</div></div><figure class="round-cta-portrait round-cta-portrait--service"><img src="assets/images/service-faq-robot.png" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
     );
   }
   function init() {

@@ -315,6 +315,36 @@
         }, 180);
     });
   }
+  function panelSelectors() {
+    document.querySelectorAll("[data-panel-select]").forEach(function (root) {
+      var options = [].slice.call(root.querySelectorAll(".panel-option"));
+      function activate(option) {
+        options.forEach(function (item) {
+          var active = item === option;
+          item.classList.toggle("is-active", active);
+          item.setAttribute("aria-pressed", String(active));
+        });
+      }
+      options.forEach(function (option, i) {
+        option.setAttribute(
+          "aria-pressed",
+          String(option.classList.contains("is-active")),
+        );
+        option.addEventListener("click", function () {
+          activate(option);
+        });
+        option.addEventListener("keydown", function (e) {
+          if (e.key !== "ArrowRight" && e.key !== "ArrowLeft") return;
+          e.preventDefault();
+          var next =
+            (i + (e.key === "ArrowRight" ? 1 : -1) + options.length) %
+            options.length;
+          options[next].focus();
+          options[next].click();
+        });
+      });
+    });
+  }
   function siteParallax() {
     if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     var sections = [].slice.call(
@@ -355,6 +385,7 @@
     if (window.ConfigRender) ConfigRender.render();
     accordions();
     tabs();
+    panelSelectors();
     siteParallax();
     if (window.lucide) lucide.createIcons();
     if (window.AOS)

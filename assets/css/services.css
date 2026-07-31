@@ -585,65 +585,11 @@
   overflow: hidden;
   background: var(--color-paper);
 }
-.capability-swiper {
-  overflow: visible;
-}
-.capability-swiper .swiper-slide {
-  padding: 8px;
-}
-.capability-slide {
-  position: relative;
-  min-height: 560px;
-  overflow: hidden;
-  border-radius: 40px;
-  background: var(--color-black);
-  color: var(--color-white);
-}
-.capability-slide::after {
-  position: absolute;
-  inset: 38% 0 0;
-  background: rgba(13, 15, 13, 0.78);
-  content: "";
-}
-.capability-slide > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.capability-slide > div {
-  position: absolute;
-  z-index: 3;
-  right: 35px;
-  bottom: 35px;
-  left: 35px;
-  max-width: 650px;
-}
-.capability-slide > div > span {
-  color: var(--color-lime);
-  font-size: 0.61rem;
-  letter-spacing: 0.13em;
-}
-.capability-slide h3 {
-  margin: 11px 0;
-  font-size: clamp(2.4rem, 4vw, 4.7rem);
-  line-height: 0.95;
-  letter-spacing: 0;
-}
-.capability-slide p {
-  color: var(--color-text-muted-dark);
-}
-.capability-slide a {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 14px;
-  font-size: 0.7rem;
-  font-weight: 750;
-}
-.capability-slide a svg {
-  width: 15px;
+.capability-carousel-section.expanding-gallery-section {
+  padding: clamp(56px, 6.2vw, 92px) 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(201, 255, 87, 0.16), transparent 26%),
+    linear-gradient(180deg, var(--color-surface-light) 0%, var(--color-paper) 100%);
 }
 .product-selector {
   display: grid;
@@ -1267,21 +1213,6 @@
   .directory-lime {
     min-height: 390px !important;
   }
-  .capability-swiper {
-    overflow: hidden;
-    margin-inline: -14px;
-  }
-  .capability-slide {
-    min-height: 590px;
-  }
-  .capability-slide > div {
-    right: 23px;
-    bottom: 25px;
-    left: 23px;
-  }
-  .capability-slide h3 {
-    font-size: 2.45rem;
-  }
   .selector-display {
     min-height: 520px;
     grid-template-columns: 1fr;
@@ -1364,8 +1295,7 @@
   .automation-integration > img {
     translate: none !important;
   }
-  .media-directory > a,
-  .capability-slide > img {
+  .media-directory > a {
     transition: none;
   }
 }

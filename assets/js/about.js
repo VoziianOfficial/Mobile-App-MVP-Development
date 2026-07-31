@@ -33,13 +33,6 @@
       });
     });
     slider(
-      ".timeline-swiper",
-      ".timeline-prev",
-      ".timeline-next",
-      ".timeline-fraction",
-      { 700: { slidesPerView: 2 }, 1100: { slidesPerView: 4 } },
-    );
-    slider(
       ".expertise-swiper",
       ".expertise-prev",
       ".expertise-next",

@@ -187,119 +187,94 @@
           </div>
         </div>
       </section>
-      <section class="section" aria-labelledby="planning-about-title">
+      <section
+        class="section expanding-gallery-section"
+        aria-labelledby="planning-about-title"
+      >
         <div class="container">
-          <span class="eyebrow">Planning before development</span>
-            <h2 class="section-title" id="planning-about-title">
-              Build the product picture in layers.
-            </h2>
-          <div class="about-slider-controls">
+          <h2 class="sr-only" id="planning-about-title">
+            Product planning stages
+          </h2>
+          <div
+            class="panel-select"
+            data-panel-select
+            role="group"
+            aria-label="Planning stages"
+          >
             <button
-              class="icon-btn timeline-prev"
               type="button"
-              aria-label="Previous stage"
+              class="panel-option is-active"
+              style="--panel-image: url('../images/contact-founder.jpg')"
             >
-              <i data-lucide="arrow-left"></i></button
-            ><span class="timeline-fraction"></span
-            ><button
-              class="icon-btn timeline-next"
-              type="button"
-              aria-label="Next stage"
-            >
-              <i data-lucide="arrow-right"></i>
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="pen-tool"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Idea</strong><span>Define the core change.</span></span
+                >
+              </span>
             </button>
-          </div>
-          <div class="swiper timeline-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>01 / START</small>
-                  <h3>Idea</h3>
-                  <p>State the change the product should enable.</p>
-                  <figure>
-                    <img
-                      src="assets/images/contact-founder.jpg"
-                      width="1200"
-                      height="1500"
-                      alt="Entrepreneur framing a mobile product idea"
-                      loading="lazy"
-                    />
-                  </figure>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>02 / EVIDENCE</small>
-                  <h3>Validation</h3>
-                  <p>Confirm the repeated problem and intended audience.</p>
-                  <div class="timeline-ui"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>03 / BOUNDARY</small>
-                  <h3>Scope</h3>
-                  <p>Define the complete first journey and what waits.</p>
-                  <div class="timeline-ui"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>04 / EXPERIENCE</small>
-                  <h3>Prototype</h3>
-                  <p>Make key screens and states tangible.</p>
-                  <figure>
-                    <img
-                      src="assets/images/app-closeup.jpg"
-                      width="1000"
-                      height="1500"
-                      alt="Mobile interface prototype in use"
-                      loading="lazy"
-                    />
-                  </figure>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>05 / FOUNDATION</small>
-                  <h3>Build</h3>
-                  <p>Implement reviewable product increments.</p>
-                  <div class="timeline-ui"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>06 / VERIFY</small>
-                  <h3>Test</h3>
-                  <p>Check the core flow, devices and dependencies.</p>
-                  <figure>
-                    <img
-                      src="assets/images/mobile-testing.jpg"
-                      width="1800"
-                      height="1013"
-                      alt="Mobile application testing on physical devices"
-                      loading="lazy"
-                    />
-                  </figure>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>07 / RELEASE</small>
-                  <h3>Launch</h3>
-                  <p>Prepare environments, assets and priorities.</p>
-                  <div class="timeline-ui"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="layer-step">
-                  <small>08 / CONTINUE</small>
-                  <h3>Support</h3>
-                  <p>Maintain compatibility and guide improvements.</p>
-                  <div class="timeline-ui"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-            </div>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/studio-workspace.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="check"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Validation</strong
+                  ><span>Check the real need.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/ux-wireframes.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="layers"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Scope</strong
+                  ><span>Shape the first flow.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/app-closeup.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="smartphone"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Prototype</strong
+                  ><span>Make the product visible.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/developer-work.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="wrench"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Build</strong
+                  ><span>Ship in focused parts.</span></span
+                >
+              </span>
+            </button>
           </div>
         </div>
       </section>

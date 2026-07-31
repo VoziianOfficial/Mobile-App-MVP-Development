@@ -445,90 +445,6 @@
   inset: 31px;
   background: var(--color-black);
 }
-.about-slider-controls {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 10px;
-  margin: -42px 0 25px;
-}
-.about-slider-controls--dark {
-  color: var(--color-white);
-}
-.timeline-swiper {
-  overflow: visible;
-}
-.timeline-swiper .swiper-slide {
-  padding: 9px;
-}
-.timeline-swiper .layer-step {
-  position: relative;
-  min-height: 430px;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-  padding: 27px;
-  border: 1px solid var(--color-border-light);
-  border-radius: 100px 25px 25px 25px;
-  background: var(--color-surface-light);
-  transform: none;
-  transition:
-    transform 0.4s,
-    background 0.4s;
-}
-.timeline-swiper .swiper-slide.is-active .layer-step {
-  background: var(--color-lime);
-  transform: translateY(-8px);
-}
-.timeline-swiper .layer-step small {
-  color: var(--color-text-muted);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-}
-.timeline-swiper .layer-step h3 {
-  margin: auto 0 8px;
-  font-size: 2rem;
-}
-.timeline-swiper .layer-step p {
-  min-height: 58px;
-  color: var(--color-text-muted);
-  font-size: 0.72rem;
-}
-.timeline-swiper .layer-step figure {
-  position: absolute;
-  inset: 0;
-  margin: 0;
-}
-.timeline-swiper .layer-step figure::after {
-  position: absolute;
-  inset: 40% 0 0;
-  background: rgba(13, 15, 13, 0.7);
-  content: "";
-}
-.timeline-swiper .layer-step figure img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.timeline-swiper .layer-step figure ~ * {
-  position: relative;
-  z-index: 2;
-  color: var(--color-white);
-}
-.timeline-ui {
-  display: grid;
-  gap: 8px;
-  margin-top: 35px;
-}
-.timeline-ui i {
-  height: 45px;
-  border: 1px solid var(--color-border-light);
-  border-radius: 13px;
-}
-.timeline-ui i:nth-child(2) {
-  width: 75%;
-  background: var(--color-black);
-}
 .expertise-swiper {
   overflow: visible;
 }
@@ -725,12 +641,6 @@
     width: 100%;
     margin: auto;
   }
-  .timeline-swiper .layer-step {
-    min-height: 390px;
-  }
-  .about-slider-controls {
-    margin: 20px 0;
-  }
   .expertise-slide {
     min-height: 410px;
   }
@@ -762,13 +672,12 @@
     width: 66px;
     height: 66px;
   }
-  .timeline-swiper,
   .expertise-swiper {
     overflow: hidden;
     margin-inline: -14px;
   }
-  .timeline-swiper .layer-step {
-    min-height: 410px;
+  .panel-select {
+    margin-top: 22px;
   }
   .about-parallax {
     min-height: 520px;
@@ -796,7 +705,6 @@
   .about-parallax > img {
     translate: none !important;
   }
-  .timeline-swiper .layer-step,
   .collab-card {
     transition: none;
   }

@@ -1,17 +1,6 @@
 (function () {
   "use strict";
   function init() {
-    var slider = document.querySelector(".next-swiper");
-    if (slider && window.Swiper && !slider.dataset.swiperReady) {
-      slider.dataset.swiperReady = "true";
-      new Swiper(slider, {
-        slidesPerView: 1,
-        navigation: { prevEl: ".next-prev", nextEl: ".next-next" },
-        pagination: { el: ".next-fraction" },
-        keyboard: { enabled: true },
-        breakpoints: { 720: { slidesPerView: 2 }, 1100: { slidesPerView: 3 } },
-      });
-    }
     var form = document.querySelector("#project-form form");
     if (!form) return;
     var submit = form.querySelector('[type="submit"]'),

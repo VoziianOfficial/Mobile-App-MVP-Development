@@ -187,102 +187,94 @@
       </section>
 
       <section
-        class="capability-carousel-section"
+        class="capability-carousel-section expanding-gallery-section"
         aria-labelledby="capability-slider-title"
       >
         <div class="container">
-          <div class="services-section-head">
-            <div>
-              <span class="eyebrow">03 / Capability in context</span>
-              <h2 id="capability-slider-title">Capabilities in context.</h2>
-            </div>
-            <div class="slider-controls">
-              <button
-                class="icon-btn capability-prev"
-                type="button"
-                aria-label="Previous capability"
-              >
-                <i data-lucide="arrow-left"></i></button
-              ><span class="capability-fraction"></span
-              ><button
-                class="icon-btn capability-next"
-                type="button"
-                aria-label="Next capability"
-              >
-                <i data-lucide="arrow-right"></i>
-              </button>
-            </div>
-          </div>
-          <div class="swiper capability-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <article class="capability-slide">
-                  <img
-                    src="assets/images/about-team-v2.jpg"
-                    width="1800"
-                    height="1013"
-                    alt="Product team defining the first release"
-                    loading="lazy"
-                  />
-                  <div>
-                    <span>DEFINITION</span>
-                    <h3>Scope an MVP around one complete journey.</h3>
-                    <p>
-                      Problem, audience, dependencies and later ideas receive
-                      visible places.
-                    </p>
-                    <a href="mvp-development.html"
-                      >Open MVP development <i data-lucide="arrow-up-right"></i
-                    ></a>
-                  </div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="capability-slide">
-                  <img
-                    src="assets/images/mobile-testing.jpg"
-                    width="1800"
-                    height="1013"
-                    alt="Application tested on mobile devices"
-                    loading="lazy"
-                  />
-                  <div>
-                    <span>DEVELOPMENT</span>
-                    <h3>Build and verify a coherent mobile foundation.</h3>
-                    <p>
-                      Interface, business logic and integrations move together
-                      in reviewable increments.
-                    </p>
-                    <a href="mobile-app-development.html"
-                      >Open mobile development
-                      <i data-lucide="arrow-up-right"></i
-                    ></a>
-                  </div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="capability-slide">
-                  <img
-                    src="assets/images/workflow-meeting.jpg"
-                    width="1800"
-                    height="1013"
-                    alt="Team mapping an operational workflow"
-                    loading="lazy"
-                  />
-                  <div>
-                    <span>AUTOMATION</span>
-                    <h3>Make operational state and responsibility visible.</h3>
-                    <p>
-                      Requests, assignments, notifications and connected records
-                      form one sequence.
-                    </p>
-                    <a href="business-process-automation.html"
-                      >Open automation <i data-lucide="arrow-up-right"></i
-                    ></a>
-                  </div>
-                </article>
-              </div>
-            </div>
+          <h2 class="sr-only" id="capability-slider-title">
+            Capabilities in context
+          </h2>
+          <div
+            class="panel-select"
+            data-panel-select
+            role="group"
+            aria-label="Capabilities"
+          >
+            <button
+              type="button"
+              class="panel-option is-active"
+              style="--panel-image: url('../images/about-team-v2.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="layers"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Definition</strong
+                  ><span>Scope one clear journey.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/mobile-testing.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="smartphone"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Development</strong
+                  ><span>Build the product core.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/workflow-meeting.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="workflow"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Automation</strong
+                  ><span>Connect the workflow.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/ux-prototype.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="pen-tool"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Prototype</strong
+                  ><span>Test the interface early.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/integration-specialist.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="plug"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Integration</strong
+                  ><span>Join product and systems.</span></span
+                >
+              </span>
+            </button>
           </div>
         </div>
       </section>

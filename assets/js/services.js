@@ -61,12 +61,6 @@
       });
     });
     initSlider(
-      ".capability-swiper",
-      ".capability-prev",
-      ".capability-next",
-      ".capability-fraction",
-    );
-    initSlider(
       ".prototype-swiper",
       ".prototype-prev",
       ".prototype-next",

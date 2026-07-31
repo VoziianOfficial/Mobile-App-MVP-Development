@@ -306,77 +306,93 @@
           </form>
         </div>
       </section>
-      <section class="section" aria-labelledby="next-title">
+      <section
+        class="section expanding-gallery-section"
+        aria-labelledby="next-title"
+      >
         <div class="container">
-          <span class="eyebrow">What happens next</span>
-          <h2 class="section-title" id="next-title">
-            A considered response.
-          </h2>
-          <div class="contact-next-head">
-            <div class="slider-controls">
-              <button
-                class="icon-btn next-prev"
-                type="button"
-                aria-label="Previous next step"
-              >
-                <i data-lucide="arrow-left"></i></button
-              ><span class="next-fraction"></span
-              ><button
-                class="icon-btn next-next"
-                type="button"
-                aria-label="Next next step"
-              >
-                <i data-lucide="arrow-right"></i>
-              </button>
-            </div>
-          </div>
-          <div class="swiper next-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <article class="next-card">
-                  <small>01 / REVIEW</small>
-                  <h3>Request Review</h3>
-                  <p>
-                    We read the product context, intended audience, current
-                    state, and immediate need.
-                  </p>
-                  <div class="next-visual"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="next-card next-card--dark">
-                  <small>02 / CLARIFY</small>
-                  <h3>Clarifying Questions</h3>
-                  <p>
-                    If something materially affects the direction, we ask for
-                    missing context by email.
-                  </p>
-                  <div class="next-visual"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="next-card next-card--lime">
-                  <small>03 / DIRECTION</small>
-                  <h3>Suggested Next Step</h3>
-                  <p>
-                    We outline a useful starting point such as planning,
-                    prototype work, technical review, or scoped development.
-                  </p>
-                  <div class="next-visual"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="next-card">
-                  <small>04 / RESPONSE</small>
-                  <h3>Email Follow-Up</h3>
-                  <p>
-                    The response uses the address entered in the form and keeps
-                    the next decision explicit.
-                  </p>
-                  <div class="next-visual"><i></i><i></i><i></i></div>
-                </article>
-              </div>
-            </div>
+          <h2 class="sr-only" id="next-title">What happens next</h2>
+          <div
+            class="panel-select"
+            data-panel-select
+            role="group"
+            aria-label="What happens next"
+          >
+            <button
+              type="button"
+              class="panel-option is-active"
+              style="--panel-image: url('../images/studio-workspace.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="search"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Request Review</strong
+                  ><span>We read the context.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/workflow-meeting.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="mail"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Clarifying Questions</strong
+                  ><span>Only where needed.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/product-team.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="arrow-right"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Suggested Next Step</strong
+                  ><span>A clear first move.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/contact-founder.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="check"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Email Follow-Up</strong
+                  ><span>Decisions stay tidy.</span></span
+                >
+              </span>
+            </button>
+            <button
+              type="button"
+              class="panel-option"
+              style="--panel-image: url('../images/developer-work.jpg')"
+            >
+              <span class="panel-option-label">
+                <span class="panel-option-icon"
+                  ><i data-lucide="calendar-check"></i
+                ></span>
+                <span class="panel-option-info"
+                  ><strong>Kickoff Path</strong
+                  ><span>We shape the first step.</span></span
+                >
+              </span>
+            </button>
           </div>
         </div>
       </section>

@@ -1303,15 +1303,8 @@
   .service-tile:nth-child(n) {
     min-height: 240px;
   }
-  .service-tile--feature,
-  .service-tile--photo {
+  .service-tile--feature {
     min-height: 360px !important;
-  }
-  .service-tile--lime {
-    min-height: 410px !important;
-  }
-  .service-tile--split {
-    min-height: 390px !important;
   }
   .showcase-heading {
     gap: 17px;
@@ -1347,50 +1340,6 @@
     display: none;
   }
 }
-@media (min-width: 781px) {
-  .services-bento {
-    grid-auto-rows: 150px;
-  }
-
-  .service-tile--photo {
-    grid-column: span 3;
-    grid-row: span 1;
-    border-radius: 70px 28px 28px;
-  }
-
-  .service-tile--workflow,
-  .service-tile--dark,
-  .service-tile--support {
-    grid-column: span 3;
-    padding: 18px;
-  }
-
-  .service-tile--workflow h3,
-  .service-tile--dark h3,
-  .service-tile--support h3,
-  .service-tile--photo h3 {
-    font-size: 1.2rem;
-  }
-
-  .workflow-nodes {
-    justify-content: flex-start;
-  }
-
-  .workflow-nodes i {
-    min-width: 0;
-    padding: 7px;
-  }
-
-  .workflow-nodes b {
-    display: none;
-  }
-
-  .integration-radar {
-    margin: -25px auto;
-    scale: 0.78;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   .product-marquee-track,
   .pulse-dot,

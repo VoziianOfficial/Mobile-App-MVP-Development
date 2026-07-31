@@ -546,6 +546,15 @@
         "assets/images/mobile-testing.jpg",
       ],
       galleryTypes = data.types.concat(data.types),
+      problemImages = [
+        "../images/studio-workspace.jpg",
+        "../images/workflow-meeting.jpg",
+        "../images/ux-wireframes.jpg",
+        "../images/product-team.jpg",
+        "../images/app-closeup.jpg",
+        "../images/mobile-testing.jpg",
+      ],
+      problemIcons = ["search", "user", "layers", "plug", "pen-tool", "wrench"],
       typeGallery =
         '<section class="section service-types-section gallery-marquee-section" aria-label="Suitable product type gallery"><div class="gallery-marquee-title" aria-hidden="true"><div><span>Product Type Gallery · ' +
         esc(data.title) +
@@ -592,15 +601,22 @@
       '</p><aside class="overview-note">' +
       esc(data.note) +
       '</aside><div class="overview-route"><span>Need</span><i></i><span>Journey</span><i></i><span>Working product</span></div></div></div></section>' +
-      '<section class="section service-problems-section" aria-labelledby="problems-title"><div class="container"><span class="eyebrow">02 / Problems it helps address</span><h2 class="section-title" id="problems-title">When direction is unclear.</h2><div class="problem-grid">' +
+      '<section class="section service-problems-section expanding-gallery-section" aria-labelledby="problems-title"><div class="container"><h2 class="sr-only" id="problems-title">Problems this service helps address</h2><div class="panel-select" data-panel-select role="group" aria-label="Problems it helps address">' +
       data.problems
+        .slice(0, 5)
         .map(function (x, i) {
           return (
-            '<article class="problem-card"><small>CONTEXT ' +
+            '<button type="button" class="panel-option' +
+            (i === 0 ? " is-active" : "") +
+            '" style="--panel-image: url(\'' +
+            problemImages[i % problemImages.length] +
+            '\')"><span class="panel-option-label"><span class="panel-option-icon"><i data-lucide="' +
+            problemIcons[i % problemIcons.length] +
+            '"></i></span><span class="panel-option-info"><strong>Context ' +
             String(i + 1).padStart(2, "0") +
-            "</small><p>" +
-            esc(x) +
-            "</p><i></i></article>"
+            "</strong><span>" +
+            esc(x.length > 74 ? x.slice(0, 71).trim() + "..." : x) +
+            "</span></span></span></button>"
           );
         })
         .join("") +

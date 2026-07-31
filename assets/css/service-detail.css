@@ -224,68 +224,6 @@
 .service-problems-section {
   overflow: hidden;
 }
-.problem-grid {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 13px;
-}
-.problem-card {
-  position: relative;
-  grid-column: span 4;
-  min-height: 225px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-  padding: 25px;
-  border: 1px solid var(--color-border-light);
-  border-radius: 26px;
-  background: var(--color-surface-light);
-  transition:
-    transform 0.35s,
-    background 0.35s;
-}
-.problem-card:nth-child(1),
-.problem-card:nth-child(5) {
-  grid-column: span 5;
-}
-.problem-card:nth-child(2),
-.problem-card:nth-child(6) {
-  grid-column: span 7;
-}
-.problem-card:hover {
-  transform: translateY(-5px);
-  background: var(--color-lime);
-}
-.problem-card small {
-  color: var(--color-lime-dark);
-  font-size: 0.58rem;
-  letter-spacing: 0.12em;
-}
-.problem-card p {
-  position: relative;
-  z-index: 2;
-  max-width: 520px;
-  font-size: 1rem;
-}
-.problem-card i {
-  position: absolute;
-  right: -30px;
-  bottom: -30px;
-  width: 115px;
-  height: 115px;
-  border: 1px solid rgba(13, 15, 13, 0.18);
-  border-radius: 50%;
-}
-.service-page--ux .problem-card {
-  border-radius: 75px 20px 75px 20px;
-}
-.service-page--integrations .problem-card {
-  border-radius: 12px;
-}
-.service-page--maintenance .problem-card:nth-child(n) {
-  grid-column: span 6;
-}
 .service-included-section {
   overflow: hidden;
   border-radius: 66px 66px 0 0;
@@ -711,12 +649,6 @@
   .service-page--automation .service-overview {
     direction: ltr;
   }
-  .problem-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .problem-card:nth-child(n) {
-    grid-column: auto;
-  }
   .product-type-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -760,11 +692,9 @@
     justify-content: center;
     flex-wrap: wrap;
   }
-  .problem-grid,
   .product-type-grid {
     grid-template-columns: 1fr;
   }
-  .problem-card,
   .product-type {
     min-height: 210px;
   }

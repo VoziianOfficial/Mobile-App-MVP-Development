@@ -514,10 +514,10 @@
     mvp: "assets/images/about-team-v2.jpg",
     native: "assets/images/card-15.jpg",
     cross: "assets/images/cross-platform-team.jpg",
-    ux: "assets/images/ux-wireframes.jpg",
+    ux: "assets/images/ux-wireframes.webp",
     automation: "assets/images/workflow-meeting.jpg",
     integrations: "assets/images/integration-specialist.jpg",
-    maintenance: "assets/images/maintenance-testing.jpg",
+    maintenance: "assets/images/maintenance-testing.webp",
   };
   var shortTitles = {
     mobile: "Mobile apps",
@@ -551,26 +551,26 @@
         "assets/images/about-team-v2.jpg",
         "assets/images/card-15.jpg",
         "assets/images/cross-platform-team.jpg",
-        "assets/images/ux-wireframes.jpg",
+        "assets/images/ux-wireframes.webp",
         "assets/images/workflow-meeting.jpg",
         "assets/images/integration-specialist.jpg",
-        "assets/images/maintenance-testing.jpg",
+        "assets/images/maintenance-testing.webp",
         "assets/images/app-closeup.jpg",
         "assets/images/product-team.jpg",
         "assets/images/ux-prototype.jpg",
         "assets/images/studio-workspace.jpg",
         "assets/images/developer-work.jpg",
         "assets/images/contact-founder.jpg",
-        "assets/images/hero-person.jpg",
-        "assets/images/services-devices.jpg",
+        "assets/images/hero-person.webp",
+        "assets/images/services-devices.webp",
         "assets/images/card-1.jpg",
         "assets/images/card-12.jpg",
         "assets/images/card-13.jpg",
         "assets/images/card-paralaks.jpg",
-        "assets/images/standards-portrait.png",
-        "assets/images/faq-home-portrait.png",
-        "assets/images/services-faq-portrait.png",
-        "assets/images/service-faq-robot.png",
+        "assets/images/standards-portrait.webp",
+        "assets/images/faq-home-portrait.webp",
+        "assets/images/services-faq-portrait.webp",
+        "assets/images/service-faq-robot.webp",
       ],
       galleryOffset = Math.max(0, Object.keys(all).indexOf(key)) * 3,
       galleryImages = galleryImagePool
@@ -580,7 +580,7 @@
       problemImages = [
         "../images/studio-workspace.jpg",
         "../images/workflow-meeting.jpg",
-        "../images/ux-wireframes.jpg",
+        "../images/ux-wireframes.webp",
         "../images/product-team.jpg",
         "../images/app-closeup.jpg",
         "../images/mobile-testing.jpg",
@@ -840,7 +840,7 @@
             );
           })
           .join("") +
-        '</div></div><figure class="round-cta-portrait round-cta-portrait--service" data-aos="safe-image-scale"><img src="assets/images/service-faq-robot.png" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
+        '</div></div><figure class="round-cta-portrait round-cta-portrait--service" data-aos="safe-image-scale"><img src="assets/images/service-faq-robot.webp" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
       );
     }
     function includedStatsSection() {

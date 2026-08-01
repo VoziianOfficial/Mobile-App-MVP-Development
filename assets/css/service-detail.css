@@ -117,7 +117,7 @@
 .service-page--ux .service-visual::before {
   inset: 0 8%;
   border-radius: 50%;
-  background-image: url("../images/ux-wireframes.jpg");
+  background-image: url("../images/ux-wireframes.webp");
 }
 .service-page--automation .service-visual::before {
   inset: 7% 0 0 4%;
@@ -132,7 +132,7 @@
 .service-page--maintenance .service-visual::before {
   inset: 0 13% 15px;
   border-radius: 120px 28px 120px 28px;
-  background-image: url("../images/maintenance-testing.jpg");
+  background-image: url("../images/maintenance-testing.webp");
 }
 .service-overview-section .spotlight-intro > p {
   font-size: clamp(1.25rem, 2vw, 1.75rem);

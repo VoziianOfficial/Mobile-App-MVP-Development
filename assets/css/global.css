@@ -97,6 +97,21 @@ p:last-child {
   position: relative;
   padding: var(--section-space) 0;
 }
+.form-layout,
+.editorial,
+.legal-layout,
+.contact-faq-layout,
+.story-scroll-grid {
+  align-items: start;
+  overflow: visible;
+}
+.form-intro,
+.intro-sticky-copy,
+.legal-nav,
+.contact-faq-layout > div:first-child,
+.story-scroll-visual {
+  align-self: start;
+}
 .section--compact {
   padding: var(--section-space-compact) 0;
 }

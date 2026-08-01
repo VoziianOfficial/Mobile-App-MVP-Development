@@ -135,7 +135,7 @@
       c.contact.address +
       '</address><a href="contact.html#project-form">Open the project brief ' +
       icon("arrow-up-right") +
-      '</a></div></div><div class="footer-bottom"><span>' +
+      '</a></div></div><div class="footer-disclaimer" role="note"><span aria-hidden="true"></span><p>Kovexa Studio provides product planning, design, development, and support information for discussion purposes. Final scope, timelines, estimates, and outcomes depend on project details, platform requirements, third-party services, approvals, and written agreement.</p></div><div class="footer-bottom"><span>' +
       c.footer.copyright +
       '</span><div class="footer-legal"><a href="' +
       c.legal.privacyLink +

@@ -345,43 +345,96 @@
 }
 .exist-panel {
   position: relative;
+  min-height: clamp(500px, 46vw, 680px);
+  display: flex;
+  align-items: center;
   overflow: hidden;
+  background: var(--color-black);
+  isolation: isolate;
+}
+.exist-panel > img {
+  position: absolute;
+  inset: -7% 0;
+  z-index: -2;
+  width: 100%;
+  height: 114%;
+  object-fit: cover;
+  opacity: 0.74;
+  filter: saturate(0.96) contrast(1.04);
+}
+.exist-panel::after {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: rgba(13, 15, 13, 0.54);
+  content: "";
 }
 .exist-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 50px;
+  grid-template-columns: minmax(0, 760px);
+  gap: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-.orbit {
+.exist-grid > div {
+  width: min(100%, 820px);
+  margin-inline: auto;
+  padding: clamp(30px, 4vw, 54px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: clamp(26px, 3vw, 42px);
+  background: rgba(13, 15, 13, 0.52);
+  backdrop-filter: blur(16px);
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.18);
+}
+.exist-panel .eyebrow {
+  justify-content: center;
+  margin-inline: auto;
+}
+.exist-panel .section-title {
+  max-width: 12ch;
+  margin-inline: auto;
+}
+.exist-panel .check-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: clamp(24px, 3vw, 36px);
+}
+.exist-panel .check-list li {
   position: relative;
-  width: 280px;
-  height: 280px;
-  margin: auto;
-  border: 1px solid var(--color-border-dark);
-  border-radius: 50%;
+  align-items: center;
+  min-height: 68px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.055);
+  color: var(--color-text-muted-dark);
+  text-align: left;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease;
 }
-.orbit::before,
-.orbit::after {
-  position: absolute;
-  border-radius: 50%;
-  content: "";
+.exist-panel .check-list li::before {
+  margin-top: 0;
+  border-color: var(--color-lime);
+  background: rgba(13, 15, 13, 0.88);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease;
 }
-.orbit::before {
-  inset: 38px;
-  border: 1px solid var(--color-lime);
+.exist-panel .check-list li:hover {
+  border-color: rgba(201, 255, 87, 0.52);
+  background: rgba(201, 255, 87, 0.12);
+  color: var(--color-white);
+  transform: translateY(-4px);
 }
-.orbit::after {
-  width: 20px;
-  height: 20px;
-  top: 18px;
-  left: 75px;
+.exist-panel .check-list li:hover::before {
+  border-color: var(--color-white);
   background: var(--color-lime);
-  animation: orbitPulse 3s ease-in-out infinite;
-}
-@keyframes orbitPulse {
-  50% {
-    transform: translate(115px, 210px);
-  }
+  transform: scale(1.12);
 }
 .principles {
   display: grid;
@@ -1226,10 +1279,6 @@
   .product-diagram {
     flex-wrap: wrap;
   }
-  .orbit {
-    width: 230px;
-    height: 230px;
-  }
 }
 
 /* Full About redesign */
@@ -1651,6 +1700,16 @@
     top: 42%;
     width: 220px;
     opacity: 0.26;
+  }
+  .exist-grid > div {
+    padding: 26px 18px;
+  }
+  .exist-panel .check-list {
+    grid-template-columns: 1fr;
+  }
+  .exist-panel .check-list li {
+    min-height: 58px;
+    text-align: left;
   }
   .expertise-swiper {
     overflow: hidden;

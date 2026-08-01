@@ -95,8 +95,7 @@
 }
 .kovexa-hero h1 em,
 .idea-copy h2 em,
-.section-heading-row h2 em,
-.showcase-heading h2 em {
+.section-heading-row h2 em {
   color: var(--color-lime);
   font-style: normal;
 }
@@ -504,8 +503,7 @@
   color: var(--color-lime);
 }
 .idea-copy h2,
-.section-heading-row h2,
-.showcase-heading h2 {
+.section-heading-row h2 {
   max-width: 22ch;
   margin-bottom: 24px;
   font-size: clamp(2.55rem, 4.2vw, 4.75rem);
@@ -526,7 +524,7 @@
   transform: translateY(8px);
 }
 .idea-copy h2 em,
-.showcase-heading h2 em {
+.showcase-offer-heading h2 em {
   color: var(--color-lime-dark);
 }
 .idea-copy p {
@@ -862,213 +860,215 @@
 }
 
 .interface-showcase {
-  padding: clamp(70px, 7vw, 108px) 0;
+  padding: clamp(66px, 7vw, 106px) 0;
   overflow: hidden;
   background: var(--color-paper);
 }
-.showcase-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 30px;
-  margin-bottom: 34px;
-}
-.showcase-heading h2 {
+.showcase-offer-heading {
   max-width: 880px;
-  margin: 0;
-}
-.showcase-controls {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-}
-.showcase-controls button {
-  width: 52px;
-  height: 52px;
-  display: grid;
-  place-items: center;
-  border: 1px solid var(--color-border-light);
-  border-radius: 16px;
-  background: var(--color-white);
-  color: var(--color-black);
-  cursor: pointer;
-  transition:
-    background 0.25s,
-    color 0.25s,
-    transform 0.25s;
-}
-.showcase-controls button:first-child svg {
-  transform: rotate(180deg);
-}
-.showcase-controls button:hover {
-  background: var(--color-black);
-  color: var(--color-white);
-  transform: translateY(-2px);
-}
-.showcase-fraction {
-  min-width: 62px;
+  margin: 0 auto clamp(30px, 4vw, 54px);
   text-align: center;
-  font-size: 0.72rem;
-  font-weight: 700;
 }
-.premium-interface-swiper {
-  overflow: visible;
-  padding: 10px 0 30px;
+.showcase-offer-heading .ref-kicker {
+  justify-content: center;
+  margin-bottom: 13px;
 }
-.premium-interface-swiper::before,
-.premium-interface-swiper::after {
-  position: absolute;
-  z-index: 10;
-  top: 0;
-  bottom: 0;
-  width: max(16px, calc((100vw - 1320px) / 2));
-  background: var(--color-paper);
-  pointer-events: none;
-  content: "";
+.showcase-offer-heading .ref-kicker svg {
+  width: 18px;
+  margin-left: 10px;
 }
-.premium-interface-swiper::before {
-  right: 100%;
+.showcase-offer-heading h2 {
+  max-width: 780px;
+  margin: 0 auto;
+  font-size: clamp(2.45rem, 5.1vw, 5.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.075em;
 }
-.premium-interface-swiper::after {
-  left: 100%;
-}
-.showcase-slide {
-  padding: 8px;
-  transition:
-    opacity 0.4s,
-    transform 0.5s;
-}
-.showcase-slide:not(.is-active) {
-  opacity: 0.5;
-  transform: scale(0.95);
-}
-.showcase-slide article {
-  position: relative;
-  min-height: 530px;
+.showcase-offer-grid {
+  width: min(100%, 1240px);
   display: grid;
-  grid-template-columns: 0.72fr 1.28fr;
-  align-items: center;
-  gap: 25px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(14px, 1.5vw, 22px);
+  margin-inline: auto;
+}
+.showcase-offer-card {
+  position: relative;
+  min-height: clamp(280px, 23vw, 360px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: clamp(22px, 3vw, 56px);
   overflow: hidden;
-  padding: clamp(28px, 4vw, 58px);
-  border: 1px solid var(--color-border-light);
-  border-radius: 38px;
-  background: var(--color-surface-light);
+  padding: clamp(28px, 4vw, 56px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: clamp(26px, 3vw, 42px);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.07), transparent 44%),
+    var(--color-surface-dark);
+  color: var(--color-white);
+  isolation: isolate;
+  transition:
+    border-color 0.45s ease,
+    color 0.45s ease,
+    transform 0.45s ease;
 }
-.showcase-slide article > img {
+.showcase-offer-card::before {
   position: absolute;
-  right: 0;
-  top: 0;
-  width: 47%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
-}
-.showcase-copy {
-  position: relative;
-  z-index: 3;
-  align-self: center;
-  max-width: 420px;
-}
-.showcase-copy > span {
-  color: var(--color-lime-dark);
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-}
-.showcase-copy h3 {
-  margin: 14px 0;
-  font-size: clamp(2rem, 3.4vw, 3.8rem);
-  line-height: 0.98;
-  letter-spacing: 0;
-}
-.showcase-copy p {
-  color: var(--color-text-muted);
-}
-.showcase-copy a {
-  display: inline-flex;
-  align-items: center;
-  gap: 9px;
-  margin-top: 15px;
-  font-size: 0.78rem;
-  font-weight: 700;
-}
-.showcase-copy svg {
-  width: 16px;
-}
-.showcase-phone {
-  position: relative;
-  z-index: 4;
-  justify-self: center;
-  width: 205px;
-  height: 400px;
-  padding: 11px;
-  border: 2px solid #323731;
-  border-radius: 38px;
-  background: var(--color-black);
-  transform: rotate(3deg);
-}
-.showcase-phone::before {
-  position: absolute;
-  z-index: 2;
-  top: 19px;
-  left: 50%;
-  width: 65px;
-  height: 17px;
-  border-radius: 20px;
-  background: var(--color-black);
-  transform: translateX(-50%);
+  z-index: -2;
+  inset: 0;
+  background:
+    radial-gradient(circle at 16% 20%, rgba(255, 255, 255, 0.11), transparent 27%),
+    linear-gradient(135deg, rgba(201, 255, 87, 0.08), transparent 52%);
   content: "";
 }
-.showcase-phone > div {
-  height: 100%;
-  display: grid;
-  align-content: center;
-  gap: 18px;
-  padding: 42px 18px 18px;
-  border-radius: 28px;
-  background: var(--color-paper);
+.showcase-offer-card::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: var(--offer-accent, var(--color-lime));
+  clip-path: circle(var(--offer-size, calc(5.8rem + 7vw)) at var(--offer-x, 100%) var(--offer-y, 100%));
+  opacity: 0.96;
+  transition:
+    clip-path 0.72s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.45s ease;
+  content: "";
 }
-.showcase-phone small,
-.showcase-phone strong,
-.showcase-phone span {
-  display: block;
+.showcase-offer-glow {
+  position: absolute;
+  z-index: 1;
+  width: clamp(105px, 13vw, 210px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  translate: -50% -50%;
+  pointer-events: none;
+  transition:
+    border-color 0.45s ease,
+    background 0.45s ease,
+    transform 0.55s ease;
 }
-.showcase-phone small {
-  color: var(--color-text-muted);
-  font-size: 0.62rem;
+.showcase-offer-card:nth-child(1) {
+  --offer-accent: var(--color-lime);
+  --offer-x: 100%;
+  --offer-y: 100%;
 }
-.showcase-phone strong {
-  font-size: 1.25rem;
+.showcase-offer-card:nth-child(1) .showcase-offer-glow {
+  right: -18px;
+  bottom: -18px;
+  translate: 0 0;
 }
-.showcase-phone span {
-  padding: 14px;
-  border-radius: 12px;
-  background: var(--color-white);
-  font-size: 0.7rem;
+.showcase-offer-card:nth-child(2) {
+  --offer-accent: #dcd8ff;
+  --offer-x: 0%;
+  --offer-y: 100%;
 }
-.showcase-phone button {
-  min-height: 43px;
-  border: 0;
-  border-radius: 13px;
-  background: var(--color-lime);
-  font-size: 0.68rem;
+.showcase-offer-card:nth-child(2) .showcase-offer-glow {
+  left: -18px;
+  bottom: -18px;
+  translate: 0 0;
+}
+.showcase-offer-card:nth-child(3) {
+  --offer-accent: #eff0e6;
+  --offer-x: 100%;
+  --offer-y: 0%;
+}
+.showcase-offer-card:nth-child(3) .showcase-offer-glow {
+  right: -18px;
+  top: -18px;
+  translate: 0 0;
+}
+.showcase-offer-card:nth-child(4) {
+  --offer-accent: #bfe6ff;
+  --offer-x: 0%;
+  --offer-y: 0%;
+}
+.showcase-offer-card:nth-child(4) .showcase-offer-glow {
+  left: -18px;
+  top: -18px;
+  translate: 0 0;
+}
+.showcase-offer-card:hover,
+.showcase-offer-card:focus-visible {
+  color: var(--color-black);
+  border-color: rgba(13, 15, 13, 0.2);
+  transform: translateY(-5px);
+}
+.showcase-offer-card:hover::after,
+.showcase-offer-card:focus-visible::after {
+  clip-path: circle(150% at var(--offer-x) var(--offer-y));
+}
+.showcase-offer-card:hover .showcase-offer-glow,
+.showcase-offer-card:focus-visible .showcase-offer-glow {
+  border-color: rgba(13, 15, 13, 0.2);
+  background: rgba(13, 15, 13, 0.05);
+  transform: scale(1.12);
+}
+.showcase-offer-card:focus-visible {
+  outline: 3px solid rgba(13, 15, 13, 0.24);
+  outline-offset: 4px;
+}
+.showcase-offer-card > div {
+  position: relative;
+  z-index: 2;
+  max-width: 520px;
+}
+.showcase-offer-card:nth-child(even) > div {
+  max-width: 455px;
+  margin-left: auto;
+}
+.showcase-offer-card > div > span {
+  display: inline-flex;
+  margin-bottom: 18px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 0.66rem;
   font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  transition: color 0.45s ease;
 }
-.showcase-phone--dark > div {
-  background: var(--color-surface-dark);
-  color: var(--color-white);
+.showcase-offer-card h3 {
+  max-width: 410px;
+  margin: 0 0 16px;
+  font-size: clamp(1.95rem, 3vw, 3.55rem);
+  line-height: 0.96;
+  letter-spacing: -0.055em;
 }
-.showcase-phone--dark span {
-  background: var(--color-surface-dark-soft);
+.showcase-offer-card p {
+  max-width: 470px;
+  margin: 0;
+  color: rgba(248, 248, 242, 0.68);
+  font-size: clamp(0.92rem, 1vw, 1.03rem);
+  line-height: 1.55;
+  transition: color 0.45s ease;
 }
-.showcase-phone--lime > div {
-  background: var(--color-lime);
+.showcase-offer-card > svg {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 auto;
+  width: clamp(44px, 5vw, 74px);
+  height: clamp(44px, 5vw, 74px);
+  padding: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: currentColor;
+  transition:
+    background 0.45s ease,
+    border-color 0.45s ease,
+    transform 0.45s ease;
 }
-.showcase-phone--lime button {
-  background: var(--color-black);
-  color: var(--color-white);
+.showcase-offer-card:hover > div > span,
+.showcase-offer-card:focus-visible > div > span,
+.showcase-offer-card:hover p,
+.showcase-offer-card:focus-visible p {
+  color: rgba(13, 15, 13, 0.72);
+}
+.showcase-offer-card:hover > svg,
+.showcase-offer-card:focus-visible > svg {
+  border-color: rgba(13, 15, 13, 0.26);
+  background: rgba(13, 15, 13, 0.08);
+  transform: translate(8px, -8px);
 }
 
 @media (max-width: 1100px) {
@@ -1115,11 +1115,15 @@
   .services-bento {
     grid-auto-rows: 205px;
   }
-  .showcase-slide article {
-    grid-template-columns: 0.8fr 1.2fr;
+  .showcase-offer-grid {
+    width: min(100%, 1120px);
   }
-  .showcase-slide article > img {
-    width: 42%;
+  .showcase-offer-card {
+    min-height: 310px;
+    padding: 34px;
+  }
+  .showcase-offer-card h3 {
+    font-size: clamp(1.75rem, 3.9vw, 2.8rem);
   }
 }
 @media (max-width: 780px) {
@@ -1169,36 +1173,19 @@
   .service-tile--feature {
     min-height: 420px !important;
   }
-  .showcase-heading {
-    align-items: flex-start;
-    flex-direction: column;
+  .showcase-offer-heading {
+    margin-bottom: 28px;
   }
-  .showcase-slide article {
-    min-height: 620px;
+  .showcase-offer-grid {
     grid-template-columns: 1fr;
-    padding-bottom: 260px;
+    width: min(100%, 680px);
   }
-  .showcase-slide article > img {
-    width: 100%;
-    height: 42%;
-    top: auto;
-    bottom: 0;
-    clip-path: polygon(0 16%, 100% 0, 100% 100%, 0 100%);
+  .showcase-offer-card {
+    min-height: 260px;
   }
-  .showcase-phone {
-    position: absolute;
-    z-index: 5;
-    right: 12%;
-    bottom: 70px;
-    width: 150px;
-    height: 290px;
-  }
-  .showcase-phone > div {
-    gap: 9px;
-    padding: 35px 12px 12px;
-  }
-  .showcase-phone strong {
-    font-size: 0.9rem;
+  .showcase-offer-card:nth-child(n) {
+    --offer-x: 100%;
+    --offer-y: 100%;
   }
 }
 @media (max-width: 560px) {
@@ -1275,8 +1262,7 @@
     padding-block: 66px;
   }
   .idea-copy h2,
-  .section-heading-row h2,
-  .showcase-heading h2 {
+  .section-heading-row h2 {
     font-size: clamp(2.05rem, 8.5vw, 2.65rem);
   }
   .idea-media {
@@ -1330,35 +1316,40 @@
   .service-tile--feature {
     min-height: 360px !important;
   }
-  .showcase-heading {
-    gap: 17px;
+  .interface-showcase {
+    padding-block: 58px;
   }
-  .showcase-controls {
-    width: 100%;
-    justify-content: space-between;
+  .showcase-offer-heading h2 {
+    font-size: clamp(2.15rem, 11vw, 3rem);
+    line-height: 0.98;
+    letter-spacing: -0.06em;
   }
-  .premium-interface-swiper {
-    overflow: hidden;
-    margin-inline: -14px;
-    padding-inline: 6px;
+  .showcase-offer-grid {
+    gap: 12px;
   }
-  .showcase-slide {
-    padding: 4px;
+  .showcase-offer-card {
+    min-height: 242px;
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 26px 22px;
+    border-radius: 26px;
   }
-  .showcase-slide article {
-    min-height: 610px;
-    padding: 28px 22px 250px;
-    border-radius: 27px;
+  .showcase-offer-card:nth-child(even) > div {
+    max-width: 520px;
+    margin-left: 0;
   }
-  .showcase-copy h3 {
-    font-size: 2.15rem;
+  .showcase-offer-card h3 {
+    max-width: 9ch;
+    font-size: clamp(1.75rem, 8vw, 2.35rem);
   }
-  .showcase-phone {
-    right: 5%;
-    bottom: 42px;
+  .showcase-offer-card p {
+    font-size: 0.9rem;
   }
-  .showcase-slide article > img {
-    height: 43%;
+  .showcase-offer-card > svg {
+    width: 52px;
+    height: 52px;
+    padding: 13px;
+    align-self: flex-end;
   }
   .hero-orbit-line {
     display: none;
@@ -1367,8 +1358,12 @@
 @media (prefers-reduced-motion: reduce) {
   .product-marquee-track,
   .pulse-dot,
+  .showcase-offer-card,
+  .showcase-offer-card::after,
+  .showcase-offer-glow,
   .is-ready .hero-product-scene > * {
     animation: none;
+    transition: none;
   }
   .hero-product-scene > * {
     opacity: 1;

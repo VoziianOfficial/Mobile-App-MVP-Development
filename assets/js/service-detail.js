@@ -820,6 +820,41 @@
         '</div></div><figure class="round-cta-portrait round-cta-portrait--service"><img src="assets/images/service-faq-robot.png" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
       );
     }
+    function includedStatsSection() {
+      var stats = [
+        ["4", "Core decisions clarified"],
+        ["3", "Reviewable build layers"],
+        ["1", "Primary workflow focus"],
+        ["∞", "Room to improve"],
+      ];
+      var row = data.included
+        .slice(0, 5)
+        .concat(data.process.slice(0, 3))
+        .join(" · ");
+      return (
+        '<section class="section section--light service-included-section service-included-stats" aria-labelledby="included-title"><div class="container service-included-inner"><div class="service-included-head"><span class="eyebrow">What is included</span><h2 class="section-title" id="included-title">Workstreams shaped for one useful product.</h2><p>Every layer stays visible, reviewable and tied to the workflow this service needs to support.</p></div><div class="included-stat-grid">' +
+        stats
+          .map(function (stat) {
+            return (
+              '<article class="included-stat"><strong>' +
+              esc(stat[0]) +
+              '</strong><span>' +
+              esc(stat[1]) +
+              "</span></article>"
+            );
+          })
+          .join("") +
+        '</div></div><div class="included-marquee included-marquee--lime" aria-hidden="true"><div><span>' +
+        esc(row) +
+        " · </span><span>" +
+        esc(row) +
+        ' · </span></div></div><div class="included-marquee included-marquee--lavender" aria-hidden="true"><div><span>' +
+        esc(data.title) +
+        " · Focused scope · Practical release · Connected workflow · </span><span>" +
+        esc(data.title) +
+        " · Focused scope · Practical release · Connected workflow · </span></div></div></section>"
+      );
+    }
     return (
       faqSection() +
       highlightSlider() +
@@ -848,17 +883,7 @@
         })
         .join("") +
       "</div></div></section>" +
-      '<section class="section section--dark service-included-section" aria-labelledby="included-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">What is included</span><h2 class="section-title" id="included-title">Workstreams shaped to scope.</h2></div><div class="spotlight-intro"><p>Every workstream stays a visible, reviewable part of the engagement — hover a line to see where it sits in ' +
-      esc(data.title) +
-      '.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
-      spotlightList(data.included) +
-      '</ul><figure class="spotlight-visual"><img src="' +
-      spotlightImages[0] +
-      '" alt="' +
-      esc(data.included[0]) +
-      " — " +
-      esc(data.title) +
-      '" loading="lazy"></figure></div></div></section>' +
+      includedStatsSection() +
       typeGallery +
       '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="spotlight-intro"><p>Each step stays a visible decision point, so the team always knows what happens next and why.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
       spotlightList(data.process) +

@@ -13,7 +13,6 @@
   position: absolute;
   inset: 0;
   opacity: 0.2;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='92' height='92'%3E%3Cpath d='M0 0H92M46 0V92M0 46H92' fill='none' stroke='%2399a095' stroke-opacity='.22'/%3E%3C/svg%3E");
 }
 .services-hero-grid {
   position: relative;

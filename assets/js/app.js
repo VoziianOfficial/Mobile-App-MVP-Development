@@ -683,9 +683,64 @@
       overlay.inert = !overlay.classList.contains("is-open");
     }).observe(overlay, { attributes: true, attributeFilter: ["class"] });
   }
+  function legalConfirmCard() {
+    return (
+      '<div class="legal-confirm-overlay" data-legal-confirm aria-hidden="true">' +
+      '<aside class="legal-confirm-card" role="note" aria-labelledby="legal-confirm-title" aria-describedby="legal-confirm-copy">' +
+      '<div class="legal-confirm-badge" aria-hidden="true"><i></i><span>Legal</span></div>' +
+      '<div class="legal-confirm-copy"><h2 id="legal-confirm-title">Quick legal note</h2>' +
+      '<p id="legal-confirm-copy">' +
+      safe(c.brand.name) +
+      " shares website information for discussion purposes. Confirm you understand our terms, privacy notice and cookies." +
+      '</p><div class="legal-confirm-links" aria-label="Legal pages"><a href="' +
+      safe(c.legal.privacyLink) +
+      '">' +
+      safe(c.legal.privacyLabel) +
+      '</a><a href="' +
+      safe(c.legal.termsLink) +
+      '">' +
+      safe(c.legal.termsLabel) +
+      '</a><a href="' +
+      safe(c.legal.cookiesLink) +
+      '">' +
+      safe(c.legal.cookiesLabel) +
+      "</a></div></div>" +
+      '<div class="legal-confirm-actions"><button class="legal-confirm-accept" type="button" aria-label="I understand"><span>I understand</span><b>' +
+      icon("check") +
+      "</b></button></div>" +
+      "</aside></div>"
+    );
+  }
+  function bindLegalConfirm() {
+    var key = "kovexa-legal-confirmed-v2";
+    try {
+      if (window.localStorage.getItem(key) === "yes") return;
+    } catch (e) {}
+    if (document.querySelector("[data-legal-confirm]")) return;
+    document.body.insertAdjacentHTML("beforeend", legalConfirmCard());
+    var overlay = document.querySelector("[data-legal-confirm]");
+    var accept = overlay && overlay.querySelector(".legal-confirm-accept");
+    if (!overlay || !accept) return;
+    function close() {
+      try {
+        window.localStorage.setItem(key, "yes");
+      } catch (e) {}
+      overlay.classList.remove("is-visible");
+      overlay.setAttribute("aria-hidden", "true");
+      window.setTimeout(function () {
+        overlay.remove();
+      }, 360);
+    }
+    requestAnimationFrame(function () {
+      overlay.classList.add("is-visible");
+      overlay.setAttribute("aria-hidden", "false");
+    });
+    accept.addEventListener("click", close);
+  }
   function init() {
     shell();
     menuInert();
+    bindLegalConfirm();
     if (window.SiteConfigTools) SiteConfigTools.render(document);
     accordions();
     tabs();

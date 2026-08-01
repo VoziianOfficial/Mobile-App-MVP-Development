@@ -424,7 +424,7 @@
   background: var(--color-surface-light);
 }
 .service-highlight-section .container {
-  width: min(calc(100% - 48px), 1160px);
+  width: min(calc(100% - 48px), 1280px);
 }
 .service-highlight-slider {
   position: relative;
@@ -433,7 +433,7 @@
   cursor: grab;
   touch-action: pan-y;
   user-select: none;
-  padding: clamp(28px, 3.2vw, 46px) clamp(62px, 6vw, 96px)
+  padding: clamp(32px, 3.4vw, 52px) clamp(78px, 7vw, 124px)
     clamp(28px, 3.2vw, 46px) clamp(28px, 3.2vw, 46px);
   border: 1px solid rgba(255, 255, 255, 0.66);
   border-radius: clamp(28px, 3vw, 38px);
@@ -742,7 +742,7 @@
   }
   .service-highlight-slider {
     min-height: 390px;
-    padding-inline: clamp(24px, 3vw, 38px) clamp(46px, 5vw, 70px);
+    padding-inline: clamp(24px, 3vw, 38px) clamp(58px, 6vw, 86px);
   }
   .service-highlight-image {
     width: clamp(250px, 32vw, 310px);

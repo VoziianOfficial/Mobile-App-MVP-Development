@@ -117,10 +117,7 @@ p:last-child {
 .dimension-section {
   background: var(--color-surface-light);
 }
-.dimension-section .section-title,
-.dimension-section h2 {
-  max-width: 16ch;
-}
+
 .dimension-card-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

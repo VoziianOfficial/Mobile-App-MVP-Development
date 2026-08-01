@@ -413,6 +413,93 @@
     addEventListener("resize", schedule, { passive: true });
     schedule();
   }
+  function highlightSliders() {
+    if (!window.Swiper) return;
+    document.querySelectorAll("[data-highlight-slider]").forEach(function (el) {
+      if (el.dataset.swiperReady) return;
+      el.dataset.swiperReady = "true";
+      var pagination = el.querySelector(".service-highlight-pagination");
+      var slides = [].slice.call(el.querySelectorAll(".swiper-slide"));
+      if (pagination) {
+        pagination.innerHTML = slides
+          .map(function (_, index) {
+            return (
+              '<button class="swiper-pagination-bullet" type="button" aria-label="Go to slide ' +
+              (index + 1) +
+              '"></button>'
+            );
+          })
+          .join("");
+      }
+      var dots = pagination
+        ? [].slice.call(pagination.querySelectorAll("button"))
+        : [];
+      var swiper = new Swiper(el, {
+        slidesPerView: 1,
+        onChange: function (index) {
+          dots.forEach(function (dot, i) {
+            var active = i === index;
+            dot.classList.toggle("swiper-pagination-bullet-active", active);
+            dot.setAttribute("aria-current", active ? "true" : "false");
+          });
+        },
+      });
+      swiper.slideNext = function () {
+        swiper.index = (swiper.index + 1) % slides.length;
+        swiper.update();
+      };
+      swiper.slidePrev = function () {
+        swiper.index = (swiper.index - 1 + slides.length) % slides.length;
+        swiper.update();
+      };
+      var verticalStart = { x: 0, y: 0 };
+      var wheelLocked = false;
+      el.addEventListener("pointerdown", function (e) {
+        verticalStart.x = e.clientX;
+        verticalStart.y = e.clientY;
+        el.classList.add("is-dragging");
+      });
+      el.addEventListener("pointerup", function (e) {
+        var dx = e.clientX - verticalStart.x;
+        var dy = e.clientY - verticalStart.y;
+        var mainDelta = Math.abs(dy) > Math.abs(dx) ? dy : dx;
+        el.classList.remove("is-dragging");
+        if (Math.abs(mainDelta) > 18) {
+          mainDelta < 0 ? swiper.slideNext() : swiper.slidePrev();
+        }
+      });
+      el.addEventListener("pointercancel", function () {
+        el.classList.remove("is-dragging");
+      });
+      el.addEventListener(
+        "wheel",
+        function (e) {
+          if (Math.abs(e.deltaY) < 10 || wheelLocked) return;
+          e.preventDefault();
+          wheelLocked = true;
+          e.deltaY > 0 ? swiper.slideNext() : swiper.slidePrev();
+          window.setTimeout(function () {
+            wheelLocked = false;
+          }, 520);
+        },
+        { passive: false },
+      );
+      el.addEventListener("keydown", function (e) {
+        if (e.key === "ArrowDown" || e.key === "ArrowUp") {
+          e.preventDefault();
+          e.key === "ArrowDown" ? swiper.slideNext() : swiper.slidePrev();
+        }
+      });
+      dots.forEach(function (dot, index) {
+        dot.addEventListener("pointerdown", function (e) {
+          e.stopPropagation();
+        });
+        dot.addEventListener("click", function () {
+          swiper.slideTo(index);
+        });
+      });
+    });
+  }
   function storySwipers() {
     if (!window.Swiper) return;
     document.querySelectorAll("[data-story-swiper]").forEach(function (el) {
@@ -512,6 +599,7 @@
     spotlightGroups();
     siteParallax();
     storySwipers();
+    highlightSliders();
     if (window.lucide) lucide.createIcons();
     if (window.AOS)
       AOS.init({

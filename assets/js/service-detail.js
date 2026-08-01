@@ -614,6 +614,79 @@
       "assets/images/product-team.jpg",
       "assets/images/workflow-meeting.jpg",
     ];
+    var highlightStories = [
+      {
+        code: "Phase 01 / Product fit",
+        title: data.process[0] || "Clarify the first move",
+        text:
+          data.note +
+          " We turn that into a sharp release direction, so the first build has a clear reason to exist.",
+        cta: "Shape the direction",
+        points: ["Workflow", "Audience", "Release boundary"],
+      },
+      {
+        code: "Phase 02 / Interface system",
+        title: data.process[1] || "Map the central journey",
+        text:
+          data.included[1] +
+          ", " +
+          data.included[2] +
+          " and key edge states are translated into screens that can actually be reviewed, tested and built.",
+        cta: "Review the screens",
+        points: ["Screens", "States", "Prototype"],
+      },
+      {
+        code: "Phase 03 / Build readiness",
+        title: data.process[3] || "Build and connect",
+        text:
+          data.tech.slice(0, 3).join(", ") +
+          " stay visible as product decisions, not hidden technical afterthoughts.",
+        cta: "Plan the build",
+        points: ["Integrations", "Testing", "Launch"],
+      },
+    ];
+    function highlightSlider() {
+      return (
+        '<section class="section service-highlight-section" aria-labelledby="highlight-title"><div class="container"><div class="swiper service-highlight-slider" data-highlight-slider aria-label="' +
+        esc(data.title) +
+        ' featured service slider"><div class="swiper-wrapper">' +
+        highlightStories
+          .slice(0, 3)
+          .map(function (story, i) {
+            return (
+              '<article class="swiper-slide service-highlight-slide"><figure class="service-highlight-image"><img src="' +
+              spotlightImages[i % spotlightImages.length] +
+              '" alt="' +
+              esc(story.title) +
+              " for " +
+              esc(data.title) +
+              '" loading="lazy"><figcaption><span>' +
+              esc(data.types[i] || shortTitles[key]) +
+              '</span><strong>0' +
+              (i + 1) +
+              '</strong></figcaption></figure><div class="service-highlight-content"><span class="service-highlight-tag">' +
+              esc(story.code) +
+              "</span>" +
+              (i === 0
+                ? '<h2 id="highlight-title">' + esc(story.title) + ".</h2>"
+                : "<h3>" + esc(story.title) + ".</h3>") +
+              "<p>" +
+              esc(story.text) +
+              '</p><div class="service-highlight-points">' +
+              story.points
+                .map(function (point) {
+                  return "<span>" + esc(point) + "</span>";
+                })
+                .join("") +
+              '</div><a class="service-highlight-button" href="contact.html#project-form">' +
+              esc(story.cta) +
+              ' <i data-lucide="arrow-up-right"></i></a></div></article>'
+            );
+          })
+          .join("") +
+        '</div><div class="service-highlight-pagination"></div></div></div></section>'
+      );
+    }
     function spotlightList(items) {
       return items
         .map(function (x, i) {
@@ -737,6 +810,7 @@
       );
     }
     return (
+      highlightSlider() +
       '<section class="section section--light service-overview-section dimension-section" aria-labelledby="overview-title"><div class="container"><span class="eyebrow">Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2><p class="lead">' +
       esc(data.overview) +
       '</p><div class="dimension-card-grid">' +

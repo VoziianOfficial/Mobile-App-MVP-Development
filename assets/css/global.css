@@ -3622,7 +3622,7 @@ p:last-child {
 
 .gallery-marquee-section.gallery-marquee-section {
   position: relative;
-  padding: clamp(58px, 7vw, 96px) 0 clamp(42px, 5vw, 72px) !important;
+  padding: clamp(34px, 4.6vw, 62px) 0 clamp(28px, 3.8vw, 48px) !important;
   overflow: hidden;
   background: var(--color-black);
   color: var(--color-white);
@@ -3649,7 +3649,7 @@ p:last-child {
 .gallery-marquee-title {
   width: 100%;
   overflow: hidden;
-  margin-bottom: clamp(28px, 4vw, 54px);
+  margin-bottom: clamp(16px, 2.5vw, 28px);
   opacity: 0.96;
 }
 .gallery-marquee-title > div {
@@ -3661,26 +3661,26 @@ p:last-child {
   display: inline-block;
   padding-right: 0.22em;
   color: rgba(255, 255, 255, 0.9);
-  font-size: clamp(4.4rem, 11vw, 11.5rem);
+  font-size: clamp(3.2rem, 8.6vw, 8.4rem);
   font-weight: 750;
   line-height: 0.82;
   white-space: nowrap;
 }
 .gallery-rows {
   display: grid;
-  gap: clamp(16px, 2vw, 28px);
+  gap: clamp(10px, 1.3vw, 16px);
 }
 .gallery-track {
   width: max-content;
   display: flex;
-  gap: clamp(16px, 2vw, 28px);
+  gap: clamp(10px, 1.3vw, 16px);
   will-change: transform;
 }
 .gallery-track--left {
   animation: galleryRowLeft 46s linear infinite;
 }
 .gallery-track--right {
-  margin-left: calc(clamp(130px, 20vw, 330px) * -1);
+  margin-left: calc(clamp(90px, 15vw, 240px) * -1);
   animation: galleryRowRight 52s linear infinite;
 }
 .gallery-marquee-section:hover .gallery-track,
@@ -3689,8 +3689,8 @@ p:last-child {
 }
 .gallery-card {
   position: relative;
-  width: clamp(260px, 31vw, 520px);
-  height: clamp(205px, 24vw, 330px);
+  width: clamp(220px, 25vw, 420px);
+  height: clamp(150px, 16vw, 230px);
   display: block;
   overflow: hidden;
   border: 1px solid rgba(231, 227, 255, 0.14);
@@ -3700,7 +3700,7 @@ p:last-child {
   isolation: isolate;
 }
 .gallery-card--wide {
-  width: clamp(380px, 43vw, 720px);
+  width: clamp(315px, 34vw, 560px);
 }
 .gallery-card img {
   position: absolute;
@@ -3725,13 +3725,13 @@ p:last-child {
   left: clamp(14px, 1.5vw, 22px);
   bottom: clamp(14px, 1.5vw, 22px);
   max-width: min(78%, 320px);
-  padding: 10px 13px;
+  padding: 8px 11px;
   border: 1px solid rgba(231, 227, 255, 0.18);
   border-radius: 999px;
   background: rgba(8, 10, 8, 0.78);
   box-shadow: 0 16px 38px rgba(0, 0, 0, 0.35);
   color: #f3f1ff;
-  font-size: clamp(0.82rem, 1vw, 1rem);
+  font-size: clamp(0.74rem, 0.86vw, 0.9rem);
   font-weight: 750;
   line-height: 1;
   white-space: nowrap;
@@ -3739,6 +3739,11 @@ p:last-child {
 }
 .gallery-card:hover img {
   transform: scale(1.12) translateX(2%);
+}
+.premium-services.gallery-marquee-section,
+.service-directory-section.gallery-marquee-section,
+.service-types-section.gallery-marquee-section {
+  min-height: 0;
 }
 @keyframes galleryTitleMove {
   from {
@@ -3766,25 +3771,25 @@ p:last-child {
 }
 @media (max-width: 700px) {
   .gallery-marquee-section.gallery-marquee-section {
-    padding-block: 48px 42px !important;
+    padding-block: 34px 32px !important;
   }
   .gallery-marquee-title {
-    margin-bottom: 24px;
+    margin-bottom: 16px;
   }
   .gallery-marquee-title span {
-    font-size: clamp(3.2rem, 19vw, 5.2rem);
+    font-size: clamp(2.55rem, 15vw, 4.1rem);
   }
   .gallery-track {
-    gap: 14px;
+    gap: 10px;
   }
   .gallery-card,
   .gallery-card--wide {
-    width: min(76vw, 320px);
-    height: 210px;
-    border-radius: 20px;
+    width: min(68vw, 280px);
+    height: 160px;
+    border-radius: 18px;
   }
   .gallery-track--right {
-    margin-left: -110px;
+    margin-left: -82px;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -106,7 +106,7 @@
 .service-page--native .service-visual::before {
   inset: 0 7% 10px;
   border-radius: 260px;
-  background-image: url("../images/native-field.jpg");
+  background-image: url("../images/card-15.jpg");
 }
 .service-page--cross-platform .service-visual::before {
   inset: 0 0 20px 7%;

@@ -512,7 +512,7 @@
   var media = {
     mobile: "assets/images/mobile-testing.jpg",
     mvp: "assets/images/about-team-v2.jpg",
-    native: "assets/images/native-field.jpg",
+    native: "assets/images/card-15.jpg",
     cross: "assets/images/cross-platform-team.jpg",
     ux: "assets/images/ux-wireframes.jpg",
     automation: "assets/images/workflow-meeting.jpg",

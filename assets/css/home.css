@@ -1322,7 +1322,7 @@
   }
   .idea-photo {
     inset: 0 0 190px;
-    border-radius: 130px 25px 25px 25px;
+    border-radius: 25px 25px 25px 25px;
   }
   .idea-interface {
     top: 205px;
@@ -1510,7 +1510,7 @@
 }
 .service-media {
   padding: clamp(64px, 7vw, 104px) 0;
-  overflow: hidden;
+  overflow: visible;
   background: var(--color-paper-deep);
 }
 .service-media-layout {
@@ -1522,6 +1522,22 @@
   display: grid;
   align-content: start;
   border-top: 1px solid var(--color-border-light);
+  max-height: calc(100svh - var(--sticky-top) - 24px);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-lime-dark) rgba(13, 15, 13, 0.08);
+}
+.service-media-tabs::-webkit-scrollbar {
+  width: 7px;
+}
+.service-media-tabs::-webkit-scrollbar-track {
+  background: rgba(13, 15, 13, 0.06);
+  border-radius: 999px;
+}
+.service-media-tabs::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: var(--color-lime-dark);
 }
 .service-media-tabs button {
   min-height: 72px;
@@ -2192,6 +2208,7 @@
     border: 1px solid var(--color-border-light);
     border-radius: 18px;
     overflow: hidden;
+    max-height: none;
   }
   .service-media-tabs button {
     min-height: 60px;
@@ -2282,6 +2299,8 @@
   .service-media-tabs {
     display: flex;
     overflow-x: auto;
+    overflow-y: hidden;
+    max-height: none;
   }
   .service-media-tabs button {
     min-width: 175px;

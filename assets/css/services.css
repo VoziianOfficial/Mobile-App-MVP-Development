@@ -1254,7 +1254,7 @@
   }
   .services-hero-media > figure {
     inset: 0 2% 25px;
-    border-radius: 170px 27px 27px 27px;
+    border-radius:27px 27px 27px 27px;
   }
   .service-rail {
     right: 0;

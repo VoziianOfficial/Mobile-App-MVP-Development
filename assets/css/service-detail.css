@@ -57,7 +57,7 @@
   position: absolute;
   inset: 0 5% 20px 4%;
   border: 5px solid var(--color-white);
-  border-radius: 240px 34px 34px 34px;
+  border-radius: 34px 34px 34px 34px;
   background-position: center;
   background-size: cover;
   content: "";
@@ -904,7 +904,7 @@
   }
   .service-visual::before {
     inset: 0 3% 20px !important;
-    border-radius: 160px 25px 25px 25px !important;
+    border-radius: 25px 25px 25px 25px !important;
     clip-path: none !important;
     transform: none !important;
   }
@@ -1058,6 +1058,11 @@
   .service-highlight-pagination .swiper-pagination-bullet-active {
     width: 28px;
     height: 10px;
+  }
+
+  .service-overview-section.dimension-section,
+  .service-highlight-section {
+    display: none !important;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -121,11 +121,15 @@
 
     <section class="section section--light" aria-labelledby="intro-title">
       <div class="container editorial">
-        <div>
+        <div class="intro-sticky-copy">
           <span class="eyebrow">Studio introduction</span>
           <h2 class="heading-sm" id="intro-title">
             A studio for practical mobile products.
           </h2>
+          <p class="intro-dynamic-copy" data-intro-dynamic>
+            We start with the real need behind the mobile product, then keep
+            every design and build decision connected to that need.
+          </p>
         </div>
         <div>
           <p class="intro-large">
@@ -139,7 +143,31 @@
             improvement. Each phase stays connected to the intended workflow.
           </p>
           <div class="product-diagram">
-            <span>Need</span><i></i><span>Journey</span><i></i><span>Product</span><i></i><span>Release</span>
+            <button
+              class="is-active"
+              type="button"
+              data-intro-text="We start with the real need behind the mobile product, then keep every design and build decision connected to that need."
+            >
+              Need</button
+            ><i></i
+            ><button
+              type="button"
+              data-intro-text="The journey turns that need into practical steps: entry, action, confirmation, recovery and the states people actually use."
+            >
+              Journey</button
+            ><i></i
+            ><button
+              type="button"
+              data-intro-text="The product becomes a focused mobile system with clear screens, useful components, integrations and maintainable behaviour."
+            >
+              Product</button
+            ><i></i
+            ><button
+              type="button"
+              data-intro-text="The release stays understandable: what ships first, what waits, and how the application can improve after launch."
+            >
+              Release</button
+            >
           </div>
         </div>
       </div>

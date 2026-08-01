@@ -1,5 +1,37 @@
 (function () {
   "use strict";
+  function initProductDiagram() {
+    var diagram = document.querySelector(".product-diagram");
+    var output = document.querySelector("[data-intro-dynamic]");
+    if (!diagram || !output) return;
+    var buttons = [].slice.call(diagram.querySelectorAll("button[data-intro-text]"));
+    if (!buttons.length) return;
+    var timer = 0;
+    function activate(button) {
+      var text = button.getAttribute("data-intro-text");
+      if (!text || output.textContent.trim() === text.trim()) return;
+      buttons.forEach(function (item) {
+        item.classList.toggle("is-active", item === button);
+      });
+      output.classList.add("is-changing");
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        output.textContent = text;
+        output.classList.remove("is-changing");
+      }, 120);
+    }
+    buttons.forEach(function (button) {
+      button.addEventListener("mouseenter", function () {
+        activate(button);
+      });
+      button.addEventListener("focus", function () {
+        activate(button);
+      });
+      button.addEventListener("click", function () {
+        activate(button);
+      });
+    });
+  }
   function initCollabSwiper() {
     var el = document.querySelector("[data-collab-swiper]");
     if (!el || !window.Swiper || el.dataset.swiperReady) return;
@@ -86,7 +118,11 @@
       }, 120);
     });
   }
+  function init() {
+    initProductDiagram();
+    initCollabSwiper();
+  }
   document.readyState === "loading"
-    ? document.addEventListener("DOMContentLoaded", initCollabSwiper)
-    : initCollabSwiper();
+    ? document.addEventListener("DOMContentLoaded", init)
+    : init();
 })();

@@ -756,28 +756,49 @@
 }
 .prototype-swiper .swiper-slide {
   padding: 8px;
+  perspective: 1400px;
 }
 .prototype-stage {
+  position: relative;
   min-height: 430px;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
   padding: 31px;
   border: 1px solid var(--color-border-dark);
   border-radius: 32px;
   background: var(--color-black);
   color: var(--color-white);
+  transform-style: preserve-3d;
+  box-shadow: 0 18px 34px -26px rgba(0, 0, 0, 0.5);
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.55s ease,
+    border-color 0.4s ease;
 }
-.prototype-stage > span {
+.swiper-slide:hover .prototype-stage {
+  transform: rotate3d(1, 1, 0, 12deg);
+  border-color: var(--color-lime);
+  box-shadow:
+    0 34px 50px -24px rgba(0, 0, 0, 0.55),
+    0 0 0 1px rgba(201, 255, 87, 0.22);
+}
+.prototype-body {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  transform: translate3d(0, 0, 22px);
+}
+.prototype-body > span {
   color: var(--color-lime);
   font-size: 0.59rem;
   letter-spacing: 0.13em;
 }
-.prototype-stage h3 {
+.prototype-body h3 {
   margin: 15px 0;
   font-size: clamp(2rem, 3vw, 3.5rem);
   line-height: 1;
 }
-.prototype-stage > p {
+.prototype-body > p {
   margin-top: auto;
   color: var(--color-text-muted-dark);
 }
@@ -786,10 +807,10 @@
   background: var(--color-paper-deep);
   color: var(--color-black);
 }
-.prototype-stage--paper > span {
+.prototype-stage--paper .prototype-body > span {
   color: var(--color-lime-dark);
 }
-.prototype-stage--paper > p {
+.prototype-stage--paper .prototype-body > p {
   color: var(--color-text-muted);
 }
 .prototype-stage--lime {
@@ -797,11 +818,118 @@
   background: var(--color-lime);
   color: var(--color-black);
 }
-.prototype-stage--lime > span {
+.prototype-stage--lime .prototype-body > span {
   color: #52642c;
 }
-.prototype-stage--lime > p {
+.prototype-stage--lime .prototype-body > p {
   color: #445328;
+}
+.prototype-orbit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 120px;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+.prototype-orbit span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 50%;
+  background: rgba(201, 255, 87, 0.16);
+  transition: transform 0.5s ease;
+}
+.prototype-stage--paper .prototype-orbit span {
+  background: rgba(140, 171, 54, 0.16);
+}
+.prototype-stage--lime .prototype-orbit span {
+  background: rgba(13, 15, 13, 0.1);
+}
+.prototype-orbit span:nth-child(1) {
+  width: 120px;
+  height: 120px;
+  transform: translate3d(0, 0, 8px);
+}
+.prototype-orbit span:nth-child(2) {
+  top: 8px;
+  right: 8px;
+  width: 88px;
+  height: 88px;
+  transform: translate3d(0, 0, 20px);
+  transition-delay: 0.05s;
+}
+.prototype-orbit span:nth-child(3) {
+  top: 16px;
+  right: 16px;
+  width: 58px;
+  height: 58px;
+  transform: translate3d(0, 0, 32px);
+  transition-delay: 0.1s;
+}
+.prototype-orbit-icon {
+  position: absolute;
+  top: 26px;
+  right: 26px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-content: center;
+  transform: translate3d(0, 0, 44px);
+  transition: transform 0.5s ease 0.15s;
+}
+.prototype-orbit-icon svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-lime);
+}
+.prototype-stage--paper .prototype-orbit-icon svg {
+  color: var(--color-lime-dark);
+}
+.prototype-stage--lime .prototype-orbit-icon svg {
+  color: var(--color-black);
+}
+.swiper-slide:hover .prototype-orbit span:nth-child(2) {
+  transform: translate3d(0, 0, 30px);
+}
+.swiper-slide:hover .prototype-orbit span:nth-child(3) {
+  transform: translate3d(0, 0, 46px);
+}
+.swiper-slide:hover .prototype-orbit-icon {
+  transform: translate3d(0, 0, 64px);
+}
+.prototype-sheen {
+  position: absolute;
+  inset: 6px;
+  border-radius: 26px;
+  border-top-right-radius: 70%;
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.08) 100%
+  );
+  transform: translate3d(0, 0, 4px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+.prototype-stage--paper .prototype-sheen {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.55) 100%
+  );
+}
+.prototype-stage--lime .prototype-sheen {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.35) 100%
+  );
+}
+.swiper-slide:hover .prototype-sheen {
+  opacity: 1;
 }
 .flow-map {
   display: flex;

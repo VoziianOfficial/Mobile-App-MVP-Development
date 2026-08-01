@@ -635,6 +635,58 @@
         })
         .join("");
     }
+    var overviewIcons = [
+      "workflow",
+      "layers",
+      "smartphone",
+      "plug",
+      "shield-check",
+      "bell",
+    ];
+    var overviewKickers = [
+      "Product clarity",
+      "Interface structure",
+      "Mobile behaviour",
+      "Connected systems",
+      "Quality control",
+      "Launch readiness",
+    ];
+    var overviewVariants = [
+      "dimension-card--lime",
+      "dimension-card--lavender",
+      "dimension-card--dark",
+      "",
+      "dimension-card--lavender",
+      "dimension-card--lime",
+    ];
+    var overviewTexts = [
+      "This layer keeps the service attached to a visible user task, business rule and release boundary, so the team can decide what matters before effort spreads.",
+      "The structure is translated into practical screens, states and content priorities that make the product easier to review, test and hand over.",
+      "Mobile behaviour is considered through onboarding, forms, navigation, feedback states and the small details that make everyday use feel calm.",
+      "Operational tools, APIs and data movement are shaped around clear ownership, so the product stays connected without hiding important failure states.",
+      "Edge cases, permissions, empty views, validation and review points are planned early enough to reduce fragile late-stage fixes.",
+      "The result is prepared for release, measurement and maintenance, with decisions documented so future improvements can happen without rebuilding the logic.",
+    ];
+    function overviewCards(items) {
+      return items
+        .slice(0, 6)
+        .map(function (x, i) {
+          return (
+            '<article class="dimension-card ' +
+            overviewVariants[i % overviewVariants.length] +
+            '"><span class="dimension-card-icon" aria-hidden="true"><i data-lucide="' +
+            overviewIcons[i % overviewIcons.length] +
+            '"></i></span><span class="dimension-card-kicker">' +
+            esc(overviewKickers[i % overviewKickers.length]) +
+            "</span><h3>" +
+            esc(x) +
+            '.</h3><p>' +
+            esc(overviewTexts[i % overviewTexts.length]) +
+            '</p><a class="dimension-card-link" href="contact.html#project-form">Discuss this layer <i data-lucide="arrow-up-right"></i></a></article>'
+          );
+        })
+        .join("");
+    }
     function relatedStorySection() {
       var picks = related.slice(0, 3);
       var subtitles = [
@@ -685,19 +737,13 @@
       );
     }
     return (
-      '<section class="section section--light service-overview-section" aria-labelledby="overview-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">01 / Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2></div><div class="spotlight-intro"><p>' +
+      '<section class="section section--light service-overview-section dimension-section" aria-labelledby="overview-title"><div class="container"><span class="eyebrow">Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2><p class="lead">' +
       esc(data.overview) +
-      '</p><aside class="overview-note">' +
+      '</p><div class="dimension-card-grid">' +
+      overviewCards(data.tech) +
+      '</div><aside class="overview-note overview-note--cards">' +
       esc(data.note) +
-      '</aside></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
-      spotlightList(data.tech.slice(0, 6)) +
-      '</ul><figure class="spotlight-visual"><img src="' +
-      spotlightImages[0] +
-      '" alt="' +
-      esc(data.tech[0]) +
-      " — " +
-      esc(data.title) +
-      '" loading="lazy"></figure></div></div></section>' +
+      "</aside></div></section>" +
       '<section class="section service-problems-section expanding-gallery-section" aria-labelledby="problems-title"><div class="container"><h2 class="sr-only" id="problems-title">Problems this service helps address</h2><div class="panel-select" data-panel-select role="group" aria-label="Problems it helps address">' +
       data.problems
         .slice(0, 5)

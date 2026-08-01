@@ -81,28 +81,78 @@
       </section>
 
       <section
-        class="section section--light"
+        class="section section--light dimension-section"
         id="development-process"
         aria-labelledby="overview-title"
       >
-        <div class="container capability-overview">
-          <div>
-            <span class="eyebrow">01 / Capability overview</span>
-            <h2 class="section-title" id="overview-title">
-              One picture, start to support.
-            </h2>
-            <p class="lead">
-              Each capability can stand alone, while the decisions that shape
-              the core workflow remain connected.
-            </p>
-            <a class="moving-link" href="contact.html#project-form"
-              >Find the right starting point <i data-lucide="arrow-up-right"></i
-            ></a>
-          </div>
-          <div class="capability-orbit">
-            <strong>Focused<br />product</strong><span>Define</span
-            ><span>Design</span><span>Develop</span><span>Connect</span
-            ><span>Release</span><span>Support</span><i></i>
+        <div class="container">
+          <span class="eyebrow">Capability overview</span>
+          <h2 class="section-title" id="overview-title">
+            One connected product path.
+          </h2>
+          <div class="dimension-card-grid">
+            <article class="dimension-card dimension-card--lime">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="workflow"></i
+              ></span>
+              <span class="dimension-card-kicker">Product direction</span>
+              <h3>Define the useful release.</h3>
+              <p>
+                We turn loose product ideas into a clear first version with
+                user tasks, business rules, required states and the smallest
+                feature set that can be honestly built and evaluated.
+              </p>
+              <a class="dimension-card-link" href="mvp-development.html"
+                >Plan the MVP <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="dimension-card dimension-card--lavender">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="layers"></i
+              ></span>
+              <span class="dimension-card-kicker">Interface logic</span>
+              <h3>Shape every key screen.</h3>
+              <p>
+                Navigation, onboarding, forms, empty states, errors and core
+                actions are designed as one connected flow before development
+                starts, so the mobile experience feels intentional.
+              </p>
+              <a
+                class="dimension-card-link"
+                href="ui-ux-design-prototyping.html"
+                >Prototype flows <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="dimension-card dimension-card--dark">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="smartphone"></i
+              ></span>
+              <span class="dimension-card-kicker">Mobile foundation</span>
+              <h3>Build the working app.</h3>
+              <p>
+                The application is developed around the approved workflow,
+                reusable interface components, secure data handling and the
+                practical details needed for a stable launch.
+              </p>
+              <a class="dimension-card-link" href="mobile-app-development.html"
+                >Build mobile <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="dimension-card">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="plug"></i
+              ></span>
+              <span class="dimension-card-kicker">Connected operations</span>
+              <h3>Support what happens next.</h3>
+              <p>
+                Integrations, automation, testing, launch preparation and
+                maintenance keep the product connected to real operations
+                after the first version goes live.
+              </p>
+              <a class="dimension-card-link" href="app-maintenance-support.html"
+                >Support growth <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
           </div>
         </div>
       </section>
@@ -479,73 +529,83 @@
       </section>
 
       <section
-        class="prototype-slider-section"
+        class="section section--light prototype-slider-section dimension-section"
         aria-labelledby="prototype-title"
       >
         <div class="container">
-          <div class="services-section-head">
-            <div>
-              <span class="eyebrow">07 / UI and prototype</span>
-              <h2 id="prototype-title">From flow to interface.</h2>
-            </div>
-            <div class="slider-controls">
-              <button
-                class="icon-btn prototype-prev"
-                type="button"
-                aria-label="Previous prototype stage"
-              >
-                <i data-lucide="arrow-left"></i></button
-              ><span class="prototype-fraction"></span
-              ><button
-                class="icon-btn prototype-next"
-                type="button"
-                aria-label="Next prototype stage"
-              >
-                <i data-lucide="arrow-right"></i>
-              </button>
-            </div>
-          </div>
-          <div class="swiper prototype-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <article class="prototype-stage">
-                  <span>01 / FLOW</span>
-                  <h3>User journey</h3>
-                  <div class="flow-map">
-                    <i></i><b></b><i></i><b></b><i></i>
-                  </div>
-                  <p>Map entry, task, confirmation and recovery states.</p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="prototype-stage prototype-stage--paper">
-                  <span>02 / STRUCTURE</span>
-                  <h3>Wireframe</h3>
-                  <div class="wire-phone"><i></i><i></i><i></i></div>
-                  <p>Make hierarchy and interaction choices discussable.</p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="prototype-stage prototype-stage--lime">
-                  <span>03 / TEST</span>
-                  <h3>Interactive prototype</h3>
-                  <div class="wire-phone"><i></i><i></i><b></b></div>
-                  <p>
-                    Tap through the central journey before full development.
-                  </p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="prototype-stage">
-                  <span>04 / SYSTEM</span>
-                  <h3>Interface language</h3>
-                  <div class="component-grid"><i></i><i></i><i></i><i></i></div>
-                  <p>
-                    Connect components, states, content and responsive rules.
-                  </p>
-                </article>
-              </div>
-            </div>
+          <span class="eyebrow">UI and prototype</span>
+          <h2 class="section-title" id="prototype-title">
+            From flow to interface.
+          </h2>
+          <div class="dimension-card-grid">
+            <article class="dimension-card dimension-card--lavender">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="workflow"></i
+              ></span>
+              <span class="dimension-card-kicker">Journey mapping</span>
+              <h3>User path before UI.</h3>
+              <p>
+                Entry points, primary actions, confirmations, recovery moments
+                and edge cases are mapped before screens multiply, keeping the
+                product experience readable and buildable.
+              </p>
+              <a
+                class="dimension-card-link"
+                href="ui-ux-design-prototyping.html"
+                >Map journeys <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="dimension-card">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="layers"></i
+              ></span>
+              <span class="dimension-card-kicker">Screen structure</span>
+              <h3>Wireframes with intent.</h3>
+              <p>
+                Layout hierarchy, navigation patterns, content priority and
+                input states are shaped in low-friction wireframes so every
+                decision can be reviewed before polished design.
+              </p>
+              <a
+                class="dimension-card-link"
+                href="ui-ux-design-prototyping.html"
+                >Structure screens <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="dimension-card dimension-card--lime">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="smartphone"></i
+              ></span>
+              <span class="dimension-card-kicker">Interactive validation</span>
+              <h3>Tap the core flow.</h3>
+              <p>
+                The central journey becomes a clickable prototype, helping
+                founders, teams and stakeholders feel the product logic before
+                engineering time is committed.
+              </p>
+              <a
+                class="dimension-card-link"
+                href="ui-ux-design-prototyping.html"
+                >Test prototype <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
+            <article class="dimension-card dimension-card--dark">
+              <span class="dimension-card-icon" aria-hidden="true"
+                ><i data-lucide="pen-tool"></i
+              ></span>
+              <span class="dimension-card-kicker">Interface system</span>
+              <h3>Reusable visual rules.</h3>
+              <p>
+                Components, interaction states, spacing, content rhythm and
+                responsive behaviour are documented so design and development
+                stay aligned across the mobile product.
+              </p>
+              <a
+                class="dimension-card-link"
+                href="ui-ux-design-prototyping.html"
+                >Build system <i data-lucide="arrow-up-right"></i
+              ></a>
+            </article>
           </div>
         </div>
       </section>

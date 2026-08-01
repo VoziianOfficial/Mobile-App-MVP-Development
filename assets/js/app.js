@@ -195,11 +195,27 @@
       safe(c.navigation.contactLink) +
       '">' +
       safe(c.navigation.contactLabel) +
-      '</a></li></ul></div><div class="footer-column"><h2>Capabilities</h2><ul>' +
+      '</a></li></ul></div><div class="footer-column footer-column--capabilities"><h2>Capabilities</h2><ul>' +
       services
-        .map(function (s) {
+        .map(function (s, index) {
+          var shortLabels = [
+            "Apps",
+            "MVP",
+            "iOS/Android",
+            "Cross-platform",
+            "UI/UX",
+            "Automation",
+            "API",
+            "Support",
+          ];
           return (
-            '<li><a href="' + safe(s[1]) + '">' + safe(s[0]) + "</a></li>"
+            '<li><a href="' +
+            safe(s[1]) +
+            '"><span class="footer-capability-full">' +
+            safe(s[0]) +
+            '</span><span class="footer-capability-short">' +
+            safe(shortLabels[index] || s[0]) +
+            "</span></a></li>"
           );
         })
         .join("") +

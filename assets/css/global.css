@@ -3517,6 +3517,9 @@ p:last-child {
 .site-footer--premium .footer-column a:hover {
   transform: translateX(4px);
 }
+.footer-capability-short {
+  display: none;
+}
 .footer-address {
   padding: 22px;
  
@@ -3872,7 +3875,7 @@ p:last-child {
   }
   .site-footer--premium .footer-top {
     grid-template-columns: 1fr 1fr;
-    gap: 30px 18px;
+    gap: 24px 16px;
   }
   .site-footer--premium .footer-brand {
     grid-column: 1/-1;
@@ -3885,6 +3888,44 @@ p:last-child {
   .footer-address {
     grid-column: 1/-1;
     text-align: center;
+  }
+  .footer-column--capabilities {
+    grid-column: 1/-1;
+  }
+  .footer-column--capabilities h2 {
+    margin-bottom: 11px;
+    text-align: center;
+  }
+  .footer-column--capabilities ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 7px;
+  }
+  .footer-column--capabilities li {
+    min-width: 0;
+  }
+  .site-footer--premium .footer-column--capabilities a {
+    width: 100%;
+    min-height: 34px;
+    align-items: center;
+    justify-content: center;
+    padding: 7px 8px;
+    border: 1px solid rgba(255, 255, 255, 0.11);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.045);
+    color: rgba(248, 248, 242, 0.78);
+    font-size: 0.67rem;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+  }
+  .site-footer--premium .footer-column--capabilities a:hover {
+    transform: none;
+  }
+  .footer-column--capabilities .footer-capability-full {
+    display: none;
+  }
+  .footer-column--capabilities .footer-capability-short {
+    display: inline;
   }
   .footer-disclaimer {
     grid-template-columns: 1fr;

@@ -57,54 +57,28 @@
     var brand = config.brand || {};
     var logo = brand.logo || {};
 
-    var selectedTheme = theme === "light" ? "light" : "dark";
+    var tone = theme === "light" ? "light" : "dark";
     var type = logo.type || "icon-text";
-    var text = logo.text || brand.name || "";
 
-    var iconSource =
-      selectedTheme === "light" ? logo.iconLight : logo.iconDark;
+    var word = logo.word || brand.shortName || brand.name || "";
 
-    var imageSource =
-      selectedTheme === "light" ? logo.imageLight : logo.imageDark;
+    var label = logo.label || "";
 
-    var width = Number(logo.width) || 276;
-    var height = Number(logo.height) || 58;
+    var iconSource = tone === "light" ? logo.iconLight : logo.iconDark;
 
     var className =
-      "brand-logo brand-logo--" +
-      selectedTheme +
-      " brand-logo--" +
+      "brand-lockup brand-lockup--" +
+      tone +
+      " brand-lockup--" +
       type;
-
-    if (type === "image" && imageSource) {
-      return (
-        '<span class="' +
-        className +
-        '">' +
-        '<img class="brand-logo__image" ' +
-        'src="' +
-        escapeHTML(imageSource) +
-        '" ' +
-        'width="' +
-        width +
-        '" ' +
-        'height="' +
-        height +
-        '" ' +
-        'alt="' +
-        escapeHTML(brand.name || text) +
-        '">' +
-        "</span>"
-      );
-    }
 
     if (type === "text") {
       return (
         '<span class="' +
         className +
         '">' +
-        '<span class="brand-logo__text">' +
-        escapeHTML(text) +
+        '<span class="brand-lockup__word">' +
+        escapeHTML(word) +
         "</span>" +
         "</span>"
       );
@@ -114,16 +88,24 @@
       '<span class="' +
       className +
       '">' +
+      '<span class="brand-lockup__mark">' +
       (iconSource
-        ? '<img class="brand-logo__icon" ' +
-          'src="' +
+        ? '<img src="' +
           escapeHTML(iconSource) +
-          '" ' +
-          'width="48" height="48" alt="" aria-hidden="true">'
+          '" alt="" width="58" height="58" aria-hidden="true">'
         : "") +
-      '<span class="brand-logo__text">' +
-      escapeHTML(text) +
       "</span>" +
+      '<span class="brand-lockup__word">' +
+      escapeHTML(word) +
+      "</span>" +
+      (label
+        ? '<span class="brand-lockup__label"><span>' +
+          escapeHTML(label) +
+          "</span></span>"
+        : "") +
+      (logo.showBadge === false
+        ? ""
+        : '<span class="brand-lockup__badge" aria-hidden="true"><i></i><i></i></span>') +
       "</span>"
     );
   }

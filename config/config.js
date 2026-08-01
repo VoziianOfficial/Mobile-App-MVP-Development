@@ -9,16 +9,16 @@ window.SITE_CONFIG = {
     "legalName": "Kovexa Studio Ltd.",
     "tagline": "Ideas shaped into working products.",
     "status": "Mobile Product Studio",
+    
     "logo": {
       "type": "icon-text",
-      "text": "Kovexa Studio",
-      "iconDark": "assets/images/favicon.svg",
-      "iconLight": "assets/images/favicon.svg",
-      "imageDark": "assets/images/logo-dark.svg",
-      "imageLight": "assets/images/logo-light.svg",
-      "width": 276,
-      "height": 58
+      "word": "Kovexa",
+      "label": "Studio",
+      "iconDark": "assets/images/logo-mark-dark.svg",
+      "iconLight": "assets/images/logo-mark-light.svg",
+      "showBadge": true
     },
+    
     "favicon": "assets/images/favicon.svg",
     "legacy": {
       "name": "Kovexa Studio",

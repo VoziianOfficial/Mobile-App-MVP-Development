@@ -3854,93 +3854,229 @@ p:last-child {
 }
 
 /* =========================================================
-   CONFIGURABLE BRAND LOGO
+   CONFIGURABLE KOVEXA WORDMARK
 ========================================================= */
 
-.brand-logo {
+.brand-lockup {
+  --brand-logo-color: var(--color-black);
+  --brand-badge-color: var(--color-lime);
+  --brand-badge-arrow: var(--color-black);
+
+  width: fit-content;
   max-width: 100%;
-  display: inline-flex;
+  min-height: 58px;
+  display: inline-grid;
+  grid-template-columns: 58px max-content max-content 38px;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  color: var(--brand-logo-color);
   line-height: 1;
 }
 
-.brand-logo__image {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: contain;
+.brand-lockup--dark {
+  --brand-logo-color: #0d0f0d;
 }
 
-.brand-logo__icon {
+.brand-lockup--light {
+  --brand-logo-color: #f8f8f2;
+}
+
+.brand-lockup__mark {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
   flex: 0 0 auto;
-  width: clamp(34px, 3vw, 46px);
-  height: clamp(34px, 3vw, 46px);
+}
+
+.brand-lockup__mark img {
+  width: 58px;
+  height: 58px;
   display: block;
+  margin: 0;
   object-fit: contain;
 }
 
-.brand-logo__text {
-  color: var(--color-black);
-  font-size: clamp(1.15rem, 1.7vw, 1.65rem);
+.brand-lockup__word {
+  color: var(--brand-logo-color);
+  font-family: var(--font-primary);
+  font-size: 31px;
   font-weight: 700;
   line-height: 1;
-  letter-spacing: -0.045em;
+  letter-spacing: -0.055em;
   white-space: nowrap;
 }
 
-.brand-logo--light .brand-logo__text {
-  color: var(--color-white);
+.brand-lockup__label {
+  width: 38px;
+  min-height: 34px;
+  display: grid;
+  grid-template-rows: 1px 1fr 1px;
+  align-items: center;
+  gap: 5px;
+  color: var(--brand-logo-color);
 }
 
-.site-logo .brand-logo {
+.brand-lockup__label::before,
+.brand-lockup__label::after {
   width: 100%;
+  height: 1px;
+  display: block;
+  background: currentColor;
+  content: "";
 }
 
-.site-logo .brand-logo--icon-text {
-  width: auto;
+.brand-lockup__label span {
+  display: block;
+  color: inherit;
+  font-family: var(--font-primary);
+  font-size: 8px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.25em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
+.brand-lockup__badge {
+  position: relative;
+  width: 38px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 2px;
+  background: var(--brand-badge-color);
+  clip-path: polygon(0 0, 67% 0, 100% 50%, 67% 100%, 0 100%, 31% 50%);
+}
+
+.brand-lockup__badge i {
+  width: 8px;
+  height: 8px;
+  display: block;
+  border-top: 2px solid var(--brand-badge-arrow);
+  border-right: 2px solid var(--brand-badge-arrow);
+  transform: rotate(45deg);
+}
+
+.brand-lockup__badge i + i {
+  margin-left: -3px;
+}
+
+.site-logo,
 .menu-top a,
 .footer-brand > a {
   display: inline-flex;
   align-items: center;
+  width: fit-content;
+  max-width: 100%;
 }
 
-.menu-top .brand-logo__text,
-.footer-brand .brand-logo__text {
-  color: var(--color-white);
+.site-header--premium .site-logo {
+  width: auto;
+  min-width: 0;
 }
 
-.menu-top .brand-logo__icon,
-.footer-brand .brand-logo__icon,
-.site-footer--premium .footer-brand .brand-logo__icon {
-  width: clamp(34px, 3vw, 46px);
-  height: clamp(34px, 3vw, 46px);
-  margin: 0;
+.site-logo .brand-lockup__badge,
+.menu-top .brand-lockup__badge,
+.footer-brand .brand-lockup__badge {
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
 }
 
-.menu-top .brand-logo__image,
-.footer-brand .brand-logo__image,
-.site-footer--premium .footer-brand .brand-logo__image {
-  width: 100%;
-  margin: 0;
+.site-logo:hover .brand-lockup__badge,
+.menu-top a:hover .brand-lockup__badge,
+.footer-brand > a:hover .brand-lockup__badge {
+  background: var(--color-lime-hover);
+  transform: translateX(4px);
 }
 
-@media (max-width: 700px) {
-  .brand-logo {
+.site-header .brand-lockup {
+  transform-origin: left center;
+}
+
+@media (max-width: 900px) {
+  .brand-lockup {
+    min-height: 50px;
+    grid-template-columns: 50px max-content max-content 34px;
     gap: 8px;
   }
 
-  .brand-logo__icon {
-    width: 36px;
-    height: 36px;
+  .brand-lockup__mark,
+  .brand-lockup__mark img {
+    width: 50px;
+    height: 50px;
   }
 
-  .brand-logo__text {
-    max-width: 145px;
+  .brand-lockup__word {
+    font-size: 27px;
+  }
+
+  .brand-lockup__label {
+    width: 34px;
+  }
+
+  .brand-lockup__badge {
+    width: 34px;
+    height: 27px;
+  }
+}
+
+@media (max-width: 620px) {
+  .brand-lockup {
+    min-height: 42px;
+    grid-template-columns: 42px max-content 30px;
+    gap: 7px;
+  }
+
+  .brand-lockup__mark,
+  .brand-lockup__mark img {
+    width: 42px;
+    height: 42px;
+  }
+
+  .brand-lockup__word {
+    max-width: 116px;
     overflow: hidden;
-    font-size: 1.1rem;
+    font-size: 23px;
     text-overflow: ellipsis;
+  }
+
+  .brand-lockup__label {
+    display: none;
+  }
+
+  .brand-lockup__badge {
+    width: 30px;
+    height: 24px;
+  }
+
+  .brand-lockup__badge i {
+    width: 7px;
+    height: 7px;
+  }
+}
+
+@media (max-width: 410px) {
+  .brand-lockup {
+    grid-template-columns: 39px max-content;
+    gap: 6px;
+  }
+
+  .brand-lockup__mark,
+  .brand-lockup__mark img {
+    width: 39px;
+    height: 39px;
+  }
+
+  .brand-lockup__word {
+    max-width: 105px;
+    font-size: 21px;
+  }
+
+  .site-header .brand-lockup__badge {
+    display: none;
   }
 }

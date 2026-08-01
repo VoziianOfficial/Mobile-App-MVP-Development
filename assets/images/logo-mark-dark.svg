@@ -1,0 +1,43 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 58 58"
+  role="img"
+  aria-label="Brand mark"
+>
+  <g
+    fill="none"
+    stroke="#0d0f0d"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <path
+      d="M8 29C8 16 16 8 29 8s21 8 21 21-8 21-21 21S8 42 8 29Z"
+      stroke-width="3"
+    />
+
+    <path
+      d="M18 17v24M18 29c9 0 8-13 19-13M18 29c9 0 8 13 19 13"
+      stroke-width="5"
+    />
+
+    <path
+      d="M39 19c-8 0-11 4-11 10s3 10 11 10"
+      stroke="#91b537"
+      stroke-width="3.5"
+    />
+
+    <path
+      d="M6 19c4-8 12-13 23-13"
+      stroke="#c9ff57"
+      stroke-width="3"
+    />
+  </g>
+
+  <path
+    d="M46 10c5 4 8 11 8 19s-3 15-8 19"
+    fill="none"
+    stroke="#0d0f0d"
+    stroke-width="1.5"
+    stroke-linecap="round"
+  />
+</svg>

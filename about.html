@@ -522,86 +522,162 @@
           </div>
         </div>
       </section>
-      <section class="section section--light" aria-labelledby="collab-title">
+      <section
+        class="section section--light collab-testimonials-section"
+        aria-labelledby="collab-title"
+      >
         <div class="container">
-          <div class="slider-head">
-            <div>
-              <span class="eyebrow">Collaboration models</span>
-              <h2 class="section-title" id="collab-title">
-                Start from current state.
-              </h2>
+          <div class="collab-testimonials-head">
+            <div class="collab-testimonials-badge">
+              <span>06</span><b>Client feedback</b>
             </div>
-            <div class="slider-controls">
-              <button
-                class="icon-btn collab-prev"
-                type="button"
-                aria-label="Previous model"
+            <h2 class="section-title" id="collab-title">
+              What clients say.
+            </h2>
+            <p>
+              Focused scope, calm delivery, and mobile products that move
+              forward without noise.
+            </p>
+          </div>
+          <div class="collab-swiper-shell">
+            <article class="collab-proof-card collab-proof-card--fixed">
+              <div class="collab-laurel" aria-hidden="true">
+                <span></span><strong>100%</strong><span></span>
+              </div>
+              <p>Scope clarity after planning</p>
+              <i></i>
+              <div
+                class="collab-avatar-row"
+                aria-label="Project partners"
               >
-                <i
-                  data-lucide="arrow-right"
-                  style="transform: rotate(180deg)"
-                ></i></button
-              ><span class="slider-fraction collab-fraction"></span
-              ><button
-                class="icon-btn collab-next"
+                <img
+                  src="assets/images/contact-founder.jpg"
+                  alt="Startup founder"
+                  loading="lazy"
+                />
+                <img
+                  src="assets/images/hero-person.jpg"
+                  alt="Product decision maker"
+                  loading="lazy"
+                />
+                <img
+                  src="assets/images/product-team.jpg"
+                  alt="Product team member"
+                  loading="lazy"
+                />
+              </div>
+              <div class="collab-score">
+                <strong>4.9</strong>
+                <span><b>★★★★★</b> Product reviews</span>
+              </div>
+            </article>
+            <div
+              class="swiper collab-swiper"
+              data-collab-swiper
+              aria-label="Client feedback slider"
+            >
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <article class="collab-testimonial-card">
+                    <div class="collab-card-top">
+                      <img
+                        src="assets/images/contact-founder.jpg"
+                        alt="Founder portrait"
+                        loading="lazy"
+                      />
+                      <span class="collab-quote-mark">“</span>
+                      <span class="collab-rating">★★★★★</span>
+                    </div>
+                    <blockquote>
+                      “Kovexa turned a messy app idea into one focused first
+                      release.”
+                    </blockquote>
+                    <footer>
+                      <strong>Elena Markova</strong>
+                      <span>Founder, booking MVP</span>
+                    </footer>
+                  </article>
+                </div>
+                <div class="swiper-slide">
+                  <article class="collab-testimonial-card collab-testimonial-card--lime">
+                    <div class="collab-card-top">
+                      <img
+                        src="assets/images/hero-person.jpg"
+                        alt="Operations lead portrait"
+                        loading="lazy"
+                      />
+                      <span class="collab-quote-mark">“</span>
+                      <span class="collab-rating">★★★★★</span>
+                    </div>
+                    <blockquote>
+                      “They understood the workflow before designing screens.”
+                    </blockquote>
+                    <footer>
+                      <strong>Daniel Novak</strong>
+                      <span>Operations lead</span>
+                    </footer>
+                  </article>
+                </div>
+                <div class="swiper-slide">
+                  <article class="collab-testimonial-card">
+                    <div class="collab-card-top">
+                      <img
+                        src="assets/images/product-team.jpg"
+                        alt="Product manager portrait"
+                        loading="lazy"
+                      />
+                      <span class="collab-quote-mark">“</span>
+                      <span class="collab-rating">★★★★★</span>
+                    </div>
+                    <blockquote>
+                      “The prototype made every product decision easier to
+                      discuss.”
+                    </blockquote>
+                    <footer>
+                      <strong>Mira Jensen</strong>
+                      <span>Product manager</span>
+                    </footer>
+                  </article>
+                </div>
+                <div class="swiper-slide">
+                  <article class="collab-testimonial-card collab-testimonial-card--lime">
+                    <div class="collab-card-top">
+                      <img
+                        src="assets/images/studio-workspace.jpg"
+                        alt="Client team portrait"
+                        loading="lazy"
+                      />
+                      <span class="collab-quote-mark">“</span>
+                      <span class="collab-rating">★★★★★</span>
+                    </div>
+                    <blockquote>
+                      “Clear scope, clean handoff, and no unnecessary product
+                      theatre.”
+                    </blockquote>
+                    <footer>
+                      <strong>Alex Petrov</strong>
+                      <span>Startup operator</span>
+                    </footer>
+                  </article>
+                </div>
+              </div>
+            </div>
+            <div class="collab-swiper-footer">
+              <button
+                class="collab-swiper-btn collab-swiper-prev"
                 type="button"
-                aria-label="Next model"
+                aria-label="Previous feedback"
               >
                 <i data-lucide="arrow-right"></i>
               </button>
-            </div>
-          </div>
-          <div class="swiper collab-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <article class="collab-card">
-                  <span class="chip">Define + build</span>
-                  <h3>New MVP</h3>
-                  <p>Clarify and deliver the central product journey.</p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="collab-card">
-                  <span class="chip">Review + improve</span>
-                  <h3>Existing Product Improvement</h3>
-                  <p>
-                    Address workflow, interface, integration, or compatibility
-                    priorities.
-                  </p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="collab-card">
-                  <span class="chip">Extend</span>
-                  <h3>Mobile Extension</h3>
-                  <p>Add mobile access to an established platform.</p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="collab-card">
-                  <span class="chip">Operations</span>
-                  <h3>Internal Business Tool</h3>
-                  <p>
-                    Replace repeated manual steps with a connected workflow.
-                  </p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="collab-card">
-                  <span class="chip">Explore</span>
-                  <h3>Planning and Prototype</h3>
-                  <p>Make the product concrete before development begins.</p>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="collab-card">
-                  <span class="chip">Sustain</span>
-                  <h3>Maintenance and Support</h3>
-                  <p>
-                    Keep a launched application compatible and ready to evolve.
-                  </p>
-                </article>
-              </div>
+              <div class="collab-swiper-dots" aria-label="Feedback pagination"></div>
+              <button
+                class="collab-swiper-btn collab-swiper-next"
+                type="button"
+                aria-label="Next feedback"
+              >
+                <i data-lucide="arrow-right"></i>
+              </button>
             </div>
           </div>
         </div>

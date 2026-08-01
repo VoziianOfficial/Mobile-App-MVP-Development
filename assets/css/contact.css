@@ -477,7 +477,7 @@
   background: var(--color-surface-light);
 }
 .advertise-layout {
-  border-radius: 150px 34px 34px 34px;
+  border-radius: 34px 34px 34px 34px;
 }
 .advertise-heading {
   min-height: 480px;

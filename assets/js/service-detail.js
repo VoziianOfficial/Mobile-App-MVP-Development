@@ -606,8 +606,8 @@
           .join("") +
         "</div></div></section>";
     var spotlightImages = [
-      image,
-      "assets/images/studio-workspace.jpg",
+      "assets/images/card-12.jpg",
+      "assets/images/card-13.jpg",
       "assets/images/ux-prototype.jpg",
       "assets/images/developer-work.jpg",
       "assets/images/app-closeup.jpg",

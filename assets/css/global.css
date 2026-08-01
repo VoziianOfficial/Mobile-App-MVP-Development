@@ -2354,7 +2354,9 @@ p:last-child {
   object-position: center 50%;
 }
 .round-cta-portrait--service img {
-  object-position: center 50%;
+  width: 94%;
+  height: 94%;
+  object-position: center 44%;
 }
 @media (max-width: 760px) {
   .round-cta-portrait {

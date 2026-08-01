@@ -340,7 +340,7 @@
   opacity: 1;
 }
 .service-faq-section {
-  padding-bottom: 0;
+  padding-bottom: clamp(44px, 5vw, 78px);
 }
 .service-faq-layout {
   display: grid;
@@ -348,7 +348,14 @@
   gap: 20px;
 }
 .service-faq-layout > div:first-child {
+  order: 2;
+  position: sticky;
+  top: calc(var(--header-h) + 28px);
+  align-self: start;
   padding-bottom: 75px;
+}
+.service-faq-layout > .round-cta-portrait {
+  order: 1;
 }
 .service-faq-layout .accordion {
   margin-top: 28px;
@@ -808,6 +815,14 @@
   }
   .service-faq-layout {
     text-align: center;
+  }
+  .service-faq-layout > div:first-child {
+    order: initial;
+    position: static;
+    padding-bottom: 24px;
+  }
+  .service-faq-layout > .round-cta-portrait {
+    order: initial;
   }
   .service-faq-layout .accordion {
     text-align: left;

@@ -809,7 +809,25 @@
         '</div><div class="story-swipe-pagination"></div></div></div></section>'
       );
     }
+    function faqSection() {
+      return (
+        '<section class="section section--light service-faq-section" aria-labelledby="service-faq-title"><div class="container service-faq-layout"><div><span class="eyebrow">08 / FAQ and project request</span><h2 class="section-title" id="service-faq-title">Clarify before scope.</h2><div class="accordion" data-accordion>' +
+        data.faqs
+          .map(function (q) {
+            return (
+              '<div class="accordion-item"><button class="accordion-trigger" aria-expanded="false">' +
+              esc(q[0]) +
+              ' <span aria-hidden="true">＋</span></button><div class="accordion-panel"><div><p>' +
+              esc(q[1]) +
+              "</p></div></div></div>"
+            );
+          })
+          .join("") +
+        '</div></div><figure class="round-cta-portrait round-cta-portrait--service"><img src="assets/images/service-faq-robot.png" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
+      );
+    }
     return (
+      faqSection() +
       highlightSlider() +
       '<section class="section section--light service-overview-section dimension-section" aria-labelledby="overview-title"><div class="container"><span class="eyebrow">Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2><p class="lead">' +
       esc(data.overview) +
@@ -862,20 +880,7 @@
       '<section class="service-media-section" aria-labelledby="tech-title" data-parallax-section><img src="assets/images/card-paralaks.jpg" alt="' +
       esc(data.title) +
       ' product card with workflow depth" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p><div class="parallax-actions"><a class="ref-button ref-button--lime" href="contact.html#project-form"><span>Discuss this service</span><b><i data-lucide="arrow-up-right"></i></b></a><a class="ref-button ref-button--lavender" href="services.html"><span>All capabilities</span><b><i data-lucide="arrow-up-right"></i></b></a></div></div></div></section>' +
-      relatedStorySection() +
-      '<section class="section section--light service-faq-section" aria-labelledby="service-faq-title"><div class="container service-faq-layout"><div><span class="eyebrow">08 / FAQ and project request</span><h2 class="section-title" id="service-faq-title">Clarify before scope.</h2><div class="accordion" data-accordion>' +
-      data.faqs
-        .map(function (q) {
-          return (
-            '<div class="accordion-item"><button class="accordion-trigger" aria-expanded="false">' +
-            esc(q[0]) +
-            ' <span aria-hidden="true">＋</span></button><div class="accordion-panel"><div><p>' +
-            esc(q[1]) +
-            "</p></div></div></div>"
-          );
-        })
-        .join("") +
-      '</div></div><figure class="round-cta-portrait round-cta-portrait--service"><img src="assets/images/service-faq-robot.png" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
+      relatedStorySection()
     );
   }
   function init() {

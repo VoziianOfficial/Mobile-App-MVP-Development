@@ -1434,6 +1434,15 @@
     inset: 0 0 190px;
     border-radius: 25px 25px 25px 25px;
   }
+  .idea-photo img {
+    transition:
+      opacity 0.18s ease,
+      transform 0.36s cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .idea-photo.is-changing img {
+    opacity: 0.46;
+    transform: scale(1.01);
+  }
   .idea-interface {
     top: 205px;
     right: 5px;

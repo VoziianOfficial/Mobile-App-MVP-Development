@@ -20,6 +20,7 @@
     var timer;
     var copyTimer;
     var imageTimer;
+    var imageSwapId = 0;
 
     function activate(stage, moveFocus) {
       if (!stage || stage.classList.contains("is-active")) return;
@@ -61,15 +62,48 @@
       }
 
       if (photo && photoImage && stage.dataset.image) {
+        var nextImage = stage.dataset.image;
+        var nextAlt = stage.dataset.imageAlt || "";
+        var swapId = ++imageSwapId;
+        if (photoImage.getAttribute("src") === nextImage) {
+          photoImage.alt = nextAlt;
+          photo.classList.remove("is-changing");
+          return;
+        }
         photo.classList.add("is-changing");
-        imageTimer = window.setTimeout(
-          function () {
-            photoImage.src = stage.dataset.image;
-            photoImage.alt = stage.dataset.imageAlt || "";
+        var preload = new Image();
+        var commit = function () {
+          if (swapId !== imageSwapId) return;
+          photoImage.src = nextImage;
+          photoImage.alt = nextAlt;
+          window.setTimeout(
+            function () {
+              if (swapId === imageSwapId) photo.classList.remove("is-changing");
+            },
+            reducedMotion.matches ? 0 : 60,
+          );
+        };
+        preload.onload = commit;
+        preload.onerror = function () {
+          if (swapId !== imageSwapId) return;
+          photoImage.src = nextImage;
+          photoImage.alt = nextAlt;
+          photo.classList.remove("is-changing");
+        };
+        preload.src = nextImage;
+        if (preload.decode) {
+          preload
+            .decode()
+            .then(commit)
+            .catch(function () {});
+        }
+        imageTimer = window.setTimeout(function () {
+          if (swapId === imageSwapId && photo.classList.contains("is-changing")) {
+            photoImage.src = nextImage;
+            photoImage.alt = nextAlt;
             photo.classList.remove("is-changing");
-          },
-          reducedMotion.matches ? 0 : 150,
-        );
+          }
+        }, reducedMotion.matches ? 0 : 900);
       }
       if (moveFocus) stage.focus();
     }

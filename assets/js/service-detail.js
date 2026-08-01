@@ -857,6 +857,7 @@
     }
     return (
       faqSection() +
+      includedStatsSection() +
       highlightSlider() +
       '<section class="section section--light service-overview-section dimension-section" aria-labelledby="overview-title"><div class="container"><span class="eyebrow">Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2><p class="lead">' +
       esc(data.overview) +
@@ -883,7 +884,6 @@
         })
         .join("") +
       "</div></div></section>" +
-      includedStatsSection() +
       typeGallery +
       '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="spotlight-intro"><p>Each step stays a visible decision point, so the team always knows what happens next and why.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
       spotlightList(data.process) +

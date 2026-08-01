@@ -695,13 +695,6 @@
     storySwipers();
     highlightSliders();
     if (window.lucide) lucide.createIcons();
-    if (window.AOS)
-      AOS.init({
-        once: true,
-        duration: 700,
-        offset: 60,
-        easing: "ease-out-cubic",
-      });
     if (window.PageTransition) PageTransition.init();
     reveal();
   }

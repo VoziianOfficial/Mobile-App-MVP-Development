@@ -1636,9 +1636,6 @@
   .about-hero .hero-grid {
     grid-template-columns: 1fr;
   }
-  .about-hero [data-aos] {
-    text-align: center;
-  }
   .about-hero .lead {
     margin-inline: auto;
   }

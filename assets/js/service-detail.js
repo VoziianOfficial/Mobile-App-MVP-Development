@@ -817,7 +817,7 @@
             );
           })
           .join("") +
-        '</div></div><figure class="round-cta-portrait round-cta-portrait--service"><img src="assets/images/service-faq-robot.png" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
+        '</div></div><figure class="round-cta-portrait round-cta-portrait--service" data-aos="safe-image-scale"><img src="assets/images/service-faq-robot.png" alt="Practical robot assistant reviewing a mobile app prototype" loading="lazy"></figure></div></section>'
       );
     }
     function includedStatsSection() {
@@ -859,7 +859,7 @@
       faqSection() +
       includedStatsSection() +
       highlightSlider() +
-      '<section class="section section--light service-overview-section dimension-section" aria-labelledby="overview-title"><div class="container"><span class="eyebrow">Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2><p class="lead">' +
+      '<section class="section section--light service-overview-section dimension-section" aria-labelledby="overview-title"><div class="container"><span class="eyebrow" data-aos="fade-up">Service overview</span><h2 class="section-title" id="overview-title" data-aos="fade-up" data-aos-delay="70">Capability focus.</h2><p class="lead" data-aos="fade-up" data-aos-delay="140">' +
       esc(data.overview) +
       '</p><div class="dimension-card-grid">' +
       overviewCards(data.tech) +
@@ -885,7 +885,7 @@
         .join("") +
       "</div></div></section>" +
       typeGallery +
-      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="spotlight-intro"><p>Each step stays a visible decision point, so the team always knows what happens next and why.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
+      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow" data-aos="fade-up">Delivery process</span><h2 class="section-title" id="delivery-title" data-aos="fade-up" data-aos-delay="70">From context to release.</h2></div><div class="spotlight-intro"><p data-aos="fade-up" data-aos-delay="140">Each step stays a visible decision point, so the team always knows what happens next and why.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
       spotlightList(data.process) +
       '</ul><figure class="spotlight-visual"><img src="' +
       spotlightImages[0] +
@@ -906,6 +906,7 @@
       target = document.querySelector("[data-service-content]");
     if (!data || !target) return;
     target.innerHTML = section(data, key);
+    document.dispatchEvent(new CustomEvent("service:content-ready"));
   }
   document.readyState === "loading"
     ? document.addEventListener("DOMContentLoaded", init)

@@ -29,12 +29,6 @@
       ".prototype-fraction",
       { 720: { slidesPerView: 2 }, 1100: { slidesPerView: 3 } },
     );
-    initSlider(
-      ".services-related-swiper",
-      ".services-related-prev",
-      ".services-related-next",
-      ".services-related-fraction",
-    );
   }
   document.readyState === "loading"
     ? document.addEventListener("DOMContentLoaded", init)

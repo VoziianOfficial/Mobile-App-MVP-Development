@@ -519,6 +519,16 @@
     integrations: "assets/images/integration-specialist.jpg",
     maintenance: "assets/images/maintenance-testing.jpg",
   };
+  var shortTitles = {
+    mobile: "Mobile apps",
+    mvp: "Startup MVP",
+    native: "Native apps",
+    cross: "Cross-platform",
+    ux: "UX prototype",
+    automation: "Workflow apps",
+    integrations: "API systems",
+    maintenance: "App support",
+  };
   function esc(s) {
     return String(s).replace(/[&<>"']/g, function (c) {
       return {
@@ -625,6 +635,55 @@
         })
         .join("");
     }
+    function relatedStorySection() {
+      var picks = related.slice(0, 3);
+      var subtitles = [
+        "Clarify the next practical layer.",
+        "Connect the workflow around it.",
+        "Keep the product ready to improve.",
+      ];
+      var descriptions = [
+        "Useful mobile products usually need one neighbouring capability to make the first release easier to understand, build and maintain.",
+        "When scope, interfaces and integrations are planned together, the product feels like one system instead of separate moving parts.",
+        "The next capability can be added in a controlled way, with the original product logic still visible to the team.",
+      ];
+      function stack(k, i) {
+        return (
+          '<div class="story-swipe-visual" aria-hidden="true"><span class="story-swipe-orb"></span><figure class="story-swipe-photo story-swipe-photo--three"><img src="' +
+          media[picks[(i + 2) % picks.length]] +
+          '" alt="" loading="lazy"></figure><figure class="story-swipe-photo story-swipe-photo--two"><img src="' +
+          media[picks[(i + 1) % picks.length]] +
+          '" alt="" loading="lazy"></figure><figure class="story-swipe-photo story-swipe-photo--one"><img src="' +
+          media[k] +
+          '" alt="" loading="lazy"></figure></div>'
+        );
+      }
+      return (
+        '<section class="section service-related-section story-swipe-section" aria-labelledby="related-title"><div class="container"><div class="swiper story-swipe-swiper" data-story-swiper><div class="swiper-wrapper">' +
+        picks
+          .map(function (k, i) {
+            return (
+              '<article class="swiper-slide story-swipe-slide"><div class="story-swipe-layout">' +
+              stack(k, i) +
+              '<div class="story-swipe-copy"><span class="eyebrow">07 / Related ' +
+              String(i + 1).padStart(2, "0") +
+              '</span>' +
+              (i === 0
+                ? '<h2 id="related-title">' + esc(shortTitles[k]) + ".</h2>"
+                : "<h3>" + esc(shortTitles[k]) + ".</h3>") +
+              '<div class="subhead">' +
+              subtitles[i] +
+              "</div><p>" +
+              descriptions[i] +
+              '</p><a href="' +
+              links[k] +
+              '">View capability <i data-lucide="arrow-up-right"></i></a></div></div></article>'
+            );
+          })
+          .join("") +
+        '</div><div class="story-swipe-pagination"></div></div></div></section>'
+      );
+    }
     return (
       '<section class="section section--light service-overview-section" aria-labelledby="overview-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">01 / Service overview</span><h2 class="section-title" id="overview-title">Capability focus.</h2></div><div class="spotlight-intro"><p>' +
       esc(data.overview) +
@@ -683,21 +742,7 @@
       '<section class="service-media-section" aria-labelledby="tech-title" data-parallax-section><img src="assets/images/card-paralaks.jpg" alt="' +
       esc(data.title) +
       ' product card with workflow depth" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p><div class="parallax-actions"><a class="ref-button ref-button--lime" href="contact.html#project-form"><span>Discuss this service</span><b><i data-lucide="arrow-up-right"></i></b></a><a class="ref-button ref-button--lavender" href="services.html"><span>All capabilities</span><b><i data-lucide="arrow-up-right"></i></b></a></div></div></div></section>' +
-      '<section class="section service-related-section" aria-labelledby="related-title"><div class="container"><div class="slider-head"><div><span class="eyebrow">07 / Related services</span><h2 class="section-title" id="related-title">Connect the next capability.</h2></div><div class="slider-controls"><button class="icon-btn related-prev" type="button" aria-label="Previous related service">←</button><span class="related-fraction"></span><button class="icon-btn related-next" type="button" aria-label="Next related service">→</button></div></div><div class="swiper related-swiper"><div class="swiper-wrapper">' +
-      related
-        .map(function (k, i) {
-          return (
-            '<div class="swiper-slide"><a class="related-card" href="' +
-            links[k] +
-            '"><small>' +
-            String(i + 1).padStart(2, "0") +
-            " / RELATED</small><h3>" +
-            esc(all[k].title) +
-            '</h3><div class="related-visual"><i></i><i></i><i></i></div><span>View capability →</span></a></div>'
-          );
-        })
-        .join("") +
-      "</div></div></div></section>" +
+      relatedStorySection() +
       '<section class="section section--light service-faq-section" aria-labelledby="service-faq-title"><div class="container service-faq-layout"><div><span class="eyebrow">08 / FAQ and project request</span><h2 class="section-title" id="service-faq-title">Clarify before scope.</h2><div class="accordion" data-accordion>' +
       data.faqs
         .map(function (q) {
@@ -719,17 +764,6 @@
       target = document.querySelector("[data-service-content]");
     if (!data || !target) return;
     target.innerHTML = section(data, key);
-    var related = document.querySelector(".related-swiper");
-    if (related && !related.dataset.swiperReady) {
-      related.dataset.swiperReady = "true";
-      new Swiper(related, {
-        slidesPerView: 1,
-        navigation: { prevEl: ".related-prev", nextEl: ".related-next" },
-        pagination: { el: ".related-fraction" },
-        keyboard: { enabled: true },
-        breakpoints: { 700: { slidesPerView: 2 }, 1050: { slidesPerView: 3 } },
-      });
-    }
   }
   document.readyState === "loading"
     ? document.addEventListener("DOMContentLoaded", init)

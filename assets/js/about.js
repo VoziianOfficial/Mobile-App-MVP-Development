@@ -14,13 +14,6 @@
   }
   function init() {
     slider(
-      ".expertise-swiper",
-      ".expertise-prev",
-      ".expertise-next",
-      ".expertise-fraction",
-      { 700: { slidesPerView: 1.5 }, 1100: { slidesPerView: 2.35 } },
-    );
-    slider(
       ".collab-swiper",
       ".collab-prev",
       ".collab-next",

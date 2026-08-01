@@ -329,85 +329,90 @@
           </div>
         </div>
       </section>
-      <section class="section section--dark" aria-labelledby="expertise-title">
+      <section
+        class="section section--dark story-swipe-section story-swipe-section--dark"
+        aria-labelledby="expertise-title"
+      >
         <div class="container">
-          <span class="eyebrow">Expertise mosaic</span>
-          <h2 class="section-title" id="expertise-title">
-            The product works as one system.
-          </h2>
-          <div class="about-slider-controls about-slider-controls--dark">
-            <button
-              class="icon-btn expertise-prev"
-              type="button"
-              aria-label="Previous expertise area"
-            >
-              <i data-lucide="arrow-left"></i></button
-            ><span class="expertise-fraction"></span
-            ><button
-              class="icon-btn expertise-next"
-              type="button"
-              aria-label="Next expertise area"
-            >
-              <i data-lucide="arrow-right"></i>
-            </button>
-          </div>
-          <div class="swiper expertise-swiper">
+          <div class="swiper story-swipe-swiper" data-story-swiper>
             <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <article class="expertise-slide expertise-slide--photo">
-                  <img
-                    src="assets/images/developer-work.jpg"
-                    width="1400"
-                    height="719"
-                    alt="Mobile developer at work"
-                    loading="lazy"
-                  />
-                  <div>
-                    <span>01 / ENGINEERING</span>
-                    <h3>Mobile product foundations</h3>
+              <article class="swiper-slide story-swipe-slide">
+                <div class="story-swipe-layout">
+                  <div class="story-swipe-visual" aria-hidden="true">
+                    <span class="story-swipe-orb"></span>
+                    <figure class="story-swipe-photo story-swipe-photo--three">
+                      <img src="assets/images/workflow-meeting.jpg" alt="" loading="lazy" />
+                    </figure>
+                    <figure class="story-swipe-photo story-swipe-photo--two">
+                      <img src="assets/images/ux-prototype.jpg" alt="" loading="lazy" />
+                    </figure>
+                    <figure class="story-swipe-photo story-swipe-photo--one">
+                      <img src="assets/images/developer-work.jpg" alt="" loading="lazy" />
+                    </figure>
+                  </div>
+                  <div class="story-swipe-copy">
+                    <span class="eyebrow">01 / Product foundation</span>
+                    <h2 id="expertise-title">Expertise.</h2>
+                    <div class="subhead">The idea becomes a usable structure.</div>
                     <p>
-                      Components, states and integrations stay connected to the
-                      workflow.
+                      We connect goals, user journeys, data and technical
+                      direction before the product turns into screens and code.
                     </p>
                   </div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="expertise-slide expertise-slide--lime">
-                  <span>02 / INTERFACE</span>
-                  <h3>Wireframes to reusable UI</h3>
-                  <div class="expertise-phone"><i></i><i></i><b></b></div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="expertise-slide">
-                  <span>03 / OPERATIONS</span>
-                  <h3>Workflow automation</h3>
-                  <div class="expertise-flow">
-                    <i>Request</i><b></b><i>Action</i><b></b><i>Visible</i>
+                </div>
+              </article>
+              <article class="swiper-slide story-swipe-slide">
+                <div class="story-swipe-layout">
+                  <div class="story-swipe-visual" aria-hidden="true">
+                    <span class="story-swipe-orb"></span>
+                    <figure class="story-swipe-photo story-swipe-photo--three">
+                      <img src="assets/images/developer-work.jpg" alt="" loading="lazy" />
+                    </figure>
+                    <figure class="story-swipe-photo story-swipe-photo--two">
+                      <img src="assets/images/workflow-meeting.jpg" alt="" loading="lazy" />
+                    </figure>
+                    <figure class="story-swipe-photo story-swipe-photo--one">
+                      <img src="assets/images/ux-prototype.jpg" alt="" loading="lazy" />
+                    </figure>
                   </div>
-                </article>
-              </div>
-              <div class="swiper-slide">
-                <article class="expertise-slide expertise-slide--photo">
-                  <img
-                    src="assets/images/services-devices.jpg"
-                    width="1800"
-                    height="1013"
-                    alt="Mobile interfaces tested across devices"
-                    loading="lazy"
-                  />
-                  <div>
-                    <span>04 / QUALITY</span>
-                    <h3>Testing and product support</h3>
+                  <div class="story-swipe-copy">
+                    <span class="eyebrow">02 / Interface system</span>
+                    <h3>Clear mobile UI.</h3>
+                    <div class="subhead">Flows stay simple where work happens.</div>
                     <p>
-                      Ordinary states receive the same attention as the primary
-                      screen.
+                      Wireframes, prototypes and reusable interface patterns
+                      make the product easier to understand, test and build.
                     </p>
                   </div>
-                </article>
-              </div>
+                </div>
+              </article>
+              <article class="swiper-slide story-swipe-slide">
+                <div class="story-swipe-layout">
+                  <div class="story-swipe-visual" aria-hidden="true">
+                    <span class="story-swipe-orb"></span>
+                    <figure class="story-swipe-photo story-swipe-photo--three">
+                      <img src="assets/images/ux-prototype.jpg" alt="" loading="lazy" />
+                    </figure>
+                    <figure class="story-swipe-photo story-swipe-photo--two">
+                      <img src="assets/images/developer-work.jpg" alt="" loading="lazy" />
+                    </figure>
+                    <figure class="story-swipe-photo story-swipe-photo--one">
+                      <img src="assets/images/workflow-meeting.jpg" alt="" loading="lazy" />
+                    </figure>
+                  </div>
+                  <div class="story-swipe-copy">
+                    <span class="eyebrow">03 / Delivery quality</span>
+                    <h3>Release ready.</h3>
+                    <div class="subhead">Ordinary states get real attention.</div>
+                    <p>
+                      We review integrations, edge cases, responsive behaviour
+                      and support needs so the product can keep improving.
+                    </p>
+                  </div>
+                </div>
+              </article>
             </div>
+            <div class="story-swipe-pagination"></div>
           </div>
         </div>
       </section>

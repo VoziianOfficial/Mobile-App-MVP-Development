@@ -413,6 +413,45 @@
     addEventListener("resize", schedule, { passive: true });
     schedule();
   }
+  function storySwipers() {
+    if (!window.Swiper) return;
+    document.querySelectorAll("[data-story-swiper]").forEach(function (el) {
+      if (el.dataset.swiperReady) return;
+      el.dataset.swiperReady = "true";
+      var pagination = el.querySelector(".story-swipe-pagination");
+      var slides = [].slice.call(el.querySelectorAll(".swiper-slide"));
+      if (pagination) {
+        pagination.innerHTML = slides
+          .map(function (_, index) {
+            return (
+              '<button class="swiper-pagination-bullet" type="button" aria-label="Go to slide ' +
+              (index + 1) +
+              '"></button>'
+            );
+          })
+          .join("");
+      }
+      var dots = pagination
+        ? [].slice.call(pagination.querySelectorAll("button"))
+        : [];
+      var swiper = new Swiper(el, {
+        slidesPerView: 1,
+        onChange: function (index) {
+          dots.forEach(function (dot, dotIndex) {
+            var active = dotIndex === index;
+            dot.classList.toggle("swiper-pagination-bullet-active", active);
+            dot.setAttribute("aria-current", active ? "true" : "false");
+          });
+        },
+      });
+      dots.forEach(function (dot, index) {
+        dot.addEventListener("click", function () {
+          swiper.slideTo(index);
+        });
+      });
+      if (dots[0]) dots[0].classList.add("swiper-pagination-bullet-active");
+    });
+  }
   function menuInert() {
     var overlay = document.querySelector(".menu-overlay");
     if (!overlay) return;
@@ -430,6 +469,7 @@
     panelSelectors();
     spotlightGroups();
     siteParallax();
+    storySwipers();
     if (window.lucide) lucide.createIcons();
     if (window.AOS)
       AOS.init({

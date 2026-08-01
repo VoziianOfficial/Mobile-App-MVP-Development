@@ -130,7 +130,6 @@ p:last-child {
 }
 .dimension-card {
   position: relative;
-  min-height: clamp(360px, 28vw, 430px);
   height: 100%;
   display: flex;
   flex-direction: column;

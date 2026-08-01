@@ -1,15 +1,33 @@
 window.SITE_CONFIG = {
+  "site": {
+    "url": "https://example.com/",
+    "locale": "en-GB"
+  },
   "brand": {
     "name": "Kovexa Studio",
+    "shortName": "Kovexa",
     "legalName": "Kovexa Studio Ltd.",
     "tagline": "Ideas shaped into working products.",
-    "logoDark": "assets/images/logo-dark.svg",
-    "logoLight": "assets/images/logo-light.svg",
-    "favicon": "assets/images/favicon.svg"
+    "status": "Mobile Product Studio",
+    "logo": {
+      "type": "icon-text",
+      "text": "Kovexa Studio",
+      "iconDark": "assets/images/favicon.svg",
+      "iconLight": "assets/images/favicon.svg",
+      "imageDark": "assets/images/logo-dark.svg",
+      "imageLight": "assets/images/logo-light.svg",
+      "width": 276,
+      "height": 58
+    },
+    "favicon": "assets/images/favicon.svg",
+    "legacy": {
+      "name": "Kovexa Studio",
+      "shortName": "Kovexa",
+      "legalName": "Kovexa Studio Ltd."
+    }
   },
   "contact": {
     "email": "hello@kovexastudio.com",
-    "recipientEmail": "hello@kovexastudio.com",
     "address": "24 Northbridge Avenue, Manchester, M1 4AX, United Kingdom"
   },
   "navigation": {
@@ -38,10 +56,42 @@ window.SITE_CONFIG = {
     "consentError": "Please confirm that you have read the privacy notice.",
     "serverError": "We could not send your request. Please try again or contact us by email.",
     "networkError": "The connection was interrupted. Your information is still in the form; please try again.",
-    "inquiryOptions": ["Mobile App Project", "MVP Development", "Existing Product Improvement", "UI/UX and Prototype", "Automation or Integration", "Maintenance and Support", "Advertising and Collaboration", "General Information"],
-    "serviceOptions": ["Mobile Application Development", "MVP Development for Startups", "iOS and Android Applications", "Cross-Platform Development", "UI/UX Design and Prototyping", "Business Process Automation", "API and Third-Party Integrations", "Application Maintenance and Support", "Not Sure Yet"],
-    "stageOptions": ["Idea Stage", "Validated Concept", "Prototype Available", "Existing Product", "Preparing for Launch", "Already Live"],
-    "timelineOptions": ["Exploring Options", "Planning This Quarter", "Ready to Begin", "Flexible", "Not Sure Yet"]
+    "inquiryOptions": [
+      "Mobile App Project",
+      "MVP Development",
+      "Existing Product Improvement",
+      "UI/UX and Prototype",
+      "Automation or Integration",
+      "Maintenance and Support",
+      "Advertising and Collaboration",
+      "General Information"
+    ],
+    "serviceOptions": [
+      "Mobile Application Development",
+      "MVP Development for Startups",
+      "iOS and Android Applications",
+      "Cross-Platform Development",
+      "UI/UX Design and Prototyping",
+      "Business Process Automation",
+      "API and Third-Party Integrations",
+      "Application Maintenance and Support",
+      "Not Sure Yet"
+    ],
+    "stageOptions": [
+      "Idea Stage",
+      "Validated Concept",
+      "Prototype Available",
+      "Existing Product",
+      "Preparing for Launch",
+      "Already Live"
+    ],
+    "timelineOptions": [
+      "Exploring Options",
+      "Planning This Quarter",
+      "Ready to Begin",
+      "Flexible",
+      "Not Sure Yet"
+    ]
   },
   "advertise": {
     "title": "Advertise & Collaborate",
@@ -49,7 +99,9 @@ window.SITE_CONFIG = {
   },
   "footer": {
     "description": "Focused mobile products for startups, entrepreneurs, and growing businesses.",
-    "copyright": "© 2026 Kovexa Studio Ltd. All rights reserved."
+    "headline": "Make decisions <em>visible.</em>",
+    "disclaimer": "provides product planning, design, development, and support information for discussion purposes. Final scope, timelines, estimates, and outcomes depend on project details, platform requirements, third-party services, approvals, and written agreement.",
+    "copyrightSuffix": "All rights reserved."
   },
   "legal": {
     "privacyLabel": "Privacy Policy",

@@ -37,10 +37,27 @@ if (!is_array($config) || json_last_error() !== JSON_ERROR_NONE) {
     respond(500, false, 'Server configuration error. Please contact the studio by email.');
 }
 
-$recipient = $config['contact']['recipientEmail'] ?? '';
+$brandName = $config['brand']['name'] ?? 'Website';
+$legalName = $config['brand']['legalName'] ?? $brandName;
+if (!is_string($legalName) || trim($legalName) === '') {
+    $legalName = is_string($brandName) ? $brandName : 'Website';
+}
+
+$recipient = $config['contact']['email'] ?? '';
+$businessAddress = $config['contact']['address'] ?? '';
+
 $successMessage = $config['forms']['successMessage'] ?? '';
-$serverError = $config['forms']['serverError'] ?? 'We could not send your request. Please try again or contact us by email.';
-if (!is_string($recipient) || !filter_var($recipient, FILTER_VALIDATE_EMAIL) || !is_string($successMessage) || $successMessage === '') {
+$serverError = $config['forms']['serverError']
+    ?? 'We could not send your request. Please try again or contact us by email.';
+
+if (
+    !is_string($brandName)
+    || trim($brandName) === ''
+    || !is_string($recipient)
+    || !filter_var($recipient, FILTER_VALIDATE_EMAIL)
+    || !is_string($successMessage)
+    || $successMessage === ''
+) {
     respond(500, false, 'Server configuration error. Please contact the studio by email.');
 }
 
@@ -129,12 +146,20 @@ $sourcePage = preg_match('/^[a-z0-9][a-z0-9\-]*\.html(?:#[a-z0-9\-]+)?$/i', $sou
 $safeEmail = str_replace(["\r", "\n"], '', $fields['email']);
 $recipientDomain = substr(strrchr($recipient, '@') ?: '@localhost', 1);
 $fromEmail = 'no-reply@' . preg_replace('/[^a-z0-9.\-]/i', '', $recipientDomain);
-$subjectText = 'Kovexa Studio enquiry: ' . $fields['inquiry_type'];
+$safeBrandName = str_replace(["\r", "\n"], ' ', trim($brandName));
+$subjectText = $safeBrandName . ' enquiry: ' . $fields['inquiry_type'];
 $subject = '=?UTF-8?B?' . base64_encode($subjectText) . '?=';
 
 $lines = [
     'New website enquiry',
     '-------------------',
+    'Website: ' . bodyValue($legalName),
+    'Business Address: ' . bodyValue(
+        is_string($businessAddress) && $businessAddress !== ''
+            ? $businessAddress
+            : 'Not configured'
+    ),
+    '',
     'Inquiry Type: ' . bodyValue($fields['inquiry_type']),
     'Service: ' . bodyValue($fields['service']),
     'Full Name: ' . bodyValue($fields['full_name']),
@@ -154,7 +179,7 @@ $headers = [
     'MIME-Version: 1.0',
     'Content-Type: text/plain; charset=UTF-8',
     'Content-Transfer-Encoding: 8bit',
-    'From: Kovexa Studio Website <' . $fromEmail . '>',
+    'From: ' . $safeBrandName . ' Website <' . $fromEmail . '>',
     'Reply-To: ' . $safeEmail,
     'X-Mailer: PHP/' . PHP_VERSION
 ];

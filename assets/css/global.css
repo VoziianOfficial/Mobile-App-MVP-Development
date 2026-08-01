@@ -124,11 +124,50 @@ p:last-child {
   width: 100%;
   overflow: visible;
 }
+.story-swipe-swiper .swiper-wrapper {
+  display: grid;
+  transform: none !important;
+  transition: none !important;
+}
 .story-swipe-slide {
+  grid-area: 1 / 1;
+  pointer-events: none;
   opacity: 0 !important;
+  visibility: hidden;
+  z-index: 0;
+  transition:
+    opacity 0.38s ease,
+    visibility 0.38s ease;
 }
 .story-swipe-slide.swiper-slide-active {
+  pointer-events: auto;
   opacity: 1 !important;
+  visibility: visible;
+  z-index: 5;
+}
+.story-swipe-slide.is-story-leaving {
+  opacity: 1 !important;
+  visibility: visible;
+  z-index: 4;
+}
+.story-swipe-slide.is-story-leaving .story-swipe-copy {
+  opacity: 0;
+  transform: translateY(-12px);
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease;
+}
+.story-swipe-slide.is-story-leaving-next .story-swipe-photo--one {
+  animation: storyCardExitNext 0.68s cubic-bezier(0.48, 0.02, 0.58, 1) both;
+}
+.story-swipe-slide.is-story-leaving-prev .story-swipe-photo--one {
+  animation: storyCardExitPrev 0.68s cubic-bezier(0.48, 0.02, 0.58, 1) both;
+}
+.story-swipe-slide.is-story-leaving .story-swipe-photo--two {
+  animation: storyCardSettleBack 0.58s ease both;
+}
+.story-swipe-slide.is-story-leaving .story-swipe-photo--three {
+  animation: storyCardSettleBackDeep 0.58s ease both;
 }
 .story-swipe-layout {
   min-height: clamp(510px, 58vw, 680px);
@@ -143,6 +182,11 @@ p:last-child {
   display: grid;
   place-items: center;
   isolation: isolate;
+  cursor: grab;
+  touch-action: pan-y;
+}
+.story-swipe-visual:active {
+  cursor: grabbing;
 }
 .story-swipe-photo {
   position: absolute;
@@ -154,6 +198,7 @@ p:last-child {
   background: var(--color-surface-light);
   box-shadow: 0 22px 45px rgba(13, 15, 13, 0.2);
   transform-origin: 50% 90%;
+  will-change: transform, opacity;
 }
 .story-swipe-photo img {
   width: 100%;
@@ -257,14 +302,35 @@ p:last-child {
   border-color: var(--color-lime);
   background: var(--color-lime);
 }
-.story-swipe-slide.swiper-slide-active .story-swipe-photo--one {
-  animation: storyCardIn 0.68s cubic-bezier(0.18, 0.8, 0.22, 1) both;
+.story-swipe-swiper.is-story-next
+  .story-swipe-slide.swiper-slide-active
+  .story-swipe-photo--one {
+  animation: storyCardNextOne 0.72s cubic-bezier(0.16, 0.78, 0.18, 1) both;
 }
-.story-swipe-slide.swiper-slide-active .story-swipe-photo--two {
-  animation: storyCardInTwo 0.74s cubic-bezier(0.18, 0.8, 0.22, 1) both;
+.story-swipe-swiper.is-story-next
+  .story-swipe-slide.swiper-slide-active
+  .story-swipe-photo--two {
+  animation: storyCardNextTwo 0.78s cubic-bezier(0.16, 0.78, 0.18, 1) both;
 }
-.story-swipe-slide.swiper-slide-active .story-swipe-photo--three {
-  animation: storyCardInThree 0.78s cubic-bezier(0.18, 0.8, 0.22, 1) both;
+.story-swipe-swiper.is-story-next
+  .story-swipe-slide.swiper-slide-active
+  .story-swipe-photo--three {
+  animation: storyCardNextThree 0.84s cubic-bezier(0.16, 0.78, 0.18, 1) both;
+}
+.story-swipe-swiper.is-story-prev
+  .story-swipe-slide.swiper-slide-active
+  .story-swipe-photo--one {
+  animation: storyCardPrevOne 0.72s cubic-bezier(0.16, 0.78, 0.18, 1) both;
+}
+.story-swipe-swiper.is-story-prev
+  .story-swipe-slide.swiper-slide-active
+  .story-swipe-photo--two {
+  animation: storyCardPrevTwo 0.78s cubic-bezier(0.16, 0.78, 0.18, 1) both;
+}
+.story-swipe-swiper.is-story-prev
+  .story-swipe-slide.swiper-slide-active
+  .story-swipe-photo--three {
+  animation: storyCardPrevThree 0.84s cubic-bezier(0.16, 0.78, 0.18, 1) both;
 }
 .story-swipe-slide.swiper-slide-active .story-swipe-copy > * {
   animation: storyTextIn 0.56s cubic-bezier(0.18, 0.8, 0.22, 1) both;
@@ -304,34 +370,112 @@ p:last-child {
   border-color: var(--color-lime);
   background: var(--color-lime);
 }
-@keyframes storyCardIn {
+@keyframes storyCardNextOne {
   from {
     opacity: 0;
-    transform: translate(13%, 10%) rotate(14deg) scale(0.92);
+    transform: translate(62%, 9%) rotate(22deg) scale(0.88);
+  }
+  62% {
+    opacity: 1;
+    transform: translate(2%, 0) rotate(5deg) scale(1.02);
   }
   to {
     opacity: 1;
     transform: translate(6%, 2%) rotate(8deg) scale(1);
   }
 }
-@keyframes storyCardInTwo {
+@keyframes storyCardNextTwo {
   from {
-    opacity: 0;
-    transform: translate(-15%, -1%) rotate(-12deg) scale(0.9);
+    opacity: 0.55;
+    transform: translate(18%, -3%) rotate(2deg) scale(0.96);
   }
   to {
     opacity: 1;
     transform: translate(-4%, -7%) rotate(-4deg) scale(1);
   }
 }
-@keyframes storyCardInThree {
+@keyframes storyCardNextThree {
   from {
-    opacity: 0;
-    transform: translate(25%, -4%) rotate(9deg) scale(0.9);
+    opacity: 0.35;
+    transform: translate(-2%, -8%) rotate(-5deg) scale(0.94);
   }
   to {
     opacity: 1;
     transform: translate(16%, -10%) rotate(2deg) scale(1);
+  }
+}
+@keyframes storyCardPrevOne {
+  from {
+    opacity: 0;
+    transform: translate(-58%, 9%) rotate(-22deg) scale(0.88);
+  }
+  62% {
+    opacity: 1;
+    transform: translate(9%, 1%) rotate(10deg) scale(1.02);
+  }
+  to {
+    opacity: 1;
+    transform: translate(6%, 2%) rotate(8deg) scale(1);
+  }
+}
+@keyframes storyCardPrevTwo {
+  from {
+    opacity: 0.55;
+    transform: translate(-22%, -4%) rotate(-10deg) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-4%, -7%) rotate(-4deg) scale(1);
+  }
+}
+@keyframes storyCardPrevThree {
+  from {
+    opacity: 0.35;
+    transform: translate(2%, -8%) rotate(7deg) scale(0.94);
+  }
+  to {
+    opacity: 1;
+    transform: translate(16%, -10%) rotate(2deg) scale(1);
+  }
+}
+@keyframes storyCardExitNext {
+  from {
+    opacity: 1;
+    transform: translate(6%, 2%) rotate(8deg) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-64%, 8%) rotate(-24deg) scale(0.86);
+  }
+}
+@keyframes storyCardExitPrev {
+  from {
+    opacity: 1;
+    transform: translate(6%, 2%) rotate(8deg) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(68%, 8%) rotate(26deg) scale(0.86);
+  }
+}
+@keyframes storyCardSettleBack {
+  from {
+    opacity: 0.95;
+    transform: translate(-4%, -7%) rotate(-4deg) scale(1);
+  }
+  to {
+    opacity: 0.18;
+    transform: translate(-16%, -4%) rotate(-9deg) scale(0.92);
+  }
+}
+@keyframes storyCardSettleBackDeep {
+  from {
+    opacity: 0.85;
+    transform: translate(16%, -10%) rotate(2deg) scale(1);
+  }
+  to {
+    opacity: 0.08;
+    transform: translate(5%, -12%) rotate(-2deg) scale(0.9);
   }
 }
 @keyframes storyTextIn {

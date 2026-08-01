@@ -434,16 +434,58 @@
       var dots = pagination
         ? [].slice.call(pagination.querySelectorAll("button"))
         : [];
+      var previousIndex = 0;
+      var storyTimer;
       var swiper = new Swiper(el, {
         slidesPerView: 1,
         onChange: function (index) {
+          var direction =
+            index === previousIndex
+              ? "next"
+              : index > previousIndex || (previousIndex === slides.length - 1 && index === 0)
+                ? "next"
+                : "prev";
+          if (index !== previousIndex && slides[previousIndex]) {
+            slides[previousIndex].classList.remove(
+              "is-story-leaving",
+              "is-story-leaving-next",
+              "is-story-leaving-prev",
+            );
+            slides[previousIndex].classList.add(
+              "is-story-leaving",
+              "is-story-leaving-" + direction,
+            );
+          }
+          el.classList.remove("is-story-next", "is-story-prev");
+          void el.offsetWidth;
+          el.classList.add("is-story-" + direction);
+          window.clearTimeout(storyTimer);
+          storyTimer = window.setTimeout(function () {
+            el.classList.remove("is-story-next", "is-story-prev");
+            slides.forEach(function (slide) {
+              slide.classList.remove(
+                "is-story-leaving",
+                "is-story-leaving-next",
+                "is-story-leaving-prev",
+              );
+            });
+          }, 920);
           dots.forEach(function (dot, dotIndex) {
             var active = dotIndex === index;
             dot.classList.toggle("swiper-pagination-bullet-active", active);
             dot.setAttribute("aria-current", active ? "true" : "false");
           });
+          previousIndex = index;
         },
       });
+      swiper.slideNext = function () {
+        swiper.index = (swiper.index + 1) % slides.length;
+        swiper.update();
+      };
+      swiper.slidePrev = function () {
+        swiper.index = (swiper.index - 1 + slides.length) % slides.length;
+        swiper.update();
+      };
       dots.forEach(function (dot, index) {
         dot.addEventListener("click", function () {
           swiper.slideTo(index);

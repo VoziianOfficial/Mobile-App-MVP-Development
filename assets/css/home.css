@@ -2348,16 +2348,22 @@
     grid-template-columns: 1fr;
   }
   .service-media-tabs {
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     border: 1px solid var(--color-border-light);
     border-radius: 18px;
-    overflow: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     max-height: none;
+    scroll-padding-inline: 10px;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
   }
   .service-media-tabs button {
+    flex: 0 0 min(230px, 72vw);
     min-height: 60px;
     border-right: 1px solid var(--color-border-light);
     border-bottom: 0;
+    scroll-snap-align: start;
   }
   .service-media-tabs button.is-active {
     padding-left: 14px;
@@ -2441,13 +2447,7 @@
     justify-content: space-between;
   }
   .service-media-tabs {
-    display: flex;
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-height: none;
-  }
-  .service-media-tabs button {
-    min-width: 175px;
+    display: none;
   }
   .service-media-slide {
     min-height: 620px;

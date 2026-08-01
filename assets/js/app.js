@@ -615,3 +615,92 @@
     ? document.addEventListener("DOMContentLoaded", init)
     : init();
 })();
+
+function initGlobalStickySystem() {
+  const root = document.documentElement;
+  const headerHost = document.querySelector("[data-site-header]");
+
+  let observedHeader = null;
+  let headerResizeObserver = null;
+  let mutationObserver = null;
+
+  const getStickyGap = () => {
+    return window.matchMedia("(max-width: 900px)").matches ? 18 : 24;
+  };
+
+  const updateStickyOffset = () => {
+    const header = document.querySelector(".site-header");
+
+    if (!header) {
+      return false;
+    }
+
+    const rect = header.getBoundingClientRect();
+    const stickyTop = Math.ceil(rect.bottom + getStickyGap());
+
+    root.style.setProperty("--header-h", `${Math.ceil(rect.height)}px`);
+    root.style.setProperty("--sticky-top", `${stickyTop}px`);
+
+    return true;
+  };
+
+  const observeHeader = () => {
+    const header = document.querySelector(".site-header");
+
+    if (!header || header === observedHeader) {
+      return Boolean(header);
+    }
+
+    observedHeader = header;
+
+    if (headerResizeObserver) {
+      headerResizeObserver.disconnect();
+    }
+
+    if ("ResizeObserver" in window) {
+      headerResizeObserver = new ResizeObserver(() => {
+        updateStickyOffset();
+      });
+
+      headerResizeObserver.observe(header);
+    }
+
+    updateStickyOffset();
+
+    return true;
+  };
+
+  const start = () => {
+    if (!observeHeader() && headerHost) {
+      mutationObserver = new MutationObserver(() => {
+        if (observeHeader()) {
+          mutationObserver.disconnect();
+          mutationObserver = null;
+        }
+      });
+
+      mutationObserver.observe(headerHost, {
+        childList: true,
+        subtree: true,
+      });
+    }
+
+    window.addEventListener(
+      "resize",
+      () => {
+        window.requestAnimationFrame(updateStickyOffset);
+      },
+      { passive: true },
+    );
+
+    window.addEventListener("load", updateStickyOffset, { once: true });
+  };
+
+  start();
+}
+
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initGlobalStickySystem);
+} else {
+  initGlobalStickySystem();
+}

@@ -1,0 +1,223 @@
+/* =========================================================
+   KOVEXA — GLOBAL STICKY SYSTEM
+   Подключать после page-specific CSS.
+========================================================= */
+
+:root {
+  --sticky-gap: 24px;
+
+  /*
+    Начальное значение:
+    header top 18px + header height 84px + gap 24px
+    JS ниже автоматически уточнит его.
+  */
+  --sticky-top: 126px;
+}
+
+/* =========================================================
+   ROOT SCROLL CONTAINER
+========================================================= */
+
+/*
+  Не использовать overflow-x: hidden на body.
+  hidden может превратить body в дополнительный
+  вертикальный scroll-container и сломать sticky.
+*/
+html,
+body {
+  overflow-x: clip !important;
+}
+
+html {
+  scroll-padding-top: calc(var(--sticky-top) + 12px);
+}
+
+/* Блокировка страницы при открытом меню остаётся рабочей */
+body.menu-open {
+  overflow: hidden !important;
+}
+
+/* Якорные секции не должны попадать под fixed header */
+:where(section[id], article[id], div[id]) {
+  scroll-margin-top: calc(var(--sticky-top) + 12px);
+}
+
+/* =========================================================
+   STICKY LAYOUT PARENTS
+========================================================= */
+
+:where(
+  .form-layout,
+  .editorial,
+  .legal-layout,
+  .contact-faq-layout,
+  .service-faq-layout,
+  .story-scroll-grid,
+  .sticky-layout,
+  [data-sticky-layout]
+) {
+  align-items: start !important;
+  overflow: visible !important;
+  transform: none !important;
+  translate: none !important;
+  rotate: none !important;
+  scale: none !important;
+  filter: none !important;
+  perspective: none !important;
+  contain: none !important;
+}
+
+:where(
+  .form-layout,
+  .editorial,
+  .legal-layout,
+  .contact-faq-layout,
+  .service-faq-layout,
+  .story-scroll-grid,
+  .sticky-layout,
+  [data-sticky-layout]
+) > * {
+  min-width: 0;
+}
+
+/*
+  Секция, содержащая sticky-блок, не должна его обрезать.
+
+  Здесь перечислены существующие sticky-композиции проекта.
+  Для новых секций можно добавить data-sticky-section.
+*/
+@supports selector(section:has(*)) {
+  :where(
+    section,
+    .section,
+    [data-sticky-section]
+  ):has(
+    :where(
+      [data-sticky],
+      .sticky-block,
+      .sticky-sidebar,
+      .sticky-column,
+      .form-intro,
+      .intro-sticky-copy,
+      .legal-nav,
+      .contact-faq-layout > :first-child,
+      .service-faq-layout > :first-child,
+      .story-scroll-visual
+    )
+  ) {
+    overflow: visible !important;
+    transform: none !important;
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+    filter: none !important;
+    perspective: none !important;
+    contain: none !important;
+  }
+}
+
+/* =========================================================
+   DESKTOP STICKY BLOCKS
+========================================================= */
+
+@media (min-width: 901px) {
+  :where(
+    [data-sticky],
+    .sticky-block,
+    .sticky-sidebar,
+    .sticky-column,
+    .form-intro,
+    .intro-sticky-copy,
+    .legal-nav,
+    .contact-faq-layout > :first-child,
+    .service-faq-layout > :first-child,
+    .story-scroll-visual
+  ) {
+    position: sticky !important;
+    top: var(--sticky-top) !important;
+    align-self: start !important;
+    height: fit-content;
+    min-width: 0;
+
+    /*
+      Sticky-элемент нельзя трансформировать.
+      Особенно важно при использовании AOS.
+    */
+    transform: none !important;
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+    filter: none !important;
+    perspective: none !important;
+    contain: none !important;
+    will-change: auto !important;
+  }
+
+  /*
+    Legal navigation может быть выше доступного экрана,
+    поэтому прокручивается внутри себя.
+  */
+  .legal-nav {
+    max-height: calc(100svh - var(--sticky-top) - 24px);
+    overflow-x: clip !important;
+    overflow-y: auto !important;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable;
+  }
+
+  /*
+    Если AOS случайно добавлен прямо sticky-элементу,
+    запрещаем его transform.
+  */
+  :where(
+    [data-sticky],
+    .sticky-block,
+    .sticky-sidebar,
+    .sticky-column,
+    .form-intro,
+    .intro-sticky-copy,
+    .legal-nav,
+    .contact-faq-layout > :first-child,
+    .service-faq-layout > :first-child,
+    .story-scroll-visual
+  )[data-aos] {
+    opacity: 1 !important;
+    transform: none !important;
+    translate: none !important;
+    rotate: none !important;
+    scale: none !important;
+    transition-property: opacity !important;
+  }
+}
+
+/* =========================================================
+   TABLET / MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+  :root {
+    --sticky-gap: 18px;
+  }
+
+  :where(
+    [data-sticky],
+    .sticky-block,
+    .sticky-sidebar,
+    .sticky-column,
+    .form-intro,
+    .intro-sticky-copy,
+    .legal-nav,
+    .contact-faq-layout > :first-child,
+    .service-faq-layout > :first-child,
+    .story-scroll-visual
+  ) {
+    position: relative !important;
+    top: auto !important;
+    bottom: auto !important;
+    height: auto !important;
+    min-height: 0;
+    max-height: none !important;
+    overflow: visible !important;
+    transform: none !important;
+  }
+}

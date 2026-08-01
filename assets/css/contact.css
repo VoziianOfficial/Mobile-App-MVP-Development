@@ -731,7 +731,7 @@
   background: var(--color-paper-deep);
 }
 .form-layout {
-  grid-template-columns: 0.72fr 1.28fr;
+  grid-template-columns: minmax(360px, 0.82fr) minmax(0, 1.18fr);
   align-items: start;
   overflow: visible;
 }
@@ -754,8 +754,9 @@
   backdrop-filter: blur(14px);
 }
 .form-intro .section-title {
-  max-width: 10ch;
+  max-width: 13.5ch;
   margin-bottom: 16px;
+  text-wrap: balance;
 }
 .form-intro .lead {
   color: var(--color-text-muted);
@@ -1011,7 +1012,7 @@
     margin: auto;
   }
   .form-layout {
-    grid-template-columns: minmax(250px, 0.72fr) minmax(0, 1.28fr);
+    grid-template-columns: minmax(330px, 0.82fr) minmax(0, 1.18fr);
     gap: clamp(22px, 4vw, 46px);
   }
   .form-intro {

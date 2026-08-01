@@ -616,7 +616,7 @@
     ];
     var highlightStories = [
       {
-        code: "Phase 01 / Product fit",
+        code: "Product fit",
         title: data.process[0] || "Clarify the first move",
         text:
           data.note +
@@ -625,7 +625,7 @@
         points: ["Workflow", "Audience", "Release boundary"],
       },
       {
-        code: "Phase 02 / Interface system",
+        code: "Interface system",
         title: data.process[1] || "Map the central journey",
         text:
           data.included[1] +
@@ -636,7 +636,7 @@
         points: ["Screens", "States", "Prototype"],
       },
       {
-        code: "Phase 03 / Build readiness",
+        code: "Build readiness",
         title: data.process[3] || "Build and connect",
         text:
           data.tech.slice(0, 3).join(", ") +
@@ -662,9 +662,7 @@
               esc(data.title) +
               '" loading="lazy"><figcaption><span>' +
               esc(data.types[i] || shortTitles[key]) +
-              '</span><strong>0' +
-              (i + 1) +
-              '</strong></figcaption></figure><div class="service-highlight-content"><span class="service-highlight-tag">' +
+              '</span></figcaption></figure><div class="service-highlight-content"><span class="service-highlight-tag">' +
               esc(story.code) +
               "</span>" +
               (i === 0
@@ -699,9 +697,7 @@
             esc(x) +
             ' — ' +
             esc(data.title) +
-            '"><button type="button"><span class="spotlight-index">' +
-            String(i + 1).padStart(2, "0") +
-            '</span><span class="spotlight-label">' +
+            '"><button type="button"><span class="spotlight-label">' +
             esc(x) +
             "</span></button></li>"
           );
@@ -790,9 +786,7 @@
             return (
               '<article class="swiper-slide story-swipe-slide"><div class="story-swipe-layout">' +
               stack(k, i) +
-              '<div class="story-swipe-copy"><span class="eyebrow">07 / Related ' +
-              String(i + 1).padStart(2, "0") +
-              '</span>' +
+              '<div class="story-swipe-copy"><span class="eyebrow">Related capability</span>' +
               (i === 0
                 ? '<h2 id="related-title">' + esc(shortTitles[k]) + ".</h2>"
                 : "<h3>" + esc(shortTitles[k]) + ".</h3>") +
@@ -811,7 +805,7 @@
     }
     function faqSection() {
       return (
-        '<section class="section section--light service-faq-section" aria-labelledby="service-faq-title"><div class="container service-faq-layout"><div><span class="eyebrow">08 / FAQ and project request</span><h2 class="section-title" id="service-faq-title">Clarify before scope.</h2><div class="accordion" data-accordion>' +
+        '<section class="section section--light service-faq-section" aria-labelledby="service-faq-title"><div class="container service-faq-layout"><div><span class="eyebrow">FAQ and project request</span><h2 class="section-title" id="service-faq-title">Clarify before scope.</h2><div class="accordion" data-accordion>' +
         data.faqs
           .map(function (q) {
             return (
@@ -847,16 +841,14 @@
             problemImages[i % problemImages.length] +
             '\')"><span class="panel-option-label"><span class="panel-option-icon"><i data-lucide="' +
             problemIcons[i % problemIcons.length] +
-            '"></i></span><span class="panel-option-info"><strong>Context ' +
-            String(i + 1).padStart(2, "0") +
-            "</strong><span>" +
+            '"></i></span><span class="panel-option-info"><strong>Context</strong><span>' +
             esc(x.length > 74 ? x.slice(0, 71).trim() + "..." : x) +
             "</span></span></span></button>"
           );
         })
         .join("") +
       "</div></div></section>" +
-      '<section class="section section--dark service-included-section" aria-labelledby="included-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">03 / What is included</span><h2 class="section-title" id="included-title">Workstreams shaped to scope.</h2></div><div class="spotlight-intro"><p>Every workstream stays a visible, reviewable part of the engagement — hover a line to see where it sits in ' +
+      '<section class="section section--dark service-included-section" aria-labelledby="included-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">What is included</span><h2 class="section-title" id="included-title">Workstreams shaped to scope.</h2></div><div class="spotlight-intro"><p>Every workstream stays a visible, reviewable part of the engagement — hover a line to see where it sits in ' +
       esc(data.title) +
       '.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
       spotlightList(data.included) +
@@ -868,7 +860,7 @@
       esc(data.title) +
       '" loading="lazy"></figure></div></div></section>' +
       typeGallery +
-      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">05 / Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="spotlight-intro"><p>Each step stays a visible decision point, so the team always knows what happens next and why.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
+      '<section class="section section--light service-process-section" aria-labelledby="delivery-title"><div class="container"><div class="spotlight-head"><div><span class="eyebrow">Delivery process</span><h2 class="section-title" id="delivery-title">From context to release.</h2></div><div class="spotlight-intro"><p>Each step stays a visible decision point, so the team always knows what happens next and why.</p></div></div><div class="spotlight-body" data-spotlight><ul class="spotlight-list">' +
       spotlightList(data.process) +
       '</ul><figure class="spotlight-visual"><img src="' +
       spotlightImages[0] +
@@ -879,7 +871,7 @@
       '" loading="lazy"></figure></div></div></section>' +
       '<section class="service-media-section" aria-labelledby="tech-title" data-parallax-section><img src="assets/images/card-paralaks.jpg" alt="' +
       esc(data.title) +
-      ' product card with workflow depth" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">06 / Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p><div class="parallax-actions"><a class="ref-button ref-button--lime" href="contact.html#project-form"><span>Discuss this service</span><b><i data-lucide="arrow-up-right"></i></b></a><a class="ref-button ref-button--lavender" href="services.html"><span>All capabilities</span><b><i data-lucide="arrow-up-right"></i></b></a></div></div></div></section>' +
+      ' product card with workflow depth" loading="lazy" data-parallax-image><div class="container service-media-panel"><div><span class="eyebrow">Technology and product context</span><h2 class="section-title" id="tech-title">Workflow-led technology.</h2><p>Technical choices follow access, platforms, data responsibility and maintenance priorities.</p><div class="parallax-actions"><a class="ref-button ref-button--lime" href="contact.html#project-form"><span>Discuss this service</span><b><i data-lucide="arrow-up-right"></i></b></a><a class="ref-button ref-button--lavender" href="services.html"><span>All capabilities</span><b><i data-lucide="arrow-up-right"></i></b></a></div></div></div></section>' +
       relatedStorySection()
     );
   }

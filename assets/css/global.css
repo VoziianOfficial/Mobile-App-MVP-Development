@@ -1340,15 +1340,27 @@ p:last-child {
 .section--dark .spotlight-list button {
   color: var(--color-text-muted-dark);
 }
-.spotlight-list .spotlight-index {
-  font-size: 0.85rem;
-  font-weight: 700;
-  transition: color 0.3s;
-}
 .spotlight-list .spotlight-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
   font-size: clamp(1.15rem, 1.7vw, 1.55rem);
   font-weight: 700;
   letter-spacing: 0;
+}
+.spotlight-list .spotlight-label::before {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+  border: 1px solid rgba(201, 255, 87, 0.62);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--color-lime) 0 3px, transparent 4px);
+  box-shadow: 0 0 0 5px rgba(201, 255, 87, 0.08);
+  content: "";
+  transition:
+    transform 0.3s,
+    box-shadow 0.3s;
 }
 .spotlight-list li.is-active button {
   color: var(--color-black);
@@ -1356,8 +1368,9 @@ p:last-child {
 .section--dark .spotlight-list li.is-active button {
   color: var(--color-white);
 }
-.spotlight-list li.is-active .spotlight-index {
-  color: var(--color-lime-dark);
+.spotlight-list li.is-active .spotlight-label::before {
+  transform: scale(1.28);
+  box-shadow: 0 0 0 9px rgba(201, 255, 87, 0.14);
 }
 .spotlight-visual {
   position: relative;

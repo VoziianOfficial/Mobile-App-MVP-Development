@@ -803,16 +803,20 @@
   gap: 12px;
   margin-bottom: 18px;
 }
-.collab-testimonials-badge span {
+.collab-testimonials-badge span,
+.collab-testimonials-badge .collab-badge-dot {
   width: 58px;
   height: 58px;
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--color-lime);
-  color: var(--color-black);
-  font-size: 1.35rem;
-  font-weight: 750;
+  border: 1px solid rgba(17, 20, 16, 0.22);
+  background:
+    radial-gradient(circle, var(--color-lime) 0 6px, transparent 7px),
+    #e9e9df;
+  color: transparent;
+  box-shadow: 0 0 0 8px rgba(201, 255, 87, 0.14);
+  animation: kovexaBadgePulse 2.5s ease-in-out infinite;
 }
 .collab-testimonials-badge b {
   min-width: 178px;
@@ -1516,6 +1520,17 @@
   background: var(--color-lime);
   color: var(--color-black);
 }
+@keyframes kovexaBadgePulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 6px rgba(201, 255, 87, 0.12);
+  }
+  50% {
+    transform: scale(1.07);
+    box-shadow: 0 0 0 12px rgba(201, 255, 87, 0.18);
+  }
+}
 .expertise-slide--lime > span {
   color: #53662b;
 }
@@ -1797,7 +1812,8 @@
   .collab-testimonials-badge {
     gap: 8px;
   }
-  .collab-testimonials-badge span {
+  .collab-testimonials-badge span,
+  .collab-testimonials-badge .collab-badge-dot {
     width: 48px;
     height: 48px;
     font-size: 1.12rem;

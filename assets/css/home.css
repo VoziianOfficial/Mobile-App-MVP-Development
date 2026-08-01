@@ -486,21 +486,52 @@
   text-transform: uppercase;
 }
 .ref-kicker b {
+  position: relative;
+  overflow: hidden;
   width: 31px;
   height: 31px;
   display: grid;
   place-items: center;
-  border: 1px solid var(--color-border-light);
+  border: 1px solid rgba(201, 255, 87, 0.46);
   border-radius: 50%;
-  color: var(--color-text-dark);
+  background:
+    radial-gradient(circle, var(--color-lime) 0 4px, transparent 5px),
+    rgba(220, 212, 255, 0.18);
+  color: transparent;
   font-size: 0.65rem;
+  box-shadow: 0 0 0 6px rgba(201, 255, 87, 0.08);
+  animation: kovexaMarkerPulse 2.4s ease-in-out infinite;
+}
+.ref-kicker b::after {
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(13, 15, 13, 0.2);
+  border-radius: inherit;
+  content: "";
 }
 .ref-kicker--light {
   color: var(--color-text-muted-dark);
 }
 .ref-kicker--light b {
-  border-color: var(--color-border-dark);
-  color: var(--color-lime);
+  border-color: rgba(201, 255, 87, 0.58);
+  background:
+    radial-gradient(circle, var(--color-lime) 0 4px, transparent 5px),
+    rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 6px rgba(201, 255, 87, 0.1);
+}
+.ref-kicker--light b::after {
+  border-color: rgba(255, 255, 255, 0.24);
+}
+@keyframes kovexaMarkerPulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 5px rgba(201, 255, 87, 0.07);
+  }
+  50% {
+    transform: scale(1.08);
+    box-shadow: 0 0 0 10px rgba(201, 255, 87, 0.13);
+  }
 }
 .idea-copy h2,
 .section-heading-row h2 {
@@ -878,7 +909,7 @@
   margin-left: 10px;
 }
 .showcase-offer-heading h2 {
-  max-width: 780px;
+  max-width: 1480px;
   margin: 0 auto;
   font-size: clamp(2.45rem, 5.1vw, 5.6rem);
   line-height: 0.94;

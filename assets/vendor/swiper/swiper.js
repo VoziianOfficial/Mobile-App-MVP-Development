@@ -51,8 +51,21 @@
     });
     this.el.addEventListener("pointerup", function (e) {
       var d = e.clientX - start;
-      if (Math.abs(d) > 40) d < 0 ? self.slideNext() : self.slidePrev();
+      var threshold = Number(self.opts.touchThreshold || 32);
+      if (Math.abs(d) > threshold) d < 0 ? self.slideNext() : self.slidePrev();
     });
+  };
+  Swiper.prototype.maxIndex = function () {
+    return Math.max(0, Math.ceil(this.slides.length - this.perView()));
+  };
+  Swiper.prototype.normalizeIndex = function (index) {
+    var max = this.maxIndex();
+    index = Number(index) || 0;
+    if (!this.opts.loop) return Math.max(0, Math.min(index, max));
+    if (max <= 0) return 0;
+    if (index > max) return 0;
+    if (index < 0) return max;
+    return index;
   };
   Swiper.prototype.perView = function () {
     var p = this.opts.slidesPerView || 1,
@@ -72,8 +85,8 @@
     if (!this.wrapper) return;
     var self = this,
       p = this.perView(),
-      max = Math.max(0, Math.ceil(this.slides.length - p));
-    this.index = Math.max(0, Math.min(this.index, max));
+      max = this.maxIndex();
+    this.index = this.normalizeIndex(this.index);
     this.slides.forEach(function (s, i) {
       s.style.flexBasis = 100 / p + "%";
       s.classList.toggle("is-active", i === self.index);
@@ -83,9 +96,15 @@
     this.wrapper.style.transform =
       "translate3d(-" + this.index * (100 / p) + "%,0,0)";
     if (this.prev)
-      this.prev.classList.toggle("swiper-button-disabled", this.index === 0);
+      this.prev.classList.toggle(
+        "swiper-button-disabled",
+        !this.opts.loop && this.index === 0,
+      );
     if (this.next)
-      this.next.classList.toggle("swiper-button-disabled", this.index === max);
+      this.next.classList.toggle(
+        "swiper-button-disabled",
+        !this.opts.loop && this.index === max,
+      );
     if (this.pagination)
       this.pagination.textContent =
         String(this.index + 1).padStart(2, "0") +
@@ -95,15 +114,15 @@
       this.opts.onChange(this.index, this);
   };
   Swiper.prototype.slideNext = function () {
-    this.index++;
+    this.index = this.normalizeIndex(this.index + 1);
     this.update();
   };
   Swiper.prototype.slidePrev = function () {
-    this.index--;
+    this.index = this.normalizeIndex(this.index - 1);
     this.update();
   };
   Swiper.prototype.slideTo = function (index) {
-    this.index = Number(index) || 0;
+    this.index = this.normalizeIndex(index);
     this.update();
   };
   window.Swiper = Swiper;

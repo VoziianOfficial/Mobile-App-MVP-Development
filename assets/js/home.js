@@ -101,7 +101,9 @@
         document.querySelectorAll(".service-media-tabs button"),
       );
       var mediaSwiper = new Swiper(media, {
+        loop: true,
         slidesPerView: 1,
+        touchThreshold: 24,
         navigation: {
           prevEl: ".service-media-prev",
           nextEl: ".service-media-next",
@@ -125,7 +127,9 @@
     if (stories && !stories.dataset.swiperReady) {
       stories.dataset.swiperReady = "true";
       new Swiper(stories, {
+        loop: true,
         slidesPerView: 1.08,
+        touchThreshold: 24,
         navigation: {
           prevEl: ".product-story-prev",
           nextEl: ".product-story-next",
@@ -152,7 +156,9 @@
       if (!el || el.dataset.swiperReady) return;
       el.dataset.swiperReady = "true";
       new Swiper(el, {
+        loop: true,
         slidesPerView: settings[4],
+        touchThreshold: 24,
         navigation: { prevEl: settings[1], nextEl: settings[2] },
         pagination: { el: settings[3] },
         keyboard: { enabled: true },

@@ -56,7 +56,9 @@
       });
     }
     var swiper = new Swiper(el, {
+      loop: true,
       slidesPerView: 1,
+      touchThreshold: 24,
       navigation: {
         prevEl: ".collab-swiper-prev",
         nextEl: ".collab-swiper-next",

@@ -435,7 +435,9 @@
         ? [].slice.call(pagination.querySelectorAll("button"))
         : [];
       var swiper = new Swiper(el, {
+        loop: true,
         slidesPerView: 1,
+        touchThreshold: 18,
         onChange: function (index) {
           dots.forEach(function (dot, i) {
             var active = i === index;
@@ -524,7 +526,9 @@
       var previousIndex = 0;
       var storyTimer;
       var swiper = new Swiper(el, {
+        loop: true,
         slidesPerView: 1,
+        touchThreshold: 14,
         onChange: function (index) {
           var direction =
             index === previousIndex
@@ -574,6 +578,9 @@
         swiper.update();
       };
       dots.forEach(function (dot, index) {
+        dot.addEventListener("pointerdown", function (e) {
+          e.stopPropagation();
+        });
         dot.addEventListener("click", function () {
           swiper.slideTo(index);
         });

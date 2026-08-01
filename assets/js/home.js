@@ -305,9 +305,10 @@
       var matches = pages.filter(function (page) {
         return page[0].toLowerCase().indexOf(q) !== -1;
       });
+      var limit = window.matchMedia("(max-width: 560px)").matches ? 4 : 3;
       results.innerHTML = matches.length
         ? matches
-            .slice(0, 5)
+            .slice(0, limit)
             .map(function (page) {
               return (
                 '<a href="' +

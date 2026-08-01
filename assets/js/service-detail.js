@@ -546,15 +546,36 @@
           return k !== key;
         })
         .slice(0, 5),
-      image = media[key],
-      galleryImages = [
-        image,
+      galleryImagePool = [
+        "assets/images/mobile-testing.jpg",
+        "assets/images/about-team-v2.jpg",
+        "assets/images/card-15.jpg",
+        "assets/images/cross-platform-team.jpg",
+        "assets/images/ux-wireframes.jpg",
+        "assets/images/workflow-meeting.jpg",
+        "assets/images/integration-specialist.jpg",
+        "assets/images/maintenance-testing.jpg",
         "assets/images/app-closeup.jpg",
         "assets/images/product-team.jpg",
         "assets/images/ux-prototype.jpg",
-        "assets/images/workflow-meeting.jpg",
-        "assets/images/mobile-testing.jpg",
+        "assets/images/studio-workspace.jpg",
+        "assets/images/developer-work.jpg",
+        "assets/images/contact-founder.jpg",
+        "assets/images/hero-person.jpg",
+        "assets/images/services-devices.jpg",
+        "assets/images/card-1.jpg",
+        "assets/images/card-12.jpg",
+        "assets/images/card-13.jpg",
+        "assets/images/card-paralaks.jpg",
+        "assets/images/standards-portrait.png",
+        "assets/images/faq-home-portrait.png",
+        "assets/images/services-faq-portrait.png",
+        "assets/images/service-faq-robot.png",
       ],
+      galleryOffset = Math.max(0, Object.keys(all).indexOf(key)) * 3,
+      galleryImages = galleryImagePool
+        .slice(galleryOffset)
+        .concat(galleryImagePool.slice(0, galleryOffset)),
       galleryTypes = data.types.concat(data.types),
       problemImages = [
         "../images/studio-workspace.jpg",
@@ -573,11 +594,12 @@
         ' · Focused Workflows · </span></div></div><div class="gallery-rows"><div class="gallery-track gallery-track--left">' +
         galleryTypes
           .map(function (x, i) {
+            var imageIndex = i;
             return (
               '<article class="gallery-card' +
               (i % 2 === 0 ? " gallery-card--wide" : "") +
               '"><img src="' +
-              galleryImages[i % galleryImages.length] +
+              galleryImages[imageIndex] +
               '" alt="' +
               esc(x) +
               ' product direction" loading="lazy"><span>' +
@@ -591,11 +613,12 @@
           .slice()
           .reverse()
           .map(function (x, i) {
+            var imageIndex = galleryTypes.length + i;
             return (
               '<article class="gallery-card' +
               (i % 2 === 1 ? " gallery-card--wide" : "") +
               '"><img src="' +
-              galleryImages[(i + 2) % galleryImages.length] +
+              galleryImages[imageIndex] +
               '" alt="' +
               esc(x) +
               ' product context" loading="lazy"><span>' +
